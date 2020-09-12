@@ -171,6 +171,7 @@
 				F89B0216250D446000B41293 /* Sources */,
 				F89B0217250D446000B41293 /* Frameworks */,
 				F89B0218250D446000B41293 /* Resources */,
+				2A72020948C2D75438B5DA75 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +190,7 @@
 				F89B0225250D446200B41293 /* Sources */,
 				F89B0226250D446200B41293 /* Frameworks */,
 				F89B0227250D446200B41293 /* Resources */,
+				B48216F6A905881BBE665BFD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +210,7 @@
 				F89B0230250D446200B41293 /* Sources */,
 				F89B0231250D446200B41293 /* Frameworks */,
 				F89B0232250D446200B41293 /* Resources */,
+				1FD7F41EF9A054827A1D8B78 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,6 +292,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1FD7F41EF9A054827A1D8B78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DutchNews-DutchNewsUITests/Pods-DutchNews-DutchNewsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DutchNews-DutchNewsUITests/Pods-DutchNews-DutchNewsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DutchNews-DutchNewsUITests/Pods-DutchNews-DutchNewsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A72020948C2D75438B5DA75 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DutchNews/Pods-DutchNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DutchNews/Pods-DutchNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DutchNews/Pods-DutchNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B48216F6A905881BBE665BFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DutchNewsTests/Pods-DutchNewsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DutchNewsTests/Pods-DutchNewsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DutchNewsTests/Pods-DutchNewsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B8172C4B044C0C51B6EEBC05 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
