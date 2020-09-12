@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
 		F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B022D250D446200B41293 /* DutchNewsTests.swift */; };
 		F89B0239250D446200B41293 /* DutchNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B0238250D446200B41293 /* DutchNewsUITests.swift */; };
+		F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F14C72250D719800C24FF5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F89B0234250D446200B41293 /* DutchNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DutchNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B0238250D446200B41293 /* DutchNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchNewsUITests.swift; sourceTree = "<group>"; };
 		F89B023A250D446200B41293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8F14C73250D719800C24FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +122,9 @@
 		F89B021C250D446000B41293 /* DutchNews */ = {
 			isa = PBXGroup;
 			children = (
+				F8F14C68250D70AA00C24FF5 /* Classes */,
+				F8F14C70250D712400C24FF5 /* Resources */,
 				F89B021D250D446000B41293 /* AppDelegate.swift */,
-				F89B021F250D446200B41293 /* Assets.xcassets */,
-				F89B0221250D446200B41293 /* LaunchScreen.storyboard */,
 				F89B0224250D446200B41293 /* Info.plist */,
 			);
 			path = DutchNews;
@@ -146,6 +148,87 @@
 			path = DutchNewsUITests;
 			sourceTree = "<group>";
 		};
+		F8F14C68250D70AA00C24FF5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F8F14C69250D70B400C24FF5 /* Data Layers */,
+				F8F14C6F250D710100C24FF5 /* Extensions */,
+				F8F14C6D250D70DC00C24FF5 /* Utilites */,
+				F8F14C6C250D70CF00C24FF5 /* ViewControllers */,
+				F8F14C6B250D70C700C24FF5 /* ViewModels */,
+				F8F14C6A250D70BD00C24FF5 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F8F14C69250D70B400C24FF5 /* Data Layers */ = {
+			isa = PBXGroup;
+			children = (
+				F8F14C6E250D70F900C24FF5 /* Networking */,
+			);
+			path = "Data Layers";
+			sourceTree = "<group>";
+		};
+		F8F14C6A250D70BD00C24FF5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F8F14C6B250D70C700C24FF5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F8F14C6C250D70CF00C24FF5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8F14C6D250D70DC00C24FF5 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		F8F14C6E250D70F900C24FF5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F8F14C6F250D710100C24FF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8F14C70250D712400C24FF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8F14C71250D716A00C24FF5 /* Storyboards */,
+				F89B021F250D446200B41293 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8F14C71250D716A00C24FF5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F89B0221250D446200B41293 /* LaunchScreen.storyboard */,
+				F8F14C72250D719800C24FF5 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		FA6C9BAEFCB0D31A29283E4B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +239,6 @@
 				5BB041D0AA6B599D4F5E7D81 /* Pods-DutchNewsTests.debug.xcconfig */,
 				C8E2BC6DABFC66D3F898B924 /* Pods-DutchNewsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -270,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */,
 				F89B0220250D446200B41293 /* Assets.xcassets in Resources */,
 				F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -458,6 +541,14 @@
 				F89B0222250D446200B41293 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F8F14C72250D719800C24FF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8F14C73250D719800C24FF5 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
