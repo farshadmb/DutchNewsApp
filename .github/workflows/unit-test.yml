@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Testing
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches:
+    - develop
+    - feature/*
+    - master 
+    - bugfix/*
+    - hotfix/*
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    test:
+      name: Test codebase before merge request
+      runs-on: macOS-lastest
+      strategy:
+        matrix:
+          iphones: ['platform=iOS Simulator,OS=11.2,name=iPhone 8','platform=iOS Simulator,OS=12.2,name=iPhone X','platform=iOS Simulator,OS=13.1,name=iPhone SE']
+          ipads: ['platform=iOS Simulator,OS=11.2,name=iPad Air','platform=iOS Simulator,OS=12.2,name=iPad Air 2','platform=iOS Simulator,OS=13.1,name=iPad Pro (10.5-inch)','iPad Pro (12.9-inch)']
+          xcode: ['/Applications/Xcode_11.4.app/Contents/Developer']
+      steps:
+        - name: Checkout Branch
+          uses: actions/checkout@v1
+        - name: Install Dependencies
+          run: bundle install 
+#           env:
+#             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        - name: Build and test on iPhones
+          run: bundle exec fastlane run_ci_tests destination:"${destination}"
+          env:
+            destination: ${{ matrix.iphones }}
+        - name: Build and test on iPads
+          run: bundle exec fastlane run_ci_tests destination:"${destination}"
+          env:
+            destination: ${{ matrix.ipads }}
+        - name: Archive Failed Tests artifacts
+          if: failure()
+          uses: actions/upload-artifact@v1
+          with:
+            name: FailureDiff
+            path: YouAppTests/FailureDiffs
