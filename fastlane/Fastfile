@@ -61,9 +61,12 @@ platform :ios do
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
     begin 
+      UI.message "The devices raw : #{options[:devices]}"
       devices = eval options[:devices]
-      scan(workspace: workspace,
-           scheme: scheme, # Project scheme name
+      UI.message "The devices list : #{devices}"
+      
+      scan(workspace: workspace, #workspace name
+          #  scheme: scheme, # Project scheme name
            clean: true, # clean project folder before test execution
            devices: devices, # Devices for testing 
            result_bundle: "TestResults") # To generate test reports
