@@ -28,14 +28,46 @@ jobs:
           run: bundle install 
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        - name: Prepare iOS Simulators
+          run: |
+            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
+            sudo ln -s /Applications/Xcode_9.4.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime
+            sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
+            sudo ln -s /Applications/Xcode_11.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
+            xcrun simctl list runtimes
+            xcrun simctl create custom-test-device "iPhone 8" "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
+            xcrun simctl create custom-test-device "iPhone SE" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
+            xcrun simctl create custom-test-device "iPhone X" "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
+            xcrun simctl create custom-test-device "iPad Air" "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
+            xcrun simctl create custom-test-device "iPad Air 2" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
+            xcrun simctl create custom-test-device "iPad Pro (10.5-inch)" "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
+            xcrun simctl list devices 11.4
+            xcrun simctl list devices 12.4
+            xcrun simctl list devices 13.6
+            
+        - name: Prepare iOS 12 simulator
+          run: |
+            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
+            
+            xcrun simctl list runtimes
+            
+            xcrun simctl list devices 12.4
+        - name: Prepare iOS 13 simulator
+          run: |
+            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
+            
+            xcrun simctl list runtimes
+            xcrun simctl create custom-test-device "iPad Pro (9.7-inch)" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
+            xcrun simctl list devices 12.4
+        
         - name: Build and test on iPhones
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ '["platform=iOS Simulator,OS=11.2,name=iPhone 8","platform=iOS Simulator,OS=12.2,name=iPhone X","platform=iOS Simulator,OS=13.1,name=iPhone SE"]' }}
+            destination: ${{ '["platform=iOS Simulator,OS=11.4,name=iPhone 8","platform=iOS Simulator,OS=12.4,name=iPhone SE","platform=iOS Simulator,OS=13.6,name=iPhone X","iPhone 11"]' }}
         - name: Build and test on iPads
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ '["platform=iOS Simulator,OS=11.2,name=iPad Air","platform=iOS Simulator,OS=12.2,name=iPad Air 2","platform=iOS Simulator,OS=13.1,name=iPad Pro (10.5-inch)","iPad Pro (12.9-inch)"]' }}
+            destination: ${{ '["platform=iOS Simulator,OS=11.4,name=iPad Air","platform=iOS Simulator,OS=12.4,name=iPad Air 2","platform=iOS Simulator,OS=13.6,name=iPad Pro (10.5-inch)","iPad Pro (12.9-inch)"]' }}
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
