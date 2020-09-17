@@ -16,8 +16,65 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+
+   # Variables #
+   scheme = "DutchNews"
+   workspace = "#{scheme}.xcworkspace"
+   projectspace = "#{scheme}.xcodeproj"
+   
+   version = ""
+
+   before_all do |lane| 
+
+    UI.message "prepare for builds"
+    xcversion(version: "~> 11.2")
+    version = get_version_number(xcodeproj:projectspace,target:scheme)
+    
+    
+    if lane != :debugTestVersion 
+      #for cocoapods install dependecy 
+      cocoapods()
+    end
+
+    if lane != :debugTestVersion 
+      clear_derived_data() #clear all derived_data
+      enable_automatic_code_signing() #autosiging 
+    end
+
+    UI.message "prepared for build"
+    
+  end 
+
+  after_all do |lane| 
+    notification(title:"Success",subtitle:"#{scheme} #{version}",message:lane.to_s,sound:"Default")
+    UI.message "Success Build #{scheme} #{version} in lane #{lane.to_s} "
   end
+
+  error do |lane, exception|
+    # Send error notification
+    notification(title:"Failure on #{scheme} #{version}",subtitle:lane.to_s,message:exception.to_s,sound:"Default")
+    raise "Failure on #{scheme} #{version} \n in lane #{lane.to_s} \n exception = #{exception.to_s}"
+  end
+
+  desc "Run App Unit tests on given devices name"
+  lane :run_ci_tests do |options|
+    begin 
+      scan(workspace: workspace,
+           #scheme: scheme, # Project scheme name
+           clean: true, # clean project folder before test execution
+           devices: options[:devices], # Devices for testing 
+           result_bundle: "TestResults") # To generate test reports
+    rescue => ex
+      UI.error(ex)  
+      generate_report()
+    end
+  end
+
+  desc "generate report after running tests"
+  def generate_report
+    puts "Generating Test Report ..."
+    sh "xchtmlreport -r fastlane/test_output/#{scheme}-#{version}.test_result"
+    puts "Test Report Successfully generated"
+  end
+
 end
