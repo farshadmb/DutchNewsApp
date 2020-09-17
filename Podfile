@@ -1,9 +1,16 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
+# ignore all warnings from all dependencies
+inhibit_all_warnings!
+
+# supportet swift versions
+supports_swift_versions '>= 4.0'
+
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
 target 'DutchNews' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
   
   pod 'Alamofire'
   pod 'RxSwift'
@@ -27,8 +34,9 @@ target 'DutchNews' do
     # Pods for testing
   end
 
-  target 'DutchNewsUITests' do
-    # Pods for testing
-  end
+end
 
+target 'DutchNewsUITests' do
+  inherit! :search_paths
+  # Pods for testing
 end

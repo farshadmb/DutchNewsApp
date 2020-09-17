@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import DutchNews
 
 class DutchNewsUITests: XCTestCase {
 
@@ -33,7 +34,7 @@ class DutchNewsUITests: XCTestCase {
     }
 
     func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+        if #available(iOS 11.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
                 XCUIApplication().launch()
