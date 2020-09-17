@@ -13,6 +13,8 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+require 'json'
+
 default_platform(:ios)
 
 platform :ios do
@@ -36,7 +38,7 @@ platform :ios do
       cocoapods()
     end
 
-    if lane != :debugTestVersion 
+    if lane != :run_ci_tests 
       clear_derived_data() #clear all derived_data
       enable_automatic_code_signing() #autosiging 
     end
@@ -59,10 +61,11 @@ platform :ios do
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
     begin 
+      devices = eval options[:devices]
       scan(workspace: workspace,
            scheme: scheme, # Project scheme name
            clean: true, # clean project folder before test execution
-           devices: options[:devices], # Devices for testing 
+           devices: devices, # Devices for testing 
            result_bundle: "TestResults") # To generate test reports
     rescue => ex
       UI.error(ex)  
