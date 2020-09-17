@@ -12,6 +12,8 @@ use_frameworks!
 
 target 'DutchNews' do
   
+  # Pods for DutchNews
+  
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -23,7 +25,13 @@ target 'DutchNews' do
   pod 'JEKScrollableSectionCollectionViewLayout', :git => 'https://github.com/farshadmb/JEKScrollableSectionCollectionViewLayout.git'
   pod 'MagazineLayout'
   
-  # Pods for DutchNews
+  pod 'RealmSwift'
+  pod 'MaterialComponents'
+  pod 'SwiftLint'
+  pod 'CryptoSwift', '1.1.2'
+  
+  #Logger Framework
+  pod 'CocoaLumberjack/Swift'
 
   target 'DutchNewsTests' do
     inherit! :search_paths
