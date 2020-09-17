@@ -44,22 +44,6 @@ jobs:
             xcrun simctl list devices 11.4
             xcrun simctl list devices 12.4
             xcrun simctl list devices 13.6
-            
-        - name: Prepare iOS 12 simulator
-          run: |
-            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-            
-            xcrun simctl list runtimes
-            
-            xcrun simctl list devices 12.4
-        - name: Prepare iOS 13 simulator
-          run: |
-            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-            
-            xcrun simctl list runtimes
-            xcrun simctl create custom-test-device "iPad Pro (9.7-inch)" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
-            xcrun simctl list devices 12.4
-        
         - name: Build and test on iPhones
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
