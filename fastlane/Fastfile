@@ -60,7 +60,7 @@ platform :ios do
   lane :run_ci_tests do |options|
     begin 
       scan(workspace: workspace,
-           #scheme: scheme, # Project scheme name
+           scheme: scheme, # Project scheme name
            clean: true, # clean project folder before test execution
            devices: options[:devices], # Devices for testing 
            result_bundle: "TestResults") # To generate test reports
