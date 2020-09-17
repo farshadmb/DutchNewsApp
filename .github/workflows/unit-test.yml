@@ -30,11 +30,9 @@ jobs:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Prepare iOS Simulators
           run: |
-            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-            bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose
-            sudo ln -s /Applications/Xcode_9.4.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime
-            sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
-            sudo ln -s /Applications/Xcode_11.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
+            bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
+            bundle exec xcversion simulators --install="iOS 12.4 Simulator" --verbose --no-progress
+            bundle exec xcversion simulators --install="iOS 13.6 Simulator" --verbose --no-progress
             xcrun simctl list runtimes
             xcrun simctl create custom-test-device "iPhone 8" "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
             xcrun simctl create custom-test-device "iPhone SE" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
