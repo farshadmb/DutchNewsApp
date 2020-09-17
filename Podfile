@@ -33,15 +33,15 @@ target 'DutchNews' do
   #Logger Framework
   pod 'CocoaLumberjack/Swift'
 
-  target 'DutchNewsTests' do
-    inherit! :search_paths
-    pod 'RxTest'
-    pod 'RxBlocking'
-    pod 'Nimble'
-    
-    # Pods for testing
-  end
+end
 
+target 'DutchNewsTests' do
+  inherit! :search_paths
+  pod 'RxTest'
+  pod 'RxBlocking'
+  pod 'Nimble'
+  
+  # Pods for testing
 end
 
 target 'DutchNewsUITests' do

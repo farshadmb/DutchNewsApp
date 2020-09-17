@@ -319,13 +319,16 @@
 				TargetAttributes = {
 					F89B0219250D446000B41293 = {
 						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
 					};
 					F89B0228250D446200B41293 = {
 						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = F89B0219250D446000B41293;
 					};
 					F89B0233250D446200B41293 = {
 						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = F89B0219250D446000B41293;
 					};
 				};
