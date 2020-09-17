@@ -16,9 +16,11 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     test:
-      name: Test codebase before merge request
+      name: Run Unit Test
       runs-on: macOS-latest
       strategy:
+        iphones: ['platform=iOS Simulator,OS=11.2,name=iPhone 8','platform=iOS Simulator,OS=12.2,name=iPhone X','platform=iOS Simulator,OS=13.1,name=iPhone SE']
+        ipads: ['platform=iOS Simulator,OS=11.2,name=iPad Air','platform=iOS Simulator,OS=12.2,name=iPad Air 2','platform=iOS Simulator,OS=13.1,name=iPad Pro (10.5-inch)','iPad Pro (12.9-inch)']
         matrix:
           xcode: ['/Applications/Xcode_11.4.app/Contents/Developer']
       steps:
@@ -29,13 +31,13 @@ jobs:
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Build and test on iPhones
-          run: bundle exec fastlane run_ci_tests destination:"['platform=iOS Simulator,OS=11.2,name=iPhone 8','platform=iOS Simulator,OS=12.2,name=iPhone X','platform=iOS Simulator,OS=13.1,name=iPhone SE']"
+          run: bundle exec fastlane run_ci_tests destination:
           env:
-            destination: ${{ matrix.iphones }}
+            destination: ${{ iphones }}
         - name: Build and test on iPads
-          run: bundle exec fastlane run_ci_tests destination:"['platform=iOS Simulator,OS=11.2,name=iPad Air','platform=iOS Simulator,OS=12.2,name=iPad Air 2','platform=iOS Simulator,OS=13.1,name=iPad Pro (10.5-inch)','iPad Pro (12.9-inch)']"
+          run: bundle exec fastlane run_ci_tests destination:"${destination}"
           env:
-            destination: ${{ matrix.ipads }}
+            destination: ${{ ipads }}
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
