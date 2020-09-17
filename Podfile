@@ -14,7 +14,8 @@ target 'DutchNews' do
   pod 'MXParallaxHeader'
   pod 'Pageboy'
   pod 'JEKScrollableSectionCollectionViewLayout', :git => 'https://github.com/farshadmb/JEKScrollableSectionCollectionViewLayout.git'
-
+  pod 'MagazineLayout'
+  
   # Pods for DutchNews
 
   target 'DutchNewsTests' do
