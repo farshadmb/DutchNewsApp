@@ -31,7 +31,7 @@ jobs:
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Build and test on iPhones
-          run: bundle exec fastlane run_ci_tests destination:
+          run: bundle exec fastlane run_ci_tests destination:"${destination}"
           env:
             destination: ${{ iphones }}
         - name: Build and test on iPads
