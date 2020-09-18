@@ -68,7 +68,7 @@ platform :ios do
       scan(workspace: workspace, #workspace name
           #  scheme: scheme, # Project scheme name
            clean: true, # clean project folder before test execution
-           destination: devices, # Devices for testing 
+           devices: devices, # Devices for testing 
            result_bundle: "TestResults") # To generate test reports
     rescue => ex
       UI.error(ex)  
