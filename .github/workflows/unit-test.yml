@@ -17,6 +17,7 @@ on:
       - master
       - bugfix/*
       - hotfix/*
+        - 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     test:
@@ -34,7 +35,7 @@ jobs:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Check iOS Simulators existence
           id: check_simulator
-          uses: actions/
+          uses: andstor/file-existence-action@v1
           with:
             files: "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime/Contents/Info.plist, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime/Contents/Info.plist, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime/Contents/Info.plist"
         - name: iOS Simulator Cores exists
