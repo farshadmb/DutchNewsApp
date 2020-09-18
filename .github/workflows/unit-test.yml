@@ -7,12 +7,16 @@ name: CI Testing
 on:
   push:
     branches:
-    - develop
     - feature/*
-    - master 
     - bugfix/*
     - hotfix/*
-
+  pull_request:
+    branches: 
+      - develop
+      - feature/*
+      - master
+      - bugfix/*
+      - hotfix/*
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     test:
@@ -30,9 +34,9 @@ jobs:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Check iOS Simulators existence
           id: check_simulator
-          uses: andstor/file-existence-action@v1
+          uses: actions/
           with:
-            files: "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime"
+            files: "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime/Contents/Info.plist, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime/Contents/Info.plist, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime/Contents/Info.plist"
         - name: iOS Simulator Cores exists
           if: steps.check_simulator.outputs.files_exists == 'true'
           # Only runs if all of the conditions true
@@ -61,11 +65,11 @@ jobs:
         - name: Build and test on iPhones
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ '["platform=iOS Simulator,OS=11.4,name=iPhone 8","platform=iOS Simulator,OS=12.4,name=iPhone SE","platform=iOS Simulator,OS=13.6,name=iPhone X","iPhone 11"]' }}
+            destination: ${{ '["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPhone 11"]' }}
         - name: Build and test on iPads
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ '["platform=iOS Simulator,OS=11.4,name=iPad Air","platform=iOS Simulator,OS=12.4,name=iPad Air 2","platform=iOS Simulator,OS=13.6,name=iPad Pro (10.5-inch)","iPad Pro (12.9-inch)"]' }}
+            destination: ${{ '["iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)","iPad Pro (12.9-inch)"]' }}
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
