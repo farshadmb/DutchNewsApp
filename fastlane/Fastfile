@@ -39,9 +39,9 @@ platform :ios do
     end
 
     if lane != :run_ci_tests 
-      clear_derived_data() #clear all derived_data
-      enable_automatic_code_signing() #autosiging 
-    end
+      clear_derived_data() #clear all derived_data 
+      enable_automatic_code_signing() #autosiging
+    end 
 
     UI.message "prepared for build"
     
@@ -58,6 +58,13 @@ platform :ios do
     raise "Failure on #{scheme} #{version} \n in lane #{lane.to_s} \n exception = #{exception.to_s}"
   end
 
+  desc "generate report after running tests"
+  def generate_report 
+    puts "Generating Test Report ..."
+    # sh "xchtmlreport -r fastlane/test_output/#{scheme}-#{version}.test_result"
+    puts "Test Report Successfully generated"
+  end
+
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
     begin 
@@ -65,22 +72,23 @@ platform :ios do
       devices = eval options[:devices]
       UI.message "The devices list : #{devices}"
       
-      scan(workspace: workspace, #workspace name
-          #  scheme: scheme, # Project scheme name
-           clean: true, # clean project folder before test execution
-           devices: devices, # Devices for testing 
-           result_bundle: "TestResults") # To generate test reports
-    rescue => ex
-      UI.error(ex)  
-      generate_report()
-    end
-  end
+      clean = false 
+      
+      if options[:clean] 
+        clean = options[:clean]
+      end
 
-  desc "generate report after running tests"
-  def generate_report
-    puts "Generating Test Report ..."
-    sh "xchtmlreport -r fastlane/test_output/#{scheme}-#{version}.test_result"
-    puts "Test Report Successfully generated"
+      scan(workspace: "#{workspace}", #workspace name
+          #  xcargs:"CODE_SIGNING_REQUIRED=NO",
+           scheme: scheme, # Project scheme name
+           clean: clean, # clean project folder before test execution
+           devices: devices, # Devices for testing 
+           result_bundle: false) # To generate test reports
+
+    rescue => ex 
+      UI.error "Error Occured #{ex}"
+      generate_report
+    end
   end
 
 end

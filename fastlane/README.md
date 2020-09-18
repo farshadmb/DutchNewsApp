@@ -20,6 +20,8 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios run_ci_tests
 ```
+generate report after running tests
+
 Run App Unit tests on given devices name
 
 ----

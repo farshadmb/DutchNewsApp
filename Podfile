@@ -12,6 +12,7 @@ use_frameworks!
 
 target 'DutchNews' do
   
+  inhibit_all_warnings!
   # Pods for DutchNews
   
   pod 'Alamofire'
@@ -32,7 +33,7 @@ target 'DutchNews' do
   
   #Logger Framework
   pod 'CocoaLumberjack/Swift'
-
+  
 end
 
 target 'DutchNewsTests' do
@@ -48,3 +49,4 @@ target 'DutchNewsUITests' do
   inherit! :search_paths
   # Pods for testing
 end
+
