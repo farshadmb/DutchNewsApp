@@ -28,18 +28,21 @@ jobs:
           run: bundle install 
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
-        - name: Prepare iOS Simulators
+        - name: Installing iOS Simulators
           run: |
             sudo bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
             sudo bundle exec xcversion simulators --install="iOS 12.4 Simulator" --verbose --no-progress
             sudo bundle exec xcversion simulators --install="iOS 13.6 Simulator" --verbose --no-progress
             xcrun simctl list runtimes
-            xcrun simctl create custom-test-device "iPhone 8" "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
-            xcrun simctl create custom-test-device "iPhone SE" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
-            xcrun simctl create custom-test-device "iPhone X" "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
-            xcrun simctl create custom-test-device "iPad Air" "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
-            xcrun simctl create custom-test-device "iPad Air 2" "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
-            xcrun simctl create custom-test-device "iPad Pro (10.5-inch)" "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
+            xcrun simctl list devicetypes
+        - name: Creating iOS Simulators
+          run: |
+            xcrun simctl create 'iPhone 8' com.apple.CoreSimulator.SimDeviceType.iPhone-8 com.apple.CoreSimulator.SimRuntime.iOS-11-4
+            xcrun simctl create "iPhone SE" com.apple.CoreSimulator.SimDeviceType.iPhone-SE com.apple.CoreSimulator.SimRuntime.iOS-12-4
+            xcrun simctl create "iPhone X" com.apple.CoreSimulator.SimDeviceType.iPhone-X "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
+            xcrun simctl create "iPad Air" com.apple.CoreSimulator.SimDeviceType.iPad-Air "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
+            xcrun simctl create "iPad Air 2" com.apple.CoreSimulator.SimDeviceType.iPad-Air-2 "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
+            xcrun simctl create "iPad Pro (10.5-inch)" com.apple.CoreSimulator.SimDeviceType.iPad-Pro--10-5-inch- "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
             xcrun simctl list devices 11.4
             xcrun simctl list devices 12.4
             xcrun simctl list devices 13.6
