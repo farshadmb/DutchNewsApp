@@ -54,14 +54,10 @@ jobs:
             xcrun simctl list devices 12.4
             xcrun simctl list devices 13.6
             instruments -s
-        - name: Build and test on iPhones
+        - name: Build and test on Devices
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ '["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPhone 11"]' }}
-        - name: Build and test on iPads
-          run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
-          env:
-            destination: ${{ '["iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)","iPad Pro (12.9-inch)"]' }}
+            destination: ${{ '["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPhone 11","iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)","iPad Pro (12.9-inch)"]' }}
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
