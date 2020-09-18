@@ -28,7 +28,18 @@ jobs:
           run: bundle install 
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        - name: Check iOS Simulators existence
+          id: check_simulator
+          uses: andstor/file-existence-action@v1
+          with:
+            files: "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime"
+        - name: iOS Simulator Cores exists
+          if: steps.check_files.outputs.files_exists == 'true'
+          # Only runs if all of the conditions true
+          run: echo All Simulator Core Exists!
         - name: Installing iOS Simulators
+          if: steps.check_files.outputs.files_exists == 'false'
+          # Only runs if iOS Simulator didn't exists
           run: |
             bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
             bundle exec xcversion simulators --install="iOS 12.4 Simulator" --verbose --no-progress
