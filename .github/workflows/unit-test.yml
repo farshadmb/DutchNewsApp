@@ -33,24 +33,13 @@ jobs:
           run: bundle install 
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
-        - name: Check iOS Simulators existence
-          id: check_simulator
-          uses: andstor/file-existence-action@v1
-          with:
-            files: "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 11.4.simruntime/Contents/Info.plist, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime/Contents/Info.plist, /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime/Contents/Info.plist"
-        - name: iOS Simulator Cores exists
-          if: steps.check_simulator.outputs.files_exists == 'true'
-          # Only runs if all of the conditions true
-          run: echo All Simulator Core Exists!
         - name: Installing iOS Simulators
-          if: steps.check_simulator.outputs.files_exists == 'false'
-          # Only runs if iOS Simulator didn't exists
           run: |
             hostname
             sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
             sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
-            sudo ln -s /Applications/Xcode_11.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
             bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
+            bundle exec xcversion simulators --install="iOS 13.6 Simulator" --verbose --no-progress
             xcrun simctl list runtimes
             xcrun simctl list devicetypes
         - name: Creating iOS Simulators
