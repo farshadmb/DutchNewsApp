@@ -30,9 +30,9 @@ jobs:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Installing iOS Simulators
           run: |
-            sudo bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
-            sudo bundle exec xcversion simulators --install="iOS 12.4 Simulator" --verbose --no-progress
-            sudo bundle exec xcversion simulators --install="iOS 13.6 Simulator" --verbose --no-progress
+            bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
+            bundle exec xcversion simulators --install="iOS 12.4 Simulator" --verbose --no-progress
+            bundle exec xcversion simulators --install="iOS 13.6 Simulator" --verbose --no-progress
             xcrun simctl list runtimes
             xcrun simctl list devicetypes
         - name: Creating iOS Simulators
