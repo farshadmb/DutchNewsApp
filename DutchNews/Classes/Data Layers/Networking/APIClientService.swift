@@ -119,7 +119,7 @@ final class APIClientService: NetworkServiceInterceptable {
         do {
             
             let url = try attachBaseURL(into: endpoint)
-            var headers = HTTPHeaders(headers)
+            let headers = HTTPHeaders(headers)
             let dataTask = session.request(url,
                                            method: method,
                                            parameters: parameters,
