@@ -10,6 +10,9 @@
 		21E07E636FF6F2984928E95F /* Pods_DutchNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6B9A18971CCB93B1E1B562 /* Pods_DutchNews.framework */; };
 		8B7AA46F365111AC7BEAABB4 /* Pods_DutchNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06FCAD588464F494AF84398E /* Pods_DutchNewsUITests.framework */; };
 		D9C19360BE6ACB6A2FE7DA86 /* Pods_DutchNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DDFCE580208FED7E50E9D2 /* Pods_DutchNewsTests.framework */; };
+		F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */; };
+		F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFE25163073002B27B3 /* NetworkMocking.swift */; };
+		F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */; };
 		F89B021E250D446000B41293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B021D250D446000B41293 /* AppDelegate.swift */; };
 		F89B0220250D446200B41293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89B021F250D446200B41293 /* Assets.xcassets */; };
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
@@ -49,6 +52,9 @@
 		CE0BB7F85E1175162F017DD0 /* Pods-DutchNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DutchNews.debug.xcconfig"; path = "Target Support Files/Pods-DutchNews/Pods-DutchNews.debug.xcconfig"; sourceTree = "<group>"; };
 		DD3A1F2B03FE42DB1EAECC2E /* Pods-DutchNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DutchNewsUITests.release.xcconfig"; path = "Target Support Files/Pods-DutchNewsUITests/Pods-DutchNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E4DDFCE580208FED7E50E9D2 /* Pods_DutchNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DutchNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientServiceTests.swift; sourceTree = "<group>"; };
+		F82C8EFE25163073002B27B3 /* NetworkMocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMocking.swift; sourceTree = "<group>"; };
+		F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockingDataFactory.swift; sourceTree = "<group>"; };
 		F89B021A250D446000B41293 /* DutchNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DutchNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B021D250D446000B41293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89B021F250D446200B41293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +109,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F82C8EFB2516051D002B27B3 /* NetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				F82C8F0225163931002B27B3 /* Helper */,
+				F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */,
+			);
+			path = NetworkTests;
+			sourceTree = "<group>";
+		};
+		F82C8F0225163931002B27B3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F82C8EFE25163073002B27B3 /* NetworkMocking.swift */,
+				F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		F89B0211250D446000B41293 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +163,7 @@
 		F89B022C250D446200B41293 /* DutchNewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				F82C8EFB2516051D002B27B3 /* NetworkTests */,
 				F89B022D250D446200B41293 /* DutchNewsTests.swift */,
 				F89B022F250D446200B41293 /* Info.plist */,
 			);
@@ -505,6 +530,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */,
+				F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */,
+				F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */,
+				F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
