@@ -15,6 +15,7 @@
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
 		F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B022D250D446200B41293 /* DutchNewsTests.swift */; };
 		F89B0239250D446200B41293 /* DutchNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B0238250D446200B41293 /* DutchNewsUITests.swift */; };
+		F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E22515904400A6C2D5 /* NetworkService.swift */; };
 		F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F14C72250D719800C24FF5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		F89B0234250D446200B41293 /* DutchNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DutchNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B0238250D446200B41293 /* DutchNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchNewsUITests.swift; sourceTree = "<group>"; };
 		F89B023A250D446200B41293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8DE79E22515904400A6C2D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F8F14C73250D719800C24FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +204,7 @@
 		F8F14C6E250D70F900C24FF5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F8DE79E22515904400A6C2D5 /* NetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
 				F89B021E250D446000B41293 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
