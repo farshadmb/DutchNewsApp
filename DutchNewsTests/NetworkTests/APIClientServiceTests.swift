@@ -95,7 +95,7 @@ class APIClientServiceTests: XCTestCase {
                                                 print("result => ", result)
                                                 switch result {
                                                 case .success(_):
-                                                    XCTFail("SimpleResponse should have a value response")
+                                                    XCTFail("SimpleResponse should not have a value response")
                                                 case .failure(let error):
                                                     print("Error Occured ",error.localizedDescription)
                                                 }
@@ -130,10 +130,10 @@ class APIClientServiceTests: XCTestCase {
                                               method: .get,
                                               headers: [:], completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
-                                                case .success(let value):
-                                                    print(value)
+                                                case .success(_):
+                                                    XCTFail("SimpleResponse should not have a value response")
                                                 case .failure(let error):
-                                                    XCTFail(error.localizedDescription)
+                                                    print("Error Occured ",error.localizedDescription)
                                                 }
                                                 
                                                 expectations.fulfill()
