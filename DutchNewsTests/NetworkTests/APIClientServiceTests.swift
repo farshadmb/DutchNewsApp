@@ -91,10 +91,10 @@ class APIClientServiceTests: XCTestCase {
                                               parameters: [:],
                                               method: .get,
                                               headers: ["Accept": "application/json"],
-                                              completion: { ( result : Result<StubPerson, Error>) in
+                                              completion: { ( result: Result<StubPerson, Error>) in
                                                 print("result => ", result)
                                                 switch result {
-                                                case .success(let _):
+                                                case .success(_):
                                                     XCTFail("SimpleResponse should have a value response")
                                                 case .failure(let error):
                                                     print("Error Occured ",error.localizedDescription)
@@ -167,7 +167,7 @@ class APIClientServiceTests: XCTestCase {
                                               method: .head,
                                               headers: [:], completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
-                                                case .success(let _):
+                                                case .success(_):
                                                     XCTFail("The response should had a value.")
                                                 case .failure(let error):
                                                     print("error descripition :",error,error.localizedDescription)
@@ -184,6 +184,5 @@ class APIClientServiceTests: XCTestCase {
             XCTAssertNil(error, "error occured \(error!)")
         }
     }
-    
     
 }
