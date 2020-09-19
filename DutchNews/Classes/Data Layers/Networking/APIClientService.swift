@@ -90,12 +90,23 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - decoder: <#decoder description#>
     private func map<T: Decodable> (dataRequest: DataRequest, decoder: DataDecoder) -> Observable<Result<T, Error>> {
         print(dataRequest)
-        return dataRequest.rx.decodable(decoder: decoder)
+        return dataRequest.rx.result(queue: workQueue, responseSerializer:  DecodableResponseSerializer(decoder:decoder))
             .map { value in
                 return Result<T,Error> { value }
-            }.catchError { (error) -> Observable<Result<T, Error>> in
+        }.catchError { (error) -> Observable<Result<T, Error>> in
             .just(.failure(error))
-            }
+        }
+    }
+    
+    private func validate(dataRequest: DataRequest, validator: NetworkValidResponse?) -> DataRequest {
+        
+        guard let validator = validator else {
+            return dataRequest.validate()
+        }
+        
+        return dataRequest.validate(statusCode: validator.statusCodes)
+            .validate(contentType: validator.contentTypes)
+        
     }
     
     ////////////////////////////////////////////////////////////////
@@ -112,9 +123,10 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - headers: <#headers description#>
     ///   - completion: <#completion description#>
     func executeRequest<T: Decodable>(endpoint: EndPoint,
-                                      parameters: Parameters,
-                                      method: HTTPMethod,
-                                      headers: NetworkHeadersType,
+                                      parameters: Parameters = [:],
+                                      method: HTTPMethod = .get,
+                                      headers: NetworkHeadersType = [:],
+                                      validator: NetworkValidResponse? = nil,
                                       completion: @escaping ResponseCompletion<T>) -> DataRequest? {
         do {
             
@@ -126,16 +138,16 @@ final class APIClientService: NetworkServiceInterceptable {
                                            encoding: URLEncoding.default,
                                            headers: headers,
                                            interceptor: interceptor)
-                .validate()
+            
+            return  validate(dataRequest: dataTask, validator: validator)
                 .responseDecodable(queue: workQueue, decoder: decoder) { (response: DataResponse<T,AFError> ) in
                     let result = response.result.flatMapError { (error) -> Result<T, Error> in
                         return .failure(error)
                     }
                     
                     completion(result)
-                }
+            }
             
-            return dataTask
         }catch let error {
             completion(.failure(error))
             return nil
@@ -150,8 +162,10 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - headers: <#headers description#>
     ///   - completion: <#completion description#>
     func executeRequest<T: Decodable,P: Encodable>(endpoint: EndPoint,
-                                                   method: HTTPMethod,
-                                                   parameter: P, headers: NetworkHeadersType,
+                                                   method: HTTPMethod = .get,
+                                                   parameter: P,
+                                                   headers: NetworkHeadersType = [:],
+                                                   validator: NetworkValidResponse? = nil ,
                                                    completion: @escaping ResponseCompletion<T>) -> DataRequest? {
         do {
             
@@ -162,16 +176,16 @@ final class APIClientService: NetworkServiceInterceptable {
                                            encoder: JSONParameterEncoder.prettyPrinted,
                                            headers: HTTPHeaders(headers),
                                            interceptor: interceptor)
-                .validate()
+            
+            return  validate(dataRequest: dataTask, validator: validator)
                 .responseDecodable(queue: workQueue, decoder: decoder) { (response: DataResponse<T,AFError> ) in
                     let result = response.result.flatMapError { (error) -> Result<T, Error> in
                         return .failure(error)
                     }
                     
                     completion(result)
-                }
+            }
             
-            return dataTask
         }catch let error {
             completion(.failure(error))
             return nil
@@ -191,19 +205,20 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - method: <#method description#>
     ///   - headers: <#headers description#>
     func executeRequest<T: Decodable>(endpoint: EndPoint,
-                                      parameters: Parameters,
-                                      method: HTTPMethod,
-                                      headers: NetworkHeadersType) -> Observable<ResponseResult<T>> {
+                                      parameters: Parameters = [:],
+                                      method: HTTPMethod = .get,
+                                      headers: NetworkHeadersType = [:],
+                                      validator: NetworkValidResponse? = nil) -> Observable<ResponseResult<T>> {
         do {
             
             let url = try attachBaseURL(into: endpoint)
-            let dataTask = session.request(url,
+            var dataTask = session.request(url,
                                            method: method,
                                            parameters: parameters,
                                            encoding: URLEncoding.default,
                                            headers: HTTPHeaders(headers),
                                            interceptor: interceptor)
-                .validate()
+            dataTask = validate(dataRequest: dataTask, validator: validator)
             
             return map(dataRequest: dataTask, decoder: decoder)
             
@@ -219,18 +234,21 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - parameter: <#parameter description#>
     ///   - headers: <#headers description#>
     func executeRequest<T: Decodable,P: Encodable>(endpoint: EndPoint,
-                                                   method: HTTPMethod,
-                                                   parameter: P, headers: NetworkHeadersType) -> Observable<ResponseResult<T>> {
+                                                   method: HTTPMethod = .get,
+                                                   parameter: P,
+                                                   headers: NetworkHeadersType = [:],
+                                                   validator: NetworkValidResponse? = nil) -> Observable<ResponseResult<T>> {
         do {
             
             let url = try attachBaseURL(into: endpoint)
-            let dataTask = session.request(url,
+            var dataTask = session.request(url,
                                            method: method,
                                            parameters: parameter,
                                            encoder: JSONParameterEncoder.prettyPrinted,
                                            headers: HTTPHeaders(headers),
                                            interceptor: interceptor)
-                .validate()
+            dataTask = validate(dataRequest: dataTask, validator: validator)
+            
             return map(dataRequest: dataTask, decoder: decoder)
             
         }catch let error {
