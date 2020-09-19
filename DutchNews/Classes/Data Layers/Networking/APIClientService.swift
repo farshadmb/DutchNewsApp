@@ -131,7 +131,7 @@ final class APIClientService: NetworkServiceInterceptable {
                     let result = response.result.flatMapError { (error) -> Result<T, Error> in
                         return .failure(error)
                     }
-                    AuthenticationInterceptor
+                    
                     completion(result)
                 }
             
