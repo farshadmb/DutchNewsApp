@@ -37,16 +37,13 @@ target 'DutchNews' do
 end
 
 target 'DutchNewsTests' do
-  inherit! :search_paths
+  inherit! :complete
+  pod 'RxAlamofire'
   pod 'RxTest'
   pod 'RxBlocking'
   pod 'Nimble'
+  pod 'Mocker', '~> 1.0.0'
   
-  # Pods for testing
-end
-
-target 'DutchNewsUITests' do
-  inherit! :search_paths
   # Pods for testing
 end
 

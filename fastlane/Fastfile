@@ -67,7 +67,7 @@ platform :ios do
 
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
-    begin 
+    
       UI.message "The devices raw : #{options[:devices]}"
       devices = eval options[:devices]
       UI.message "The devices list : #{devices}"
@@ -79,16 +79,11 @@ platform :ios do
       end
 
       scan(workspace: "#{workspace}", #workspace name
-          #  xcargs:"CODE_SIGNING_REQUIRED=NO",
            scheme: scheme, # Project scheme name
            clean: clean, # clean project folder before test execution
            devices: devices, # Devices for testing 
-           result_bundle: false) # To generate test reports
-
-    rescue => ex 
-      UI.error "Error Occured #{ex}"
-      generate_report
-    end
+           result_bundle: true) # To generate test reports
+      xchtmlreport()
   end
 
 end
