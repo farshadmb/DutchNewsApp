@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		21E07E636FF6F2984928E95F /* Pods_DutchNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6B9A18971CCB93B1E1B562 /* Pods_DutchNews.framework */; };
-		8B7AA46F365111AC7BEAABB4 /* Pods_DutchNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06FCAD588464F494AF84398E /* Pods_DutchNewsUITests.framework */; };
 		D9C19360BE6ACB6A2FE7DA86 /* Pods_DutchNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DDFCE580208FED7E50E9D2 /* Pods_DutchNewsTests.framework */; };
 		F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */; };
 		F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFE25163073002B27B3 /* NetworkMocking.swift */; };
@@ -17,7 +16,6 @@
 		F89B0220250D446200B41293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89B021F250D446200B41293 /* Assets.xcassets */; };
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
 		F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B022D250D446200B41293 /* DutchNewsTests.swift */; };
-		F89B0239250D446200B41293 /* DutchNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B0238250D446200B41293 /* DutchNewsUITests.swift */; };
 		F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E22515904400A6C2D5 /* NetworkService.swift */; };
 		F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E4251594D700A6C2D5 /* APIClientService.swift */; };
 		F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F14C72250D719800C24FF5 /* Main.storyboard */; };
@@ -25,13 +23,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		F89B022A250D446200B41293 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F89B0212250D446000B41293 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F89B0219250D446000B41293;
-			remoteInfo = DutchNews;
-		};
-		F89B0235250D446200B41293 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F89B0212250D446000B41293 /* Project object */;
 			proxyType = 1;
@@ -63,9 +54,6 @@
 		F89B0229250D446200B41293 /* DutchNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DutchNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B022D250D446200B41293 /* DutchNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchNewsTests.swift; sourceTree = "<group>"; };
 		F89B022F250D446200B41293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F89B0234250D446200B41293 /* DutchNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DutchNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F89B0238250D446200B41293 /* DutchNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchNewsUITests.swift; sourceTree = "<group>"; };
-		F89B023A250D446200B41293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8DE79E22515904400A6C2D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F8DE79E4251594D700A6C2D5 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
 		F8F14C73250D719800C24FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,14 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C19360BE6ACB6A2FE7DA86 /* Pods_DutchNewsTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F89B0231250D446200B41293 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8B7AA46F365111AC7BEAABB4 /* Pods_DutchNewsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +112,6 @@
 			children = (
 				F89B021C250D446000B41293 /* DutchNews */,
 				F89B022C250D446200B41293 /* DutchNewsTests */,
-				F89B0237250D446200B41293 /* DutchNewsUITests */,
 				F89B021B250D446000B41293 /* Products */,
 				FA6C9BAEFCB0D31A29283E4B /* Pods */,
 				4B3F257B8F205BA3F43A73E1 /* Frameworks */,
@@ -144,7 +123,6 @@
 			children = (
 				F89B021A250D446000B41293 /* DutchNews.app */,
 				F89B0229250D446200B41293 /* DutchNewsTests.xctest */,
-				F89B0234250D446200B41293 /* DutchNewsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,15 +146,6 @@
 				F89B022F250D446200B41293 /* Info.plist */,
 			);
 			path = DutchNewsTests;
-			sourceTree = "<group>";
-		};
-		F89B0237250D446200B41293 /* DutchNewsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F89B0238250D446200B41293 /* DutchNewsUITests.swift */,
-				F89B023A250D446200B41293 /* Info.plist */,
-			);
-			path = DutchNewsUITests;
 			sourceTree = "<group>";
 		};
 		F8F14C68250D70AA00C24FF5 /* Classes */ = {
@@ -319,25 +288,6 @@
 			productReference = F89B0229250D446200B41293 /* DutchNewsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F89B0233250D446200B41293 /* DutchNewsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F89B0243250D446200B41293 /* Build configuration list for PBXNativeTarget "DutchNewsUITests" */;
-			buildPhases = (
-				B8172C4B044C0C51B6EEBC05 /* [CP] Check Pods Manifest.lock */,
-				F89B0230250D446200B41293 /* Sources */,
-				F89B0231250D446200B41293 /* Frameworks */,
-				F89B0232250D446200B41293 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F89B0236250D446200B41293 /* PBXTargetDependency */,
-			);
-			name = DutchNewsUITests;
-			productName = DutchNewsUITests;
-			productReference = F89B0234250D446200B41293 /* DutchNewsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -353,11 +303,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					F89B0228250D446200B41293 = {
-						CreatedOnToolsVersion = 11.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F89B0219250D446000B41293;
-					};
-					F89B0233250D446200B41293 = {
 						CreatedOnToolsVersion = 11.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F89B0219250D446000B41293;
@@ -379,7 +324,6 @@
 			targets = (
 				F89B0219250D446000B41293 /* DutchNews */,
 				F89B0228250D446200B41293 /* DutchNewsTests */,
-				F89B0233250D446200B41293 /* DutchNewsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -396,13 +340,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F89B0227250D446200B41293 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F89B0232250D446200B41293 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -444,28 +381,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DutchNewsTests/Pods-DutchNewsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8172C4B044C0C51B6EEBC05 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DutchNewsUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED77C5D597B0DE2AE4BC3C93 /* [CP] Check Pods Manifest.lock */ = {
@@ -536,14 +451,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F89B0230250D446200B41293 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F89B0239250D446200B41293 /* DutchNewsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -551,11 +458,6 @@
 			isa = PBXTargetDependency;
 			target = F89B0219250D446000B41293 /* DutchNews */;
 			targetProxy = F89B022A250D446200B41293 /* PBXContainerItemProxy */;
-		};
-		F89B0236250D446200B41293 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F89B0219250D446000B41293 /* DutchNews */;
-			targetProxy = F89B0235250D446200B41293 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -783,50 +685,6 @@
 			};
 			name = Release;
 		};
-		F89B0244250D446200B41293 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58F7ABB66E4031DDAE7CBDC7 /* Pods-DutchNewsUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 638B4QA28J;
-				INFOPLIST_FILE = DutchNewsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ifarshad.DutchNewsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DutchNews;
-			};
-			name = Debug;
-		};
-		F89B0245250D446200B41293 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD3A1F2B03FE42DB1EAECC2E /* Pods-DutchNewsUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 638B4QA28J;
-				INFOPLIST_FILE = DutchNewsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ifarshad.DutchNewsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DutchNews;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -853,15 +711,6 @@
 			buildConfigurations = (
 				F89B0241250D446200B41293 /* Debug */,
 				F89B0242250D446200B41293 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F89B0243250D446200B41293 /* Build configuration list for PBXNativeTarget "DutchNewsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F89B0244250D446200B41293 /* Debug */,
-				F89B0245250D446200B41293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

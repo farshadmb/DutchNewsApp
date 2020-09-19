@@ -47,8 +47,3 @@ target 'DutchNewsTests' do
   # Pods for testing
 end
 
-target 'DutchNewsUITests' do
-  inherit! :search_paths
-  # Pods for testing
-end
-
