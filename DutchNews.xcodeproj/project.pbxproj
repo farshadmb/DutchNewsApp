@@ -12,6 +12,9 @@
 		F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */; };
 		F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFE25163073002B27B3 /* NetworkMocking.swift */; };
 		F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */; };
+		F865F74C251686D2001FD067 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74B251686D2001FD067 /* Authenticator.swift */; };
+		F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */; };
+		F865F75025168F05001FD067 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74F25168F05001FD067 /* AppConfig.swift */; };
 		F89B021E250D446000B41293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B021D250D446000B41293 /* AppDelegate.swift */; };
 		F89B0220250D446200B41293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89B021F250D446200B41293 /* Assets.xcassets */; };
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
@@ -46,6 +49,9 @@
 		F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientServiceTests.swift; sourceTree = "<group>"; };
 		F82C8EFE25163073002B27B3 /* NetworkMocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMocking.swift; sourceTree = "<group>"; };
 		F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockingDataFactory.swift; sourceTree = "<group>"; };
+		F865F74B251686D2001FD067 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuthenticatorTests.swift; sourceTree = "<group>"; };
+		F865F74F25168F05001FD067 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F89B021A250D446000B41293 /* DutchNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DutchNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B021D250D446000B41293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89B021F250D446200B41293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 			children = (
 				F82C8F0225163931002B27B3 /* Helper */,
 				F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */,
+				F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */,
 			);
 			path = NetworkTests;
 			sourceTree = "<group>";
@@ -105,6 +112,14 @@
 				F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F865F74A251686C1001FD067 /* Authenticator */ = {
+			isa = PBXGroup;
+			children = (
+				F865F74B251686D2001FD067 /* Authenticator.swift */,
+			);
+			path = Authenticator;
 			sourceTree = "<group>";
 		};
 		F89B0211250D446000B41293 = {
@@ -134,6 +149,7 @@
 				F8F14C70250D712400C24FF5 /* Resources */,
 				F89B021D250D446000B41293 /* AppDelegate.swift */,
 				F89B0224250D446200B41293 /* Info.plist */,
+				F865F74F25168F05001FD067 /* AppConfig.swift */,
 			);
 			path = DutchNews;
 			sourceTree = "<group>";
@@ -164,6 +180,7 @@
 		F8F14C69250D70B400C24FF5 /* Data Layers */ = {
 			isa = PBXGroup;
 			children = (
+				F865F74A251686C1001FD067 /* Authenticator */,
 				F8F14C6E250D70F900C24FF5 /* Networking */,
 			);
 			path = "Data Layers";
@@ -435,6 +452,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
+				F865F75025168F05001FD067 /* AppConfig.swift in Sources */,
+				F865F74C251686D2001FD067 /* Authenticator.swift in Sources */,
 				F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */,
 				F89B021E250D446000B41293 /* AppDelegate.swift in Sources */,
 			);
@@ -447,6 +466,7 @@
 				F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */,
 				F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */,
 				F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */,
+				F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */,
 				F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
