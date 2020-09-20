@@ -59,8 +59,8 @@ jobs:
         - name: Build and test on Device
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ $matrix.devices }}
-
+            destination: ${{ matrix.devices }}
+            
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
