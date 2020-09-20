@@ -35,7 +35,7 @@ jobs:
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Xcode List
-          run: ls -a /Application | grep 'Xc'
+          run: ls /Applications | grep 'Xc'
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Installing iOS Simulators
