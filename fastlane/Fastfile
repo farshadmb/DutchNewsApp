@@ -94,12 +94,9 @@ platform :ios do
           configuration: "Debug",
           open_report: open_report,
           result_bundle: true)
-
-          xchtmlreport()  
           
       rescue => ex 
         UI.error "Failure on #{scheme} #{version} info : #{ex.to_s}"
-          xchtmlreport()
       end 
   end
 
