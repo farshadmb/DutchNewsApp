@@ -69,7 +69,7 @@ jobs:
             path: fastlane/test_output
 
         - name: Archive Success Tests artifacts
-          if: failure()
+          if: success()
           uses: actions/upload-artifact@v1
           with:
             name: SuccessDiff
