@@ -9,15 +9,13 @@ on:
   repository_dispatch:
     types: [test]
   pull_request:
-    branches: ['*']
-
-  pull_request:
-    branches: 
-      - develop
+    branches:
+    - develop
       - feature/*
       - feature/*/*
-      - master
-        
+      - master 
+      - ['*']
+            
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     test:
