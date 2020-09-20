@@ -14,6 +14,9 @@
 		F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */; };
 		F858997B25176DC800A6BA2A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997A25176DC800A6BA2A /* Article.swift */; };
 		F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997C25176E8F00A6BA2A /* ArticleSource.swift */; };
+		F8589980251772CC00A6BA2A /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997F251772CC00A6BA2A /* ModelTests.swift */; };
+		F85899822517738C00A6BA2A /* ModelsDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85899812517738C00A6BA2A /* ModelsDataFactory.swift */; };
+		F858998425177D6200A6BA2A /* Articles.json in Resources */ = {isa = PBXBuildFile; fileRef = F858998325177D6200A6BA2A /* Articles.json */; };
 		F865F74C251686D2001FD067 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74B251686D2001FD067 /* Authenticator.swift */; };
 		F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */; };
 		F865F75025168F05001FD067 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74F25168F05001FD067 /* AppConfig.swift */; };
@@ -62,6 +65,9 @@
 		F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockingDataFactory.swift; sourceTree = "<group>"; };
 		F858997A25176DC800A6BA2A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F858997C25176E8F00A6BA2A /* ArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSource.swift; sourceTree = "<group>"; };
+		F858997F251772CC00A6BA2A /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		F85899812517738C00A6BA2A /* ModelsDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDataFactory.swift; sourceTree = "<group>"; };
+		F858998325177D6200A6BA2A /* Articles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Articles.json; sourceTree = "<group>"; };
 		F865F74B251686D2001FD067 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuthenticatorTests.swift; sourceTree = "<group>"; };
 		F865F74F25168F05001FD067 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -146,6 +152,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F858997E251772AF00A6BA2A /* ModelsTests */ = {
+			isa = PBXGroup;
+			children = (
+				F858997F251772CC00A6BA2A /* ModelTests.swift */,
+				F85899812517738C00A6BA2A /* ModelsDataFactory.swift */,
+				F858998325177D6200A6BA2A /* Articles.json */,
+			);
+			path = ModelsTests;
+			sourceTree = "<group>";
+		};
 		F865F74A251686C1001FD067 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +226,7 @@
 		F89B022C250D446200B41293 /* DutchNewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				F858997E251772AF00A6BA2A /* ModelsTests */,
 				F82C8EFB2516051D002B27B3 /* NetworkTests */,
 				F89B022D250D446200B41293 /* DutchNewsTests.swift */,
 				F89B022F250D446200B41293 /* Info.plist */,
@@ -417,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F858998425177D6200A6BA2A /* Articles.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,11 +548,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85899822517738C00A6BA2A /* ModelsDataFactory.swift in Sources */,
 				F865F7662516AB66001FD067 /* APIServerResponseTests.swift in Sources */,
 				F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */,
 				F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */,
 				F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */,
 				F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */,
+				F8589980251772CC00A6BA2A /* ModelTests.swift in Sources */,
 				F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

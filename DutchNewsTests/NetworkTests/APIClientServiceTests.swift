@@ -97,7 +97,7 @@ class APIClientServiceTests: XCTestCase {
                                               completion: { ( result: Result<StubPerson, Error>) in
                                                 print("result => ", result)
                                                 switch result {
-                                                case .success(_):
+                                                case .success:
                                                     XCTFail("SimpleResponse should not have a value response")
                                                 case .failure(let error):
                                                     print("Error Occured ",error.localizedDescription)
@@ -135,7 +135,7 @@ class APIClientServiceTests: XCTestCase {
                                               validator: nil,
                                               completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
-                                                case .success(_):
+                                                case .success:
                                                     XCTFail("SimpleResponse should not have a value response")
                                                 case .failure(let error):
                                                     print("Error Occured ",error.localizedDescription)
@@ -174,7 +174,7 @@ class APIClientServiceTests: XCTestCase {
                                               validator: nil,
                                               completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
-                                                case .success(_):
+                                                case .success:
                                                     XCTFail("The response should had a value.")
                                                 case .failure(let error):
                                                     print("error descripition :",error,error.localizedDescription)

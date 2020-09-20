@@ -26,6 +26,12 @@ struct Article: Codable {
     
     var type: ArticleType = .news
     
+    enum CodingKeys: String, CodingKey {
+        case source, author, title
+        case description
+        case url, urlToImage, publishedAt, content
+    }
+    
 }
 
 enum ArticleType: Int, Codable {

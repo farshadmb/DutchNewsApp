@@ -90,12 +90,12 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - decoder: <#decoder description#>
     private func map<T: Decodable> (dataRequest: DataRequest, decoder: DataDecoder) -> Observable<Result<T, Error>> {
         print(dataRequest)
-        return dataRequest.rx.result(queue: workQueue, responseSerializer:  DecodableResponseSerializer(decoder:decoder))
+        return dataRequest.rx.result(queue: workQueue, responseSerializer: DecodableResponseSerializer(decoder: decoder))
             .map { value in
                 return Result<T,Error> { value }
-        }.catchError { (error) -> Observable<Result<T, Error>> in
+            }.catchError { (error) -> Observable<Result<T, Error>> in
             .just(.failure(error))
-        }
+            }
     }
     
     private func validate(dataRequest: DataRequest, validator: NetworkValidResponse?) -> DataRequest {
@@ -146,7 +146,7 @@ final class APIClientService: NetworkServiceInterceptable {
                     }
                     
                     completion(result)
-            }
+                }
             
         }catch let error {
             completion(.failure(error))
@@ -184,7 +184,7 @@ final class APIClientService: NetworkServiceInterceptable {
                     }
                     
                     completion(result)
-            }
+                }
             
         }catch let error {
             completion(.failure(error))
