@@ -61,7 +61,9 @@ jobs:
             xcrun simctl list devices 13.6
 
         - name: Build and test on Device
-          run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
+          run: |
+            echo "Destination => ${destination}"
+            bundle exec fastlane run_ci_tests device:"${destination}" --verbose
           env:
             destination: ${{ matrix.devices }}
             
