@@ -12,6 +12,8 @@
 		F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */; };
 		F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFE25163073002B27B3 /* NetworkMocking.swift */; };
 		F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */; };
+		F858997B25176DC800A6BA2A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997A25176DC800A6BA2A /* Article.swift */; };
+		F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997C25176E8F00A6BA2A /* ArticleSource.swift */; };
 		F865F74C251686D2001FD067 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74B251686D2001FD067 /* Authenticator.swift */; };
 		F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */; };
 		F865F75025168F05001FD067 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74F25168F05001FD067 /* AppConfig.swift */; };
@@ -58,6 +60,8 @@
 		F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientServiceTests.swift; sourceTree = "<group>"; };
 		F82C8EFE25163073002B27B3 /* NetworkMocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMocking.swift; sourceTree = "<group>"; };
 		F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockingDataFactory.swift; sourceTree = "<group>"; };
+		F858997A25176DC800A6BA2A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		F858997C25176E8F00A6BA2A /* ArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSource.swift; sourceTree = "<group>"; };
 		F865F74B251686D2001FD067 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuthenticatorTests.swift; sourceTree = "<group>"; };
 		F865F74F25168F05001FD067 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 				F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F858997925176D7700A6BA2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F858997A25176DC800A6BA2A /* Article.swift */,
+				F858997C25176E8F00A6BA2A /* ArticleSource.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F865F74A251686C1001FD067 /* Authenticator */ = {
@@ -207,6 +220,7 @@
 		F8F14C68250D70AA00C24FF5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F858997925176D7700A6BA2A /* Models */,
 				F8F14C69250D70B400C24FF5 /* Data Layers */,
 				F8F14C6F250D710100C24FF5 /* Extensions */,
 				F8F14C6D250D70DC00C24FF5 /* Utilites */,
@@ -494,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F858997B25176DC800A6BA2A /* Article.swift in Sources */,
 				F865F75725169ACF001FD067 /* SearchNewsRepository.swift in Sources */,
 				F865F7622516A6C1001FD067 /* APIServerResponseError.swift in Sources */,
 				F865F7602516A643001FD067 /* APIServerResponseStatus.swift in Sources */,
@@ -506,6 +521,7 @@
 				F865F75525169A2A001FD067 /* NewsHeadlinesRepository.swift in Sources */,
 				F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */,
 				F865F76D2516C826001FD067 /* DefaultAPIValidResponse.swift in Sources */,
+				F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */,
 				F89B021E250D446000B41293 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
