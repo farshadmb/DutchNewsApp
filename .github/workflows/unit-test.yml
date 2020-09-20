@@ -25,6 +25,7 @@ jobs:
       runs-on: macOS-latest
       strategy:
         matrix:
+          devices: ["iPhone SE (12.4)","iPhone X (13.6)","iPhone 11", "iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)","iPad Pro (12.9-inch)"] 
           xcode: ['/Applications/Xcode_11.4.app/Contents/Developer']
       steps:
         - name: Checkout Branch
@@ -33,10 +34,15 @@ jobs:
           run: bundle install 
 #           env:
 #             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        - name: Xcode List
+          run: ls -a /Application | grep 'Xc'
+#           env:
+#             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
         - name: Installing iOS Simulators
           run: |
             hostname
             sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
+            sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
             sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
             bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
             bundle exec xcversion simulators --install="iOS 13.6 Simulator" --verbose --no-progress
@@ -44,23 +50,29 @@ jobs:
             xcrun simctl list devicetypes
         - name: Creating iOS Simulators
           run: |
-            xcrun simctl create "iPhone 8" com.apple.CoreSimulator.SimDeviceType.iPhone-8 com.apple.CoreSimulator.SimRuntime.iOS-11-4
             xcrun simctl create "iPhone SE" com.apple.CoreSimulator.SimDeviceType.iPhone-SE com.apple.CoreSimulator.SimRuntime.iOS-12-4
             xcrun simctl create "iPhone X" com.apple.CoreSimulator.SimDeviceType.iPhone-X "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
-            xcrun simctl create "iPad Air" com.apple.CoreSimulator.SimDeviceType.iPad-Air "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
             xcrun simctl create "iPad Air 2" com.apple.CoreSimulator.SimDeviceType.iPad-Air-2 "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
             xcrun simctl create "iPad Pro (10.5-inch)" com.apple.CoreSimulator.SimDeviceType.iPad-Pro--10-5-inch- "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
             xcrun simctl list devices 11.4
             xcrun simctl list devices 12.4
             xcrun simctl list devices 13.6
             instruments -s
-        - name: Build and test on Devices
+        - name: Build and test on Device
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
-            destination: ${{ '["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPhone 11","iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)","iPad Pro (12.9-inch)"]' }}
+            # destination: ${{ $matrix.devices }}
+        - name: Archive Success Tests artifacts
+          if: success()
+          uses: actions/upload-artifact@v1
+          with:
+            name: FailureDiff
+            path: fastlane/test_output
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
           with:
             name: FailureDiff
             path: fastlane/test_output
+        
+
