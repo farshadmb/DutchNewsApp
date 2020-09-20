@@ -5,21 +5,13 @@ name: CI Testing
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches:
-    - feature/*
-    - feature/*/*
-    - bugfix/*
-    - hotfix/*
+  
+  repository_dispatch:
+    types: [test]
   pull_request:
-    branches: 
-      - develop
-      - feature/*
-      - feature/*/*
-      - master
-      - bugfix/*
-      - hotfix/*
-        - 
+    branches:
+      ['*']
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     test:
