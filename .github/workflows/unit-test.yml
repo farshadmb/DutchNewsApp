@@ -60,7 +60,7 @@ jobs:
             instruments -s
         - name: Build and test on Device
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
-          env:
+          # env:
             # destination: ${{ $matrix.devices }}
         - name: Archive Success Tests artifacts
           if: success()
