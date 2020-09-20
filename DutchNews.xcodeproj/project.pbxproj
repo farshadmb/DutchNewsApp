@@ -17,12 +17,12 @@
 		F8589980251772CC00A6BA2A /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997F251772CC00A6BA2A /* ModelTests.swift */; };
 		F85899822517738C00A6BA2A /* ModelsDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85899812517738C00A6BA2A /* ModelsDataFactory.swift */; };
 		F858998425177D6200A6BA2A /* Articles.json in Resources */ = {isa = PBXBuildFile; fileRef = F858998325177D6200A6BA2A /* Articles.json */; };
+		F8589986251784B200A6BA2A /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8589985251784B200A6BA2A /* ArticleRepository.swift */; };
+		F85899882517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85899872517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift */; };
+		F858998A2517897700A6BA2A /* HeadlinesArticleLocalRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85899892517897700A6BA2A /* HeadlinesArticleLocalRespository.swift */; };
 		F865F74C251686D2001FD067 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74B251686D2001FD067 /* Authenticator.swift */; };
 		F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */; };
 		F865F75025168F05001FD067 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74F25168F05001FD067 /* AppConfig.swift */; };
-		F865F753251699AF001FD067 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F752251699AF001FD067 /* WebRepository.swift */; };
-		F865F75525169A2A001FD067 /* NewsHeadlinesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F75425169A2A001FD067 /* NewsHeadlinesRepository.swift */; };
-		F865F75725169ACF001FD067 /* SearchNewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F75625169ACF001FD067 /* SearchNewsRepository.swift */; };
 		F865F7602516A643001FD067 /* APIServerResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F75F2516A643001FD067 /* APIServerResponseStatus.swift */; };
 		F865F7622516A6C1001FD067 /* APIServerResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F7612516A6C1001FD067 /* APIServerResponseError.swift */; };
 		F865F7642516A9D5001FD067 /* APIServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F7632516A9D5001FD067 /* APIServerResponse.swift */; };
@@ -68,12 +68,12 @@
 		F858997F251772CC00A6BA2A /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		F85899812517738C00A6BA2A /* ModelsDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDataFactory.swift; sourceTree = "<group>"; };
 		F858998325177D6200A6BA2A /* Articles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Articles.json; sourceTree = "<group>"; };
+		F8589985251784B200A6BA2A /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
+		F85899872517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesArticleRemoteRepository.swift; sourceTree = "<group>"; };
+		F85899892517897700A6BA2A /* HeadlinesArticleLocalRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesArticleLocalRespository.swift; sourceTree = "<group>"; };
 		F865F74B251686D2001FD067 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuthenticatorTests.swift; sourceTree = "<group>"; };
 		F865F74F25168F05001FD067 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		F865F752251699AF001FD067 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
-		F865F75425169A2A001FD067 /* NewsHeadlinesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeadlinesRepository.swift; sourceTree = "<group>"; };
-		F865F75625169ACF001FD067 /* SearchNewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNewsRepository.swift; sourceTree = "<group>"; };
 		F865F75F2516A643001FD067 /* APIServerResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServerResponseStatus.swift; sourceTree = "<group>"; };
 		F865F7612516A6C1001FD067 /* APIServerResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServerResponseError.swift; sourceTree = "<group>"; };
 		F865F7632516A9D5001FD067 /* APIServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServerResponse.swift; sourceTree = "<group>"; };
@@ -173,9 +173,9 @@
 		F865F7512516998A001FD067 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				F865F752251699AF001FD067 /* WebRepository.swift */,
-				F865F75425169A2A001FD067 /* NewsHeadlinesRepository.swift */,
-				F865F75625169ACF001FD067 /* SearchNewsRepository.swift */,
+				F8589985251784B200A6BA2A /* ArticleRepository.swift */,
+				F85899872517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift */,
+				F85899892517897700A6BA2A /* HeadlinesArticleLocalRespository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -526,18 +526,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85899882517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift in Sources */,
 				F858997B25176DC800A6BA2A /* Article.swift in Sources */,
-				F865F75725169ACF001FD067 /* SearchNewsRepository.swift in Sources */,
 				F865F7622516A6C1001FD067 /* APIServerResponseError.swift in Sources */,
 				F865F7602516A643001FD067 /* APIServerResponseStatus.swift in Sources */,
 				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
 				F865F76B2516C08C001FD067 /* NetworkValidResponse.swift in Sources */,
 				F865F75025168F05001FD067 /* AppConfig.swift in Sources */,
 				F865F7642516A9D5001FD067 /* APIServerResponse.swift in Sources */,
-				F865F753251699AF001FD067 /* WebRepository.swift in Sources */,
 				F865F74C251686D2001FD067 /* Authenticator.swift in Sources */,
-				F865F75525169A2A001FD067 /* NewsHeadlinesRepository.swift in Sources */,
+				F8589986251784B200A6BA2A /* ArticleRepository.swift in Sources */,
 				F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */,
+				F858998A2517897700A6BA2A /* HeadlinesArticleLocalRespository.swift in Sources */,
 				F865F76D2516C826001FD067 /* DefaultAPIValidResponse.swift in Sources */,
 				F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */,
 				F89B021E250D446000B41293 /* AppDelegate.swift in Sources */,
