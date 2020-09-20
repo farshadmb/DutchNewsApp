@@ -29,11 +29,16 @@ platform :ios do
    before_all do |lane| 
 
     UI.message "prepare for builds"
-    xcversion(version: "~> 11.2")
+    begin 
+      xcversion(version: "~> 11.6")
+    rescue 
+      xcversion(version: "~> 11.2")
+    end 
+
     version = get_version_number(xcodeproj:projectspace,target:scheme)
     
     
-    if lane != :debugTestVersion 
+    if lane != :run_ci_tests 
       #for cocoapods install dependecy 
       cocoapods()
     end
@@ -61,29 +66,38 @@ platform :ios do
   desc "generate report after running tests"
   def generate_report 
     puts "Generating Test Report ..."
-    # sh "xchtmlreport -r fastlane/test_output/#{scheme}-#{version}.test_result"
+    sh "xchtmlreport -r ./fastlane/out_put/TestResults"
     puts "Test Report Successfully generated"
   end
 
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
-    
-      UI.message "The devices raw : #{options[:devices]}"
-      devices = eval options[:devices]
-      UI.message "The devices list : #{devices}"
-      
-      clean = false 
-      
-      if options[:clean] 
-        clean = options[:clean]
-      end
+      begin 
+        UI.message "The device raw : #{options[:device]}"
+        device =  options[:device]
+        UI.message "The device list : #{device}"
+        
+        clean = false 
 
-      scan(workspace: "#{workspace}", #workspace name
-           scheme: scheme, # Project scheme name
-           clean: clean, # clean project folder before test execution
-           devices: devices, # Devices for testing 
-           result_bundle: true) # To generate test reports
-      xchtmlreport()
+        if options[:clean] then 
+          clean = options[:clean]
+        end
+
+        open_report = false 
+
+        if options[:open_report] then 
+          open_report = options[:open_report]
+        end
+
+        scan(clean: clean, # clean project folder before test execution    
+          device: device, # Devices for testing     
+          configuration: "Debug",
+          open_report: open_report,
+          result_bundle: true)
+          
+      rescue => ex 
+        UI.error "Failure on #{scheme} #{version} info : #{ex.to_s}"
+      end 
   end
 
 end
