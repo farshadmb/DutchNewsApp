@@ -11,13 +11,13 @@ import RxSwift
 
 protocol ArticleRepository {
     
-    associatedtype T: Codable
+    typealias DataType = Article
     
     /// <#Description#>
-    func fetchArticles() -> Observable<[T]>
+    func fetchArticles() -> Observable<[DataType]>
     
     /// <#Description#>
     /// - Parameter keyword: <#keyword description#>
-    func search(keyword: String) -> Observable<[T]>
+    func search(keyword: String) -> Observable<[DataType]>
     
 }

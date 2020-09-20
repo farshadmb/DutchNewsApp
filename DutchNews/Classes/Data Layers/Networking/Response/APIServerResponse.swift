@@ -12,7 +12,7 @@ struct APIServerResponse <T> where T: Decodable {
     
     var status: APIServerResponseStatus = .success
     var message: String?
-    var articles: T?
+    var data: T?
     
     enum CodingKeys: String, CodingKey {
         case status = "status"
@@ -54,15 +54,15 @@ extension APIServerResponse: Decodable {
                 throw APIServerResponseError.unknown
             }
             
-            self.articles = nil
+            self.data = nil
             return
         }
         
         do {
-            self.articles = try values.decodeIfPresent(T.self, forKey: .data)
+            self.data = try values.decodeIfPresent(T.self, forKey: .data)
         }catch {
-            self.articles = nil
-            throw APIServerResponseError.code(error.localizedDescription)
+            self.data = nil
+            throw APIServerResponseError.code("\(error)")
         }
         
     }
@@ -72,6 +72,6 @@ extension APIServerResponse: Decodable {
 extension APIServerResponse: CustomDebugStringConvertible {
     
     var debugDescription: String {
-        return "[Server-Response] status = \(status) message= \(message ?? "no message") error = empty data = \(articles)"
+        return "[Server-Response] status = \(status) message= \(message ?? "no message") error = empty data = \(data)"
     }
 }

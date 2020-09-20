@@ -10,4 +10,5 @@ import Foundation
 
 struct AppConfig {
     static let APIKey = "56450901b0134dcbb5627035b12fca99"
+    static let BaseURL = URL(string: "https://newsapi.org/v2/")!
 }

@@ -32,7 +32,7 @@ class APIServerResponseTests: XCTestCase {
         do {
             let response = try JSONDecoder().decode(APIServerResponse<[String]>.self, from: data)
             XCTAssert(response.status == .success , "APIServerResponse data was not able to decode.")
-            XCTAssertNotNil(response.articles, "APIServerResponse data was not able to decode.")
+            XCTAssertNotNil(response.data, "APIServerResponse data was not able to decode.")
             
             print("Decoded Objc ", response)
         }catch let error {

@@ -13,25 +13,25 @@ import Alamofire
 
 class HeadlinesArticleRemoteRepository: ArticleRepository {
     
-    typealias T = Article
+    typealias DataType = Article
     
     let networkService: NetworkServiceInterceptable
-    let validator: NetworkValidResponse
+    let validator: NetworkValidResponse?
     
     init(networkService: NetworkServiceInterceptable,
          authentictor: RequestInterceptor,
-         validator: NetworkValidResponse) {
+         validator: NetworkValidResponse? = nil) {
         
         self.networkService = networkService
         self.networkService.addingRequest(interceptor: authentictor)
         self.validator = validator
     }
     
-    private typealias ResponseResult = Result<APIServerResponse<[Article]>,Error>
+    private typealias ResponseResult = Result<APIServerResponse<[DataType]>,Error>
     
     func fetchArticles() -> Observable<[Article]> {
         
-        return networkService.executeRequest(endpoint: "v2/top-headlines",
+        return networkService.executeRequest(endpoint: "top-headlines",
                                              parameters: ["country": "nl"],
                                              method: .get, headers: [:],
                                              validator: validator)
@@ -39,7 +39,7 @@ class HeadlinesArticleRemoteRepository: ArticleRepository {
     }
     
     func search(keyword: String) -> Observable<[Article]> {
-        networkService.executeRequest(endpoint: "v2/top-headlines",
+        networkService.executeRequest(endpoint: "top-headlines",
                                       parameters: ["q": keyword,"country": "nl"],
                                       method: .get, headers: [:],
                                       validator: validator)
@@ -48,7 +48,7 @@ class HeadlinesArticleRemoteRepository: ArticleRepository {
     
     private func map(response: ResponseResult) throws -> [Article] {
         let result = try response.get()
-        return result.articles ?? []
+        return result.data ?? []
     }
     
 }

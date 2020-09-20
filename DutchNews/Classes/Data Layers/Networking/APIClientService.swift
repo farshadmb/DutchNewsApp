@@ -89,8 +89,8 @@ final class APIClientService: NetworkServiceInterceptable {
     ///   - dataRequest: <#dataRequest description#>
     ///   - decoder: <#decoder description#>
     private func map<T: Decodable> (dataRequest: DataRequest, decoder: DataDecoder) -> Observable<Result<T, Error>> {
-        print(dataRequest)
-        return dataRequest.rx.result(queue: workQueue, responseSerializer: DecodableResponseSerializer(decoder: decoder))
+        
+        return dataRequest.rx.responseResult(queue: workQueue, responseSerializer: DecodableResponseSerializer(decoder: decoder)).map({ $1 })
             .map { value in
                 return Result<T,Error> { value }
             }.catchError { (error) -> Observable<Result<T, Error>> in
