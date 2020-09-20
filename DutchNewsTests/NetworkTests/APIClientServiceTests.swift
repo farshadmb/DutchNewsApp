@@ -52,7 +52,9 @@ class APIClientServiceTests: XCTestCase {
             _ = networkService.executeRequest(endpoint: "api/user",
                                               parameters: [:],
                                               method: .get,
-                                              headers: [:], completion: { (result: Result<StubPerson, Error>) in
+                                              headers: [:],
+                                              validator: nil,
+                                              completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
                                                 case .success(let value):
                                                     print(value)
@@ -91,10 +93,11 @@ class APIClientServiceTests: XCTestCase {
                                               parameters: [:],
                                               method: .get,
                                               headers: ["Accept": "application/json"],
+                                              validator: nil,
                                               completion: { ( result: Result<StubPerson, Error>) in
                                                 print("result => ", result)
                                                 switch result {
-                                                case .success(_):
+                                                case .success:
                                                     XCTFail("SimpleResponse should not have a value response")
                                                 case .failure(let error):
                                                     print("Error Occured ",error.localizedDescription)
@@ -128,9 +131,11 @@ class APIClientServiceTests: XCTestCase {
             _ = networkService.executeRequest(endpoint: "api/user",
                                               parameters: [:],
                                               method: .get,
-                                              headers: [:], completion: { (result: Result<StubPerson, Error>) in
+                                              headers: [:],
+                                              validator: nil,
+                                              completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
-                                                case .success(_):
+                                                case .success:
                                                     XCTFail("SimpleResponse should not have a value response")
                                                 case .failure(let error):
                                                     print("Error Occured ",error.localizedDescription)
@@ -165,9 +170,11 @@ class APIClientServiceTests: XCTestCase {
             _ = networkService.executeRequest(endpoint: "api/user",
                                               parameters: [:],
                                               method: .head,
-                                              headers: [:], completion: { (result: Result<StubPerson, Error>) in
+                                              headers: [:],
+                                              validator: nil,
+                                              completion: { (result: Result<StubPerson, Error>) in
                                                 switch result {
-                                                case .success(_):
+                                                case .success:
                                                     XCTFail("The response should had a value.")
                                                 case .failure(let error):
                                                     print("error descripition :",error,error.localizedDescription)

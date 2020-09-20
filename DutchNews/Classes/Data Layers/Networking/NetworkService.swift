@@ -39,6 +39,7 @@ protocol NetworkService {
                                       parameters: Parameters,
                                       method: HTTPMethod,
                                       headers: NetworkHeadersType,
+                                      validator: NetworkValidResponse?,
                                       completion: @escaping ResponseCompletion<T>) -> DataRequest?
     
     /// <#Description#>
@@ -51,6 +52,7 @@ protocol NetworkService {
     func executeRequest<T: Decodable,P: Encodable>(endpoint: EndPoint,
                                                    method: HTTPMethod,
                                                    parameter: P, headers: NetworkHeadersType,
+                                                   validator: NetworkValidResponse?,
                                                    completion: @escaping ResponseCompletion<T>) -> DataRequest?
     
     ////////////////////////////////////////////////////////////////
@@ -68,7 +70,8 @@ protocol NetworkService {
     func executeRequest<T: Decodable>(endpoint: EndPoint,
                                       parameters: Parameters,
                                       method: HTTPMethod,
-                                      headers: NetworkHeadersType) -> Observable<ResponseResult<T>>
+                                      headers: NetworkHeadersType,
+                                      validator: NetworkValidResponse?) -> Observable<ResponseResult<T>>
     
     /// <#Description#>
     /// - Parameters:
@@ -78,7 +81,8 @@ protocol NetworkService {
     ///   - headers: <#headers description#>
     func executeRequest<T: Decodable,P: Encodable>(endpoint: EndPoint,
                                                    method: HTTPMethod,
-                                                   parameter: P, headers: NetworkHeadersType) -> Observable<ResponseResult<T>>
+                                                   parameter: P, headers: NetworkHeadersType,
+                                                   validator: NetworkValidResponse?) -> Observable<ResponseResult<T>>
     
 }
 
@@ -96,6 +100,7 @@ extension NetworkService {
                                       parameters: Parameters,
                                       method: HTTPMethod,
                                       headers: NetworkHeadersType,
+                                      validator: NetworkValidResponse? = nil,
                                       completion: @escaping ResponseCompletion<T>) -> DataRequest? {
         return nil
     }
@@ -103,6 +108,7 @@ extension NetworkService {
     func executeRequest<T: Decodable,P: Encodable>(endpoint: EndPoint,
                                                    method: HTTPMethod,
                                                    parameter: P, headers: NetworkHeadersType,
+                                                   validator: NetworkValidResponse? = nil,
                                                    completion: @escaping ResponseCompletion<T> ) -> DataRequest? {
         return nil
     }
@@ -110,13 +116,15 @@ extension NetworkService {
     func executeRequest<T: Decodable>(endpoint: EndPoint,
                                       parameters: Parameters,
                                       method: HTTPMethod,
-                                      headers: NetworkHeadersType) -> Observable<ResponseResult<T>> {
+                                      headers: NetworkHeadersType,
+                                      validator: NetworkValidResponse? = nil) -> Observable<ResponseResult<T>> {
         return .empty()
     }
 
     func executeRequest<T: Decodable,P: Encodable>(endpoint: EndPoint,
                                                    method: HTTPMethod,
-                                                   parameter: P, headers: NetworkHeadersType) -> Observable<ResponseResult<T>> {
+                                                   parameter: P, headers: NetworkHeadersType,
+                                                   validator: NetworkValidResponse? = nil) -> Observable<ResponseResult<T>> {
         return .empty()
     }
 }

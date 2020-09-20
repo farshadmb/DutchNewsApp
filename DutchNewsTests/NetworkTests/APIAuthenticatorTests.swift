@@ -36,7 +36,9 @@ class APIAuthenticatorTests: XCTestCase {
         _ = networkService.executeRequest(endpoint: "v2/top-headlines",
                                           parameters: ["country": "nl"],
                                           method: .get,
-                                          headers: [:], completion: { (result: Result<Empty, Error>) in
+                                          headers: [:],
+                                          validator: nil,
+                                          completion: { (result: Result<Empty, Error>) in
                                             switch result {
                                             case .success(let value):
                                                 print(value)
@@ -63,7 +65,9 @@ class APIAuthenticatorTests: XCTestCase {
         _ = networkService.executeRequest(endpoint: "v2/top-headlines",
                                           parameters: ["country": "nl"],
                                           method: .get,
-                                          headers: [:], completion: { (result: Result<Empty, Error>) in
+                                          headers: [:],
+                                          validator: nil,
+                                          completion: { (result: Result<Empty, Error>) in
                                             switch result {
                                                 
                                             case .success(let value):
@@ -91,7 +95,9 @@ class APIAuthenticatorTests: XCTestCase {
         _ = networkService.executeRequest(endpoint: "v2/top-headlines",
                                           parameters: ["country": "nl"],
                                           method: .get,
-                                          headers: [:], completion: { (result: Result<Empty, Error>) in
+                                          headers: [:],
+                                          validator: nil,
+                                          completion: { (result: Result<Empty, Error>) in
                                             switch result {
                                             case .success(let value):
                                                 print(value)
