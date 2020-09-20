@@ -8,12 +8,14 @@ on:
   push:
     branches:
     - feature/*
+    - feature/*/*
     - bugfix/*
     - hotfix/*
   pull_request:
     branches: 
       - develop
       - feature/*
+      - feature/*/*
       - master
       - bugfix/*
       - hotfix/*
@@ -38,8 +40,8 @@ jobs:
             hostname
             sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
             sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
-            sudo ln -s /Applications/Xcode_10.6.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
-            bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose --no-progress
+            sudo ln -s /Applications/Xcode_11.6.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
+            bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose
             xcrun simctl list runtimes
             xcrun simctl list devicetypes
         - name: Creating iOS Simulators
@@ -53,17 +55,24 @@ jobs:
             xcrun simctl list devices 11.4
             xcrun simctl list devices 12.4
             xcrun simctl list devices 13.6
-            instruments -s
+
         - name: Build and test on Device
           run: bundle exec fastlane run_ci_tests devices:"${destination}" --verbose
           env:
             destination: ${{ $matrix.devices }}
-        
+
         - name: Archive Failed Tests artifacts
           if: failure()
           uses: actions/upload-artifact@v1
           with:
             name: FailureDiff
+            path: fastlane/test_output
+
+        - name: Archive Success Tests artifacts
+          if: failure()
+          uses: actions/upload-artifact@v1
+          with:
+            name: SuccessDiff
             path: fastlane/test_output
         
 
