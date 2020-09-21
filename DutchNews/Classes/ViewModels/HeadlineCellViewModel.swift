@@ -39,7 +39,7 @@ class HeadlineCellViewModel: ArticleViewModel {
     private static func convert(model: T) -> ArticleRepresentable {
         
         let dateFormatter = DateFormatter.currentZoneFormatter()
-        dateFormatter.dateStyle = .medium
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         
         return HeadlineCellOutput(title: model.title,
