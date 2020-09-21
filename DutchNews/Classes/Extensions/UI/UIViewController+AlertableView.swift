@@ -18,9 +18,8 @@ extension AlertableView where Self: UIViewController {
     ///   - message: <#message description#>
     ///   - actionTitle: <#actionTitle description#>
     ///   - actionHandler: <#actionHandler description#>
-    func presentAlertView(withMessage message: String, actionTitle: String? = nil, actionHandler: @escaping () -> () = {}) {
+    func presentAlertView(withMessage message: String, actionTitle: String? = nil, actionHandler: @escaping () -> Void = {}) {
         presentAlert(message: message, actionTitle: actionTitle, actionHandler: actionHandler)
     }
     
 }
-
