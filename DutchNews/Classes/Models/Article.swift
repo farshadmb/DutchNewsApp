@@ -54,7 +54,7 @@ extension Article {
     static func htmlArticle() -> Article {
         
         return .init(title: "", author: "", description: "", source: ArticleSource(id: "", name: ""),
-                     url: URL(string:"https://domain.com")!,
+                     url: URL(string: "https://domain.com")!,
                      urlToImage: nil, publishedAt: Date(),
                      content: """
  <div class=\"widget\" style=\"margin: .5em 0;\">\n <a href=\"https://www.gva.be/tag/corona-gratis\">\n <img src=\"https://static.gva.be/Assets/Images_Upload/2020/03/26/fifitent.jpg\" style=\"display:block;width: 100%;\"/>\n </a>\n</div>

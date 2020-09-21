@@ -67,8 +67,17 @@ extension HeadlinesViewController {
             
         case (let cell as ArticleWebContainerCollectionViewCell) where article.type == .mock :
             
-            if cell.contentLabel.attributedText == nil, let attribute = article.content?.convertToAttributedFromHTML() {
-                cell.contentLabel.attributedText = attribute
+            if cell.contentLabel.text == nil,
+                let content = article.content {
+            
+                cell.webView.loadHTMLString(content, baseURL: nil)
+                cell.contentLabel.text = content
+                
+                //FIXME: determind a observation for callback purpose when loading was finished.
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {[weak self] in
+                    self?.collectionView.reloadData()
+                    self?.collectionLayout?.invalidateLayout()
+                }
             }
             
         case (let cell as ArticleRowCollectionViewCell):

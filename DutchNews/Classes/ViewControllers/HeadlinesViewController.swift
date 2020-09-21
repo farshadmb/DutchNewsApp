@@ -56,20 +56,11 @@ class HeadlinesViewController: UIViewController {
         
         setupLayouts()
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let block : () -> () = {[unowned self] in
-            let items = self.buildMockData()
-            Observable.from(optional: [items])
-                .bind(to:self.collectionView.rx.items(dataSource: self.dataSource))
-                .disposed(by: self.disposeBag)
-            self.collectionView.delegate = self 
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: block)
+        let items = self.buildMockData()
+        Observable.from(optional: [items])
+            .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
+            .disposed(by: self.disposeBag)
+        self.collectionView.delegate = self
         
     }
     
