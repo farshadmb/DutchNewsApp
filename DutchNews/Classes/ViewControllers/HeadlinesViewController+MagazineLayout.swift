@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MagazineLayout
 
-extension HeadlinesViewController:  UICollectionViewDelegateMagazineLayout {
+extension HeadlinesViewController: UICollectionViewDelegateMagazineLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

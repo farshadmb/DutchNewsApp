@@ -19,7 +19,7 @@ struct ArticleHeadlineLayoutConfiguration: HeadlineLayoutConfiguration {
             return sizeModeCreate(widthMode: .fullWidth(respectsHorizontalInsets: false), heightMode: .dynamic)
         case (_,1),
              (_,2):
-            return sizeModeCreate(widthMode: .halfWidth, heightMode: .dynamicAndStretchToTallestItemInRow)
+            return sizeModeCreate(widthMode: .halfWidth, heightMode: .dynamic)
         default:
             return sizeModeCreate()
         }
@@ -33,11 +33,10 @@ struct ArticleHeadlineLayoutConfiguration: HeadlineLayoutConfiguration {
         2.5
     }
     
-    
     ////////////////////////////////////////////////////////////////
-    //MARK:-
-    //MARK:Private Methods
-    //MARK:-
+    // MARK: -
+    // MARK: Private Methods
+    // MARK: -
     ////////////////////////////////////////////////////////////////
 
     private func sizeModeCreate(widthMode: MagazineLayoutItemWidthMode = .fullWidth(respectsHorizontalInsets: false),
