@@ -93,6 +93,8 @@ struct Logger {
             DDLog.add(ddttyLogger)
         }
         
+        DDLog.add(DDOSLogger.sharedInstance)
+        
         fileLogger.rollingFrequency = TimeInterval(60 * 60 * 24)  // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 3
         DDLog.add(fileLogger)

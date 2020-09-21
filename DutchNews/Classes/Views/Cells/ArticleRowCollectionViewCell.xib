@@ -25,24 +25,24 @@
                                     <constraint firstAttribute="height" constant="55" id="ZOL-0G-Jlp"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xA0-9x-xHN">
-                                <rect key="frame" x="73" y="8" width="239" height="47"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xA0-9x-xHN">
+                                <rect key="frame" x="73" y="8" width="239" height="40.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcZ-Od-Zcx">
-                                        <rect key="frame" x="0.0" y="0.0" width="239" height="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="239" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDd-hA-2v9">
-                                        <rect key="frame" x="0.0" y="29" width="239" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDd-hA-2v9">
+                                        <rect key="frame" x="0.0" y="22.5" width="239" height="18"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="FWN-0h-VPb">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="FWN-0h-VPb">
                                 <rect key="frame" x="73" y="60" width="239" height="16"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="source:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QN-dT-a4Q">
@@ -80,7 +80,7 @@
                             <constraint firstItem="1zO-Xt-vto" firstAttribute="centerY" secondItem="wjo-q0-OIo" secondAttribute="centerYWithinMargins" id="ppZ-tM-SFv"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="84" id="sIY-cp-yyR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FWN-0h-VPb" secondAttribute="trailing" id="wqK-A0-mpS"/>
-                            <constraint firstItem="FWN-0h-VPb" firstAttribute="top" secondItem="xA0-9x-xHN" secondAttribute="bottom" constant="5" id="yrr-tl-xXe"/>
+                            <constraint firstItem="FWN-0h-VPb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xA0-9x-xHN" secondAttribute="bottom" constant="5" id="yrr-tl-xXe"/>
                         </constraints>
                     </view>
                 </subviews>
