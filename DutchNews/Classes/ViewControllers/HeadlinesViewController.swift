@@ -31,6 +31,12 @@ class HeadlinesViewController: UIViewController {
         return collectionView?.collectionViewLayout as? MagazineLayout
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .black
+        return refreshControl
+    }()
+    
     var layoutConfiguration: HeadlineLayoutConfiguration = ArticleHeadlineLayoutConfiguration() {
         didSet {
             collectionView.reloadData()
@@ -49,7 +55,6 @@ class HeadlinesViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupLayouts()
-        collectionView.delegate = self
         
     }
     
@@ -61,9 +66,10 @@ class HeadlinesViewController: UIViewController {
             Observable.from(optional: [items])
                 .bind(to:self.collectionView.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
+            self.collectionView.delegate = self 
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: block)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: block)
         
     }
     
@@ -93,6 +99,7 @@ class HeadlinesViewController: UIViewController {
                                 forCellWithReuseIdentifier: HeadlinesCellIdentifier.web.id)
         
         collectionView.delegate = self
+        collectionView.refreshControl = refreshControl
         
     }
     

@@ -13,6 +13,7 @@ class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     @IBOutlet weak var cellContentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,7 @@ class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
         super.prepareForReuse()
         titleLabel.text = nil
         imageView.image = nil
+        sourceLabel.text = nil
     }
 
 }

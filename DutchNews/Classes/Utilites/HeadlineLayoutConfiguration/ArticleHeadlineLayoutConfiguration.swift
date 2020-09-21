@@ -16,21 +16,21 @@ struct ArticleHeadlineLayoutConfiguration: HeadlineLayoutConfiguration {
         switch (indexPath.section, indexPath.row) {
         case (_,0),
              (_,3):
-            return sizeModeCreate(widthMode: .fullWidth(respectsHorizontalInsets: false), heightMode: .dynamic)
+            return sizeModeCreate(widthMode: .fullWidth(respectsHorizontalInsets: true), heightMode: .dynamic)
         case (_,1),
              (_,2):
-            return sizeModeCreate(widthMode: .halfWidth, heightMode: .dynamic)
+            return sizeModeCreate(widthMode: .halfWidth, heightMode: .dynamicAndStretchToTallestItemInRow)
         default:
             return sizeModeCreate()
         }
     }
     
     func verticalSpacing(forElementsInSectionAtIndex section: Int) -> CGFloat {
-        2.5
+        5.0
     }
     
     func horizontalSpacing(forElementsInSectionAtIndex section: Int) -> CGFloat {
-        2.5
+        5.0
     }
     
     ////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ struct ArticleHeadlineLayoutConfiguration: HeadlineLayoutConfiguration {
     // MARK: -
     ////////////////////////////////////////////////////////////////
 
-    private func sizeModeCreate(widthMode: MagazineLayoutItemWidthMode = .fullWidth(respectsHorizontalInsets: false),
+    private func sizeModeCreate(widthMode: MagazineLayoutItemWidthMode = .fullWidth(respectsHorizontalInsets: true),
                        heightMode: MagazineLayoutItemHeightMode = .dynamic) -> MagazineLayoutItemSizeMode {
         return MagazineLayoutItemSizeMode(widthMode: widthMode,heightMode: heightMode)
     }

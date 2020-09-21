@@ -18,16 +18,18 @@ extension HeadlinesViewController {
     
     func buildDataSource() -> RxCollectionViewSectionedReloadDataSource<SectionType> {
         
-        return RxCollectionViewSectionedReloadDataSource(configureCell: {[weak self] (_, collectionView, indexPath, item) -> UICollectionViewCell in
+        return RxCollectionViewSectionedReloadDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, item) -> UICollectionViewCell in
             
             guard let `self` = self else {
                 return HeadlineBaseCollectionViewCell()
             }
             
-            let reuseId = self.reuseItentifier(forCellAt: indexPath).id
+            let item2 = dataSource[indexPath]
+            
+            let reuseId = self.reuseItentifier(forCellAt: indexPath, item: item2).id
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
             
-            self.fill(cell: cell, withArticle:item)
+            self.fill(cell: cell, withArticle: item2)
             
             cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
             cell.contentView.layer.borderWidth = 0.25
@@ -39,12 +41,12 @@ extension HeadlinesViewController {
     
     /// <#Description#>
     /// - Parameter index: <#index description#>
-    private func reuseItentifier(forCellAt index: IndexPath) -> HeadlinesCellIdentifier {
+    private func reuseItentifier(forCellAt index: IndexPath, item: Article) -> HeadlinesCellIdentifier {
         
         switch (index.section, index.item) {
         case (_,0):
             return .main
-        case (_,3):
+        case (_,3) where item.type == .mock :
             return .web
         case (_,1),
              (_,2):
@@ -55,18 +57,23 @@ extension HeadlinesViewController {
     }
     
     private func fill(cell: UICollectionViewCell, withArticle article: Article) {
+        
         switch (cell) {
         case (let cell as MainArticleCollectionViewCell):
             cell.titleLabel.text = article.title
         case (let cell as HalfWidthArticleCollectionViewCell):
             cell.titleLabel.text = article.title
-        case (let cell as ArticleWebContainerCollectionViewCell):
+            cell.sourceLabel.text = article.source.name
+            
+        case (let cell as ArticleWebContainerCollectionViewCell) where article.type == .mock :
             
             if cell.contentLabel.attributedText == nil, let attribute = article.content?.convertToAttributedFromHTML() {
                 cell.contentLabel.attributedText = attribute
             }
+            
         case (let cell as ArticleRowCollectionViewCell):
             
+            print(article)
             cell.titleLabel.text = article.title
             cell.descriptionLabel.text = article.description
             cell.sourceLabel.text = article.source.name
