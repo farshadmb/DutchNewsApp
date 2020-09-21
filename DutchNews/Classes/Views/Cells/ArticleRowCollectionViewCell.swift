@@ -19,6 +19,8 @@ class ArticleRowCollectionViewCell: HeadlineBaseCollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5.0
         // Initialization code
     }
     

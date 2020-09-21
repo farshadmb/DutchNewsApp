@@ -18,6 +18,7 @@ class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        contentView.clipsToBounds = true
         
     }
     

@@ -31,9 +31,9 @@ extension HeadlinesViewController {
             
             self.fill(cell: cell, withArticle: item2)
             
-            cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
-            cell.contentView.layer.borderWidth = 0.25
-            cell.contentView.layer.cornerRadius = 5.0
+            cell.contentView.layer.borderColor = UIColor.darkGray.cgColor
+            cell.contentView.layer.borderWidth = 0.4
+            cell.contentView.layer.cornerRadius = 8.0
             
             return cell
         })
