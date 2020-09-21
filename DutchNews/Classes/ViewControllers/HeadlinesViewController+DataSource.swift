@@ -67,11 +67,6 @@ extension HeadlinesViewController {
                 cell.webView.loadHTMLString(content, baseURL: nil)
                 cell.contentLabel.text = content
                 
-                cell.rx.didLoadContent.bind {[weak self] _ in
-                    self?.collectionView.reloadData()
-                    self?.collectionLayout?.invalidateLayout()
-                }
-                .disposed(by: cell.disposeBag)
             }
         case (let cell as HeadlineBaseCollectionViewCell):
             article.output

@@ -63,6 +63,7 @@ extension HeadlineCellViewModel: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(model.title)
         hasher.combine(model.publishedAt)
+        hasher.combine(model.url)
     }
 }
 

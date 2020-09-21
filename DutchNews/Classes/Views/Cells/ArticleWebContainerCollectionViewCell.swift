@@ -22,7 +22,7 @@ class ArticleWebContainerCollectionViewCell: HeadlineBaseCollectionViewCell {
         super.awakeFromNib()
         contentLabel.text = nil
         contentView.addSubview(webView)
-        webView.autoPinEdgesToSuperviewSafeArea()
+        
         webView.scrollView.isScrollEnabled = false
         contentLabel.isHidden = true
     }
@@ -31,13 +31,9 @@ class ArticleWebContainerCollectionViewCell: HeadlineBaseCollectionViewCell {
         super.prepareForReuse()
     }
     
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        
-        let layoutAttributes = super.preferredLayoutAttributesFitting(layoutAttributes)
-        
-        layoutAttributes.size.height = max(webView.scrollView.contentSize.height, 44.0)
-        Logger.debugLog("Height \(layoutAttributes.size.height)")
-        return layoutAttributes
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        webView.frame = contentView.bounds
     }
     
 }
@@ -46,6 +42,7 @@ extension Reactive where Base: ArticleWebContainerCollectionViewCell {
     
     var didLoadContent: ControlEvent<Void> {
         let source = self.base.webView.rx.didFinishLoad.map { _ in () }
+            .delay(.milliseconds(500), scheduler: MainScheduler.instance)
         return ControlEvent(events: source)
     }
     

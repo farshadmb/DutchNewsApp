@@ -45,7 +45,9 @@ extension ArticleViewModel where Self: Equatable {
         guard type(of: lhs) == type(of: rhs) else {
             return false
         }
-        return lhs.model.publishedAt == lhs.model.publishedAt
+        return lhs.model.publishedAt == rhs.model.publishedAt &&
+            lhs.model.url == rhs.model.url &&
+            lhs.model.title == rhs.model.title
     }
 }
 
@@ -54,7 +56,10 @@ func ==(lhs: ArticleViewModel, rhs: ArticleViewModel) -> Bool {
     guard type(of: lhs) == type(of: rhs) else {
         return false
     }
-    return lhs.model.publishedAt == lhs.model.publishedAt
+    
+    return lhs.model.publishedAt == rhs.model.publishedAt &&
+        lhs.model.url == rhs.model.url &&
+        lhs.model.title == rhs.model.title
 }
 
 /// `ArticleRepresentable` is representive of article output
@@ -83,5 +88,5 @@ func ==(lhs: ArticleRepresentable, rhs: ArticleRepresentable) -> Bool {
     guard type(of: lhs) == type(of: rhs) else {
         return false
     }
-    return lhs.publishedAt == lhs.publishedAt
+    return lhs.publishedAt == rhs.publishedAt && lhs.url == rhs.url && lhs.title == rhs.title
 }
