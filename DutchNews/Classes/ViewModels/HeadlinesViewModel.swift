@@ -22,6 +22,12 @@ final class HeadlinesViewModel: ArticlesViewModel {
     
     private var outputPublisher: BehaviorRelay<[T]>
     
+    private var items: [T.Item] = [] {
+        didSet {
+            outputPublisher.accept([T(model: "Headlines", items: items)])
+        }
+    }
+    
     var output: Driver<[T]> {
         outputPublisher.asDriver { _ in return .never() }
     }
@@ -85,21 +91,39 @@ final class HeadlinesViewModel: ArticlesViewModel {
             .subscribe {[weak self] event in
                 
                 switch event {
-                case .next(let items):
+                case .next(let newItems):
                     guard let `self` = self else {
                         break
                     }
                     
-                    //                let mapped = newItems.map {
-                    //                    ArticleViewModel(repository: $0, userRepositoryUseCases: AppDIContainer.userRepositoryUseCases)
-                    //                }
-                    //                .filter { item in
-                    //                    !self.items.contains(where: { $0.model.id == item.model.id })
-                    //                }
-                    //                .reversed() as Array
-                    //
-                    //                self.items += mapped
-                    //
+                    var mapped = newItems.map {
+                        HeadlineCellViewModel(model: $0)
+                    }
+                    
+                    guard case let .loading(isRefreshing:isRefreshing) = self.statePublisher.value,
+                        isRefreshing == true else {
+                            
+                            if mapped.count > 3 {
+                                mapped.insert(HeadlineCellViewModel(model: Article.htmlArticle()),
+                                                  at: 3)
+                            }
+                            self.items = mapped
+                            self.statePublisher.accept(.loaded)
+                            return
+                    }
+                    
+                    let output = mapped.filter { viewModel in
+                            !self.items.contains(where: { $0 == viewModel })
+                    }
+                    
+                    var result = output + self.items.filter({ $0.model.type == .news })
+                    
+                    if result.count > 3 {
+                        result.insert(HeadlineCellViewModel(model: Article.htmlArticle()),
+                                          at: 3)
+                    }
+                    self.items = result
+                    
                     self.statePublisher.accept(.loaded)
                     
                 case .error(let error):

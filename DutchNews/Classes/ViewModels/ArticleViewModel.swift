@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+//swiftlint:disable type_name
+
 /// Abstract `ArtileViewModel`
 protocol ArticleViewModel: class {
     
@@ -24,6 +26,7 @@ protocol ArticleViewModel: class {
     func buildURLContent() -> Observable<URLRequest>
     
 }
+//swiftlint:enable type_name
 
 extension ArticleViewModel {
     
@@ -34,6 +37,24 @@ extension ArticleViewModel {
                        timeoutInterval: 30.0)
         }) .asObservable()
     }
+}
+
+extension ArticleViewModel where Self: Equatable {
+    
+    static func ==(lhs: ArticleViewModel, rhs: ArticleViewModel) -> Bool {
+        guard type(of: lhs) == type(of: rhs) else {
+            return false
+        }
+        return lhs.model.publishedAt == lhs.model.publishedAt
+    }
+}
+
+func ==(lhs: ArticleViewModel, rhs: ArticleViewModel) -> Bool {
+    
+    guard type(of: lhs) == type(of: rhs) else {
+        return false
+    }
+    return lhs.model.publishedAt == lhs.model.publishedAt
 }
 
 /// `ArticleRepresentable` is representive of article output
@@ -55,4 +76,12 @@ protocol ArticleRepresentable {
     
     var type: ArticleType { get }
     
+}
+
+func ==(lhs: ArticleRepresentable, rhs: ArticleRepresentable) -> Bool {
+    
+    guard type(of: lhs) == type(of: rhs) else {
+        return false
+    }
+    return lhs.publishedAt == lhs.publishedAt
 }

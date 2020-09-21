@@ -37,16 +37,33 @@ class HeadlineCellViewModel: ArticleViewModel {
     }
     
     private static func convert(model: T) -> ArticleRepresentable {
+        
+        let dateFormatter = DateFormatter.currentZoneFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
         return HeadlineCellOutput(title: model.title,
                                   author: model.author,
                                   description: model.title,
                                   source: model.source.name,
                                   url: model.url,
                                   urlToImage: model.urlToImage,
-                                  publishedAt: "",
+                                  publishedAt: dateFormatter.string(from: model.publishedAt),
                                   content: model.content, type: model.type)
     }
     
+}
+
+extension HeadlineCellViewModel: Hashable {
+    
+    static func == (lhs: HeadlineCellViewModel, rhs: HeadlineCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(model.title)
+        hasher.combine(model.publishedAt)
+    }
 }
 
 private extension HeadlineCellViewModel {
