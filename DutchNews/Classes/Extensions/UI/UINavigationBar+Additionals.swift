@@ -18,7 +18,7 @@ extension UINavigationItem {
         }
         set {
             guard let newValue = newValue else { self.title = nil; return }
-            self.title = NSLocalizedString(newValue, comment: "")
+            self.title = newValue.localized
         }
     }
     

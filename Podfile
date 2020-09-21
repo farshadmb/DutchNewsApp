@@ -30,6 +30,7 @@ target 'DutchNews' do
   pod 'MaterialComponents'
   pod 'SwiftLint'
   pod 'CryptoSwift', '1.1.2'
+  pod 'SDWebImage'
   
   #Logger Framework
   pod 'CocoaLumberjack/Swift'

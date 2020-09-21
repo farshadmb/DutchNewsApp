@@ -14,7 +14,7 @@ extension UIImageView {
     static let defaultSDWebImageOptions: SDWebImageOptions = [.lowPriority,.scaleDownLargeImages,.retryFailed,.refreshCached]
     static let cacheSDWebImageOptions: SDWebImageOptions = [.lowPriority,.scaleDownLargeImages,.queryMemoryData,.refreshCached]
     
-    func setImage(url: URL?,placeHolderImage: UIImage? = #imageLiteral(resourceName: "placeHolderImage"),
+    func setImage(url: URL?,placeHolderImage: UIImage? = #imageLiteral(resourceName: "image-placeHolder"),
                    options: SDWebImageOptions = UIImageView.defaultSDWebImageOptions,
                    completed: SDExternalCompletionBlock? = nil) {
         self.contentMode = .scaleAspectFill

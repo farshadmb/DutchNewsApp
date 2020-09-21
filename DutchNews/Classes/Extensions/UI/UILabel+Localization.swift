@@ -28,7 +28,8 @@ extension UILabel {
             guard let value = newValue else {
                 return
             }
-            self.text = NSLocalizedString(value, comment: "")
+            
+            self.text = value.localized
         }
     }
     

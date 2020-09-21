@@ -29,6 +29,8 @@
 		F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */; };
 		F82C8EFF25163073002B27B3 /* NetworkMocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8EFE25163073002B27B3 /* NetworkMocking.swift */; };
 		F82C8F0125163898002B27B3 /* NetworkMockingDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */; };
+		F841DD0A25195415006E7E90 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841DD0925195415006E7E90 /* GradientView.swift */; };
+		F841DD0C25195429006E7E90 /* LinearGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841DD0B25195429006E7E90 /* LinearGradientView.swift */; };
 		F858997B25176DC800A6BA2A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997A25176DC800A6BA2A /* Article.swift */; };
 		F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997C25176E8F00A6BA2A /* ArticleSource.swift */; };
 		F8589980251772CC00A6BA2A /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858997F251772CC00A6BA2A /* ModelTests.swift */; };
@@ -79,6 +81,9 @@
 		F8E5C12D25191DA60083D2B1 /* UIViewController+StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C12725191DA50083D2B1 /* UIViewController+StoryboardName.swift */; };
 		F8E5C12E25191DA60083D2B1 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C12825191DA60083D2B1 /* UIImageView+SDWebImage.swift */; };
 		F8E5C12F25191DA60083D2B1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C12925191DA60083D2B1 /* UIColor+Extension.swift */; };
+		F8E5C1312519250E0083D2B1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C1302519250E0083D2B1 /* Logger.swift */; };
+		F8E5C13325193A290083D2B1 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C13225193A290083D2B1 /* String+Localization.swift */; };
+		F8E5C135251943CF0083D2B1 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C134251943CF0083D2B1 /* AppDIContainer.swift */; };
 		F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F14C72250D719800C24FF5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +128,8 @@
 		F82C8EFC2516304D002B27B3 /* APIClientServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientServiceTests.swift; sourceTree = "<group>"; };
 		F82C8EFE25163073002B27B3 /* NetworkMocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMocking.swift; sourceTree = "<group>"; };
 		F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockingDataFactory.swift; sourceTree = "<group>"; };
+		F841DD0925195415006E7E90 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F841DD0B25195429006E7E90 /* LinearGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientView.swift; sourceTree = "<group>"; };
 		F858997A25176DC800A6BA2A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F858997C25176E8F00A6BA2A /* ArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSource.swift; sourceTree = "<group>"; };
 		F858997F251772CC00A6BA2A /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
@@ -177,6 +184,9 @@
 		F8E5C12725191DA50083D2B1 /* UIViewController+StoryboardName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardName.swift"; sourceTree = "<group>"; };
 		F8E5C12825191DA60083D2B1 /* UIImageView+SDWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SDWebImage.swift"; sourceTree = "<group>"; };
 		F8E5C12925191DA60083D2B1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		F8E5C1302519250E0083D2B1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F8E5C13225193A290083D2B1 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		F8E5C134251943CF0083D2B1 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		F8F14C73250D719800C24FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +278,15 @@
 				F82C8F0025163898002B27B3 /* NetworkMockingDataFactory.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F841DD08251953F9006E7E90 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				F841DD0925195415006E7E90 /* GradientView.swift */,
+				F841DD0B25195429006E7E90 /* LinearGradientView.swift */,
+			);
+			path = GradientView;
 			sourceTree = "<group>";
 		};
 		F858997925176D7700A6BA2A /* Models */ = {
@@ -365,6 +384,7 @@
 				F89B021D250D446000B41293 /* AppDelegate.swift */,
 				F89B0224250D446200B41293 /* Info.plist */,
 				F865F74F25168F05001FD067 /* AppConfig.swift */,
+				F8E5C134251943CF0083D2B1 /* AppDIContainer.swift */,
 			);
 			path = DutchNews;
 			sourceTree = "<group>";
@@ -427,6 +447,7 @@
 		F8F14C6A250D70BD00C24FF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F841DD08251953F9006E7E90 /* GradientView */,
 				F8E5C0E7251881400083D2B1 /* AlertView */,
 				F8154D5A251800E400BFB42C /* Cells */,
 			);
@@ -460,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				F8154D532517EBE300BFB42C /* HeadlineLayoutConfiguration */,
+				F8E5C1302519250E0083D2B1 /* Logger.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -486,6 +508,7 @@
 				F8E5C11C25191D5D0083D2B1 /* String+EmptyChecking.swift */,
 				F8E5C11D25191D5D0083D2B1 /* URL+ApplicationPath.swift */,
 				F8154D782518207B00BFB42C /* String+HTML.swift */,
+				F8E5C13225193A290083D2B1 /* String+Localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -754,6 +777,7 @@
 				F8154D752518156000BFB42C /* HeadlinesViewController+DataSource.swift in Sources */,
 				F8154D6C25180A9000BFB42C /* HeadlineBaseCollectionViewCell.swift in Sources */,
 				F865F76B2516C08C001FD067 /* NetworkValidResponse.swift in Sources */,
+				F841DD0A25195415006E7E90 /* GradientView.swift in Sources */,
 				F8E5C12325191D5E0083D2B1 /* URL+ApplicationPath.swift in Sources */,
 				F8154D612518011500BFB42C /* MainArticleCollectionViewCell.swift in Sources */,
 				F8E5C0F1251884A20083D2B1 /* HeadlineSearchViewModel.swift in Sources */,
@@ -765,6 +789,8 @@
 				F865F75025168F05001FD067 /* AppConfig.swift in Sources */,
 				F8E5C0FE25190CDD0083D2B1 /* HeadlineCellViewModel.swift in Sources */,
 				F865F7642516A9D5001FD067 /* APIServerResponse.swift in Sources */,
+				F8E5C13325193A290083D2B1 /* String+Localization.swift in Sources */,
+				F841DD0C25195429006E7E90 /* LinearGradientView.swift in Sources */,
 				F8E5C0F52518DD3E0083D2B1 /* ViewModelState.swift in Sources */,
 				F8E5C0FC2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift in Sources */,
 				F8154D572517F03600BFB42C /* ArticleHeadlineLayoutConfiguration.swift in Sources */,
@@ -783,7 +809,9 @@
 				F8154D692518016800BFB42C /* HalfWidthArticleCollectionViewCell.swift in Sources */,
 				F8E5C12025191D5E0083D2B1 /* Date+TimeAgo.swift in Sources */,
 				F865F76D2516C826001FD067 /* DefaultAPIValidResponse.swift in Sources */,
+				F8E5C1312519250E0083D2B1 /* Logger.swift in Sources */,
 				F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */,
+				F8E5C135251943CF0083D2B1 /* AppDIContainer.swift in Sources */,
 				F8E5C12225191D5E0083D2B1 /* String+EmptyChecking.swift in Sources */,
 				F89B021E250D446000B41293 /* AppDelegate.swift in Sources */,
 				F8E5C12C25191DA60083D2B1 /* UILabel+Localization.swift in Sources */,
