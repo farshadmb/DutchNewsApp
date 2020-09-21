@@ -9,6 +9,8 @@
 import UIKit
 import WebKit
 import PureLayout
+import RxCocoa
+import RxSwift
 
 class ArticleWebContainerCollectionViewCell: HeadlineBaseCollectionViewCell {
     
@@ -33,9 +35,18 @@ class ArticleWebContainerCollectionViewCell: HeadlineBaseCollectionViewCell {
         
         let layoutAttributes = super.preferredLayoutAttributesFitting(layoutAttributes)
         
-        layoutAttributes.size.height = max(webView.scrollView.contentSize.height, 60.0)
-        
+        layoutAttributes.size.height = max(webView.scrollView.contentSize.height, 44.0)
+        Logger.debugLog("Height \(layoutAttributes.size.height)")
         return layoutAttributes
+    }
+    
+}
+
+extension Reactive where Base: ArticleWebContainerCollectionViewCell {
+    
+    var didLoadContent: ControlEvent<Void> {
+        let source = self.base.webView.rx.didFinishLoad.map { _ in () }
+        return ControlEvent(events: source)
     }
     
 }

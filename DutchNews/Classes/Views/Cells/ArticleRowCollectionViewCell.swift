@@ -32,7 +32,15 @@ class ArticleRowCollectionViewCell: HeadlineBaseCollectionViewCell {
         sourceLabel.text = nil
         dateLabel.text = nil
         imageView.image = nil
-        
+        imageView.cancelCurrentImageLoad()
+    }
+    
+    override func config(viewModel article: ArticleRepresentable) {
+        titleLabel.text = article.title
+        descriptionLabel.text = article.description
+        sourceLabel.text = article.source
+        imageView.setImage(url: article.urlToImage)
+        dateLabel.text = article.publishedAt
     }
     
 }

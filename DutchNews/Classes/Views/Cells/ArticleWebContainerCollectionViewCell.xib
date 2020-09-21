@@ -18,8 +18,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHL-Xt-gwm" userLabel="ContentView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-JA-q80">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-JA-q80">
                                 <rect key="frame" x="8" y="8" width="304" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -30,11 +31,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Whw-JA-q80" secondAttribute="bottom" constant="8" id="2J4-ea-GXQ"/>
-                            <constraint firstItem="Whw-JA-q80" firstAttribute="top" secondItem="rHL-Xt-gwm" secondAttribute="top" constant="8" id="57c-Hs-cjm"/>
-                            <constraint firstItem="Whw-JA-q80" firstAttribute="trailing" secondItem="rHL-Xt-gwm" secondAttribute="trailingMargin" id="5pu-xo-c9U"/>
-                            <constraint firstItem="Whw-JA-q80" firstAttribute="leading" secondItem="rHL-Xt-gwm" secondAttribute="leadingMargin" id="BnR-hL-2Qe"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="pRZ-uk-zEO"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" placeholder="YES" id="pRZ-uk-zEO"/>
                         </constraints>
                     </view>
                 </subviews>
