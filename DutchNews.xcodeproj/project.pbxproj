@@ -56,6 +56,8 @@
 		F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B022D250D446200B41293 /* DutchNewsTests.swift */; };
 		F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E22515904400A6C2D5 /* NetworkService.swift */; };
 		F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E4251594D700A6C2D5 /* APIClientService.swift */; };
+		F8E5C0E9251881C80083D2B1 /* AlertableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0E8251881C80083D2B1 /* AlertableView.swift */; };
+		F8E5C0EB251882560083D2B1 /* UIViewController+AlertableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0EA251882560083D2B1 /* UIViewController+AlertableView.swift */; };
 		F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F14C72250D719800C24FF5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,8 @@
 		F89B022F250D446200B41293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8DE79E22515904400A6C2D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F8DE79E4251594D700A6C2D5 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
+		F8E5C0E8251881C80083D2B1 /* AlertableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertableView.swift; sourceTree = "<group>"; };
+		F8E5C0EA251882560083D2B1 /* UIViewController+AlertableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertableView.swift"; sourceTree = "<group>"; };
 		F8F14C73250D719800C24FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				F8154D6E25180B0200BFB42C /* UIView+Nib.swift */,
+				F8E5C0EA251882560083D2B1 /* UIViewController+AlertableView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -328,6 +333,14 @@
 			path = DutchNewsTests;
 			sourceTree = "<group>";
 		};
+		F8E5C0E7251881400083D2B1 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				F8E5C0E8251881C80083D2B1 /* AlertableView.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		F8F14C68250D70AA00C24FF5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 		F8F14C6A250D70BD00C24FF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F8E5C0E7251881400083D2B1 /* AlertView */,
 				F8154D5A251800E400BFB42C /* Cells */,
 			);
 			path = Views;
@@ -652,7 +666,9 @@
 				F8154D4E2517D28700BFB42C /* HeadlinesViewController.swift in Sources */,
 				F8154D652518012F00BFB42C /* ArticleRowCollectionViewCell.swift in Sources */,
 				F8154D792518207B00BFB42C /* String+HTML.swift in Sources */,
+				F8E5C0EB251882560083D2B1 /* UIViewController+AlertableView.swift in Sources */,
 				F8154D552517EC0D00BFB42C /* HeadlineLayoutConfiguration.swift in Sources */,
+				F8E5C0E9251881C80083D2B1 /* AlertableView.swift in Sources */,
 				F865F74C251686D2001FD067 /* Authenticator.swift in Sources */,
 				F8589986251784B200A6BA2A /* ArticleRepository.swift in Sources */,
 				F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */,
