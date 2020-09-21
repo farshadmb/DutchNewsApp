@@ -22,13 +22,12 @@ class ArticleWebContainerCollectionViewCell: HeadlineBaseCollectionViewCell {
         contentView.addSubview(webView)
         webView.autoPinEdgesToSuperviewSafeArea()
         webView.scrollView.isScrollEnabled = false
-        contentLabel.isHidden = true 
+        contentLabel.isHidden = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         

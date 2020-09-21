@@ -19,13 +19,13 @@ protocol AlertableView: class {
     ///   - message: <#message description#>
     ///   - actionTitle: <#actionTitle description#>
     ///   - actionHandler: <#actionHandler description#>
-    func presentAlert(message: String, actionTitle: String?, actionHandler:@escaping () -> ())
+    func presentAlert(message: String, actionTitle: String?, actionHandler:@escaping () -> Void)
 }
 
 // Abstract `AlertableView` impelementation
 extension AlertableView {
     
-    func presentAlert(message: String, actionTitle: String?, actionHandler:@escaping () -> ()) {
+    func presentAlert(message: String, actionTitle: String?, actionHandler:@escaping () -> Void) {
         let alert = MDCSnackbarMessage(text: message)
         
         // if actionTitle has a value, create snackbar action and assign to alert

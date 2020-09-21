@@ -58,6 +58,15 @@
 		F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E4251594D700A6C2D5 /* APIClientService.swift */; };
 		F8E5C0E9251881C80083D2B1 /* AlertableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0E8251881C80083D2B1 /* AlertableView.swift */; };
 		F8E5C0EB251882560083D2B1 /* UIViewController+AlertableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0EA251882560083D2B1 /* UIViewController+AlertableView.swift */; };
+		F8E5C0ED2518833B0083D2B1 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0EC2518833B0083D2B1 /* ArticlesViewModel.swift */; };
+		F8E5C0EF2518848D0083D2B1 /* HeadlinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0EE2518848D0083D2B1 /* HeadlinesViewModel.swift */; };
+		F8E5C0F1251884A20083D2B1 /* HeadlineSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F0251884A20083D2B1 /* HeadlineSearchViewModel.swift */; };
+		F8E5C0F32518D8AC0083D2B1 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F22518D8AC0083D2B1 /* ArticleViewModel.swift */; };
+		F8E5C0F52518DD3E0083D2B1 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F42518DD3E0083D2B1 /* ViewModelState.swift */; };
+		F8E5C0F82518E7770083D2B1 /* HeadlinesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */; };
+		F8E5C0FA2518E8100083D2B1 /* HeadlinesFetchingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F92518E8100083D2B1 /* HeadlinesFetchingUseCase.swift */; };
+		F8E5C0FC2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0FB2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift */; };
+		F8E5C0FE25190CDD0083D2B1 /* HeadlineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0FD25190CDD0083D2B1 /* HeadlineCellViewModel.swift */; };
 		F8F14C74250D719800C24FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F14C72250D719800C24FF5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +144,15 @@
 		F8DE79E4251594D700A6C2D5 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
 		F8E5C0E8251881C80083D2B1 /* AlertableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertableView.swift; sourceTree = "<group>"; };
 		F8E5C0EA251882560083D2B1 /* UIViewController+AlertableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertableView.swift"; sourceTree = "<group>"; };
+		F8E5C0EC2518833B0083D2B1 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		F8E5C0EE2518848D0083D2B1 /* HeadlinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewModel.swift; sourceTree = "<group>"; };
+		F8E5C0F0251884A20083D2B1 /* HeadlineSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineSearchViewModel.swift; sourceTree = "<group>"; };
+		F8E5C0F22518D8AC0083D2B1 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		F8E5C0F42518DD3E0083D2B1 /* ViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
+		F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesUseCases.swift; sourceTree = "<group>"; };
+		F8E5C0F92518E8100083D2B1 /* HeadlinesFetchingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesFetchingUseCase.swift; sourceTree = "<group>"; };
+		F8E5C0FB2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesSearchingUseCases.swift; sourceTree = "<group>"; };
+		F8E5C0FD25190CDD0083D2B1 /* HeadlineCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineCellViewModel.swift; sourceTree = "<group>"; };
 		F8F14C73250D719800C24FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -341,16 +359,27 @@
 			path = AlertView;
 			sourceTree = "<group>";
 		};
+		F8E5C0F62518E7300083D2B1 /* Domains */ = {
+			isa = PBXGroup;
+			children = (
+				F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */,
+				F8E5C0F92518E8100083D2B1 /* HeadlinesFetchingUseCase.swift */,
+				F8E5C0FB2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift */,
+			);
+			path = Domains;
+			sourceTree = "<group>";
+		};
 		F8F14C68250D70AA00C24FF5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F858997925176D7700A6BA2A /* Models */,
-				F8F14C69250D70B400C24FF5 /* Data Layers */,
-				F8F14C6F250D710100C24FF5 /* Extensions */,
-				F8F14C6D250D70DC00C24FF5 /* Utilites */,
 				F8F14C6C250D70CF00C24FF5 /* ViewControllers */,
 				F8F14C6B250D70C700C24FF5 /* ViewModels */,
 				F8F14C6A250D70BD00C24FF5 /* Views */,
+				F858997925176D7700A6BA2A /* Models */,
+				F8E5C0F62518E7300083D2B1 /* Domains */,
+				F8F14C69250D70B400C24FF5 /* Data Layers */,
+				F8F14C6F250D710100C24FF5 /* Extensions */,
+				F8F14C6D250D70DC00C24FF5 /* Utilites */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -377,6 +406,12 @@
 		F8F14C6B250D70C700C24FF5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F8E5C0F42518DD3E0083D2B1 /* ViewModelState.swift */,
+				F8E5C0F22518D8AC0083D2B1 /* ArticleViewModel.swift */,
+				F8E5C0EC2518833B0083D2B1 /* ArticlesViewModel.swift */,
+				F8E5C0EE2518848D0083D2B1 /* HeadlinesViewModel.swift */,
+				F8E5C0F0251884A20083D2B1 /* HeadlineSearchViewModel.swift */,
+				F8E5C0FD25190CDD0083D2B1 /* HeadlineCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -460,6 +495,7 @@
 			buildConfigurationList = F89B023D250D446200B41293 /* Build configuration list for PBXNativeTarget "DutchNews" */;
 			buildPhases = (
 				ED77C5D597B0DE2AE4BC3C93 /* [CP] Check Pods Manifest.lock */,
+				F8E5C105251915CE0083D2B1 /* Swift Lint Run Script */,
 				F89B0216250D446000B41293 /* Sources */,
 				F89B0217250D446000B41293 /* Frameworks */,
 				F89B0218250D446000B41293 /* Resources */,
@@ -641,6 +677,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F8E5C105251915CE0083D2B1 /* Swift Lint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -649,20 +703,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F85899882517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift in Sources */,
+				F8E5C0F32518D8AC0083D2B1 /* ArticleViewModel.swift in Sources */,
+				F8E5C0ED2518833B0083D2B1 /* ArticlesViewModel.swift in Sources */,
 				F8154D6F25180B0200BFB42C /* UIView+Nib.swift in Sources */,
 				F858997B25176DC800A6BA2A /* Article.swift in Sources */,
 				F865F7622516A6C1001FD067 /* APIServerResponseError.swift in Sources */,
 				F865F7602516A643001FD067 /* APIServerResponseStatus.swift in Sources */,
+				F8E5C0FA2518E8100083D2B1 /* HeadlinesFetchingUseCase.swift in Sources */,
 				F8154D522517EBC700BFB42C /* HeadlinesViewController+MagazineLayout.swift in Sources */,
 				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
 				F8154D752518156000BFB42C /* HeadlinesViewController+DataSource.swift in Sources */,
 				F8154D6C25180A9000BFB42C /* HeadlineBaseCollectionViewCell.swift in Sources */,
 				F865F76B2516C08C001FD067 /* NetworkValidResponse.swift in Sources */,
 				F8154D612518011500BFB42C /* MainArticleCollectionViewCell.swift in Sources */,
+				F8E5C0F1251884A20083D2B1 /* HeadlineSearchViewModel.swift in Sources */,
 				F8154D7125180C3900BFB42C /* ArticleWebContainerCollectionViewCell.swift in Sources */,
+				F8E5C0F82518E7770083D2B1 /* HeadlinesUseCases.swift in Sources */,
 				F865F75025168F05001FD067 /* AppConfig.swift in Sources */,
+				F8E5C0FE25190CDD0083D2B1 /* HeadlineCellViewModel.swift in Sources */,
 				F865F7642516A9D5001FD067 /* APIServerResponse.swift in Sources */,
+				F8E5C0F52518DD3E0083D2B1 /* ViewModelState.swift in Sources */,
+				F8E5C0FC2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift in Sources */,
 				F8154D572517F03600BFB42C /* ArticleHeadlineLayoutConfiguration.swift in Sources */,
+				F8E5C0EF2518848D0083D2B1 /* HeadlinesViewModel.swift in Sources */,
 				F8154D4E2517D28700BFB42C /* HeadlinesViewController.swift in Sources */,
 				F8154D652518012F00BFB42C /* ArticleRowCollectionViewCell.swift in Sources */,
 				F8154D792518207B00BFB42C /* String+HTML.swift in Sources */,
