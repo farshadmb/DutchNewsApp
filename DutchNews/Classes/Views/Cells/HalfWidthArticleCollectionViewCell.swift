@@ -17,6 +17,9 @@ class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5.0
+        
         // Initialization code
     }
     
@@ -25,6 +28,15 @@ class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
         titleLabel.text = nil
         imageView.image = nil
         sourceLabel.text = nil
+        imageView.cancelCurrentImageLoad()
     }
-
+    
+    override func config(viewModel article: ArticleRepresentable) {
+        
+        titleLabel.text = article.title
+        sourceLabel.text = article.source
+        imageView.setImage(url: article.urlToImage)
+        
+    }
+    
 }

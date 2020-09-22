@@ -14,26 +14,26 @@ import RxDataSources
 
 extension HeadlinesViewController {
     
-    typealias SectionType = SectionModel<Int,Article>
+    typealias SectionType = ArticlesViewModel.T
     
     func buildDataSource() -> RxCollectionViewSectionedReloadDataSource<SectionType> {
         
-        return RxCollectionViewSectionedReloadDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, item) -> UICollectionViewCell in
+        return RxCollectionViewSectionedReloadDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, _) -> UICollectionViewCell in
             
             guard let `self` = self else {
                 return HeadlineBaseCollectionViewCell()
             }
             
-            let item2 = dataSource[indexPath]
+            let item = dataSource[indexPath]
             
-            let reuseId = self.reuseItentifier(forCellAt: indexPath, item: item2).id
+            let reuseId = self.reuseItentifier(forCellAt: indexPath, item: item.model).id
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
             
-            self.fill(cell: cell, withArticle: item2)
+            self.fill(cell: cell, withArticle: item)
             
-            cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
-            cell.contentView.layer.borderWidth = 0.25
-            cell.contentView.layer.cornerRadius = 5.0
+            cell.contentView.layer.borderColor = UIColor.darkGray.cgColor
+            cell.contentView.layer.borderWidth = 0.4
+            cell.contentView.layer.cornerRadius = 8.0
             
             return cell
         })
@@ -56,65 +56,27 @@ extension HeadlinesViewController {
         }
     }
     
-    private func fill(cell: UICollectionViewCell, withArticle article: Article) {
+    private func fill(cell: UICollectionViewCell, withArticle article: ArticleViewModel) {
         
         switch (cell) {
-        case (let cell as MainArticleCollectionViewCell):
-            cell.titleLabel.text = article.title
-        case (let cell as HalfWidthArticleCollectionViewCell):
-            cell.titleLabel.text = article.title
-            cell.sourceLabel.text = article.source.name
-            
-        case (let cell as ArticleWebContainerCollectionViewCell) where article.type == .mock :
+        case (let cell as ArticleWebContainerCollectionViewCell) where article.model.type == .mock :
             
             if cell.contentLabel.text == nil,
-                let content = article.content {
-            
+                let content = article.model.content {
+                
                 cell.webView.loadHTMLString(content, baseURL: nil)
                 cell.contentLabel.text = content
                 
-                //FIXME: determind a observation for callback purpose when loading was finished.
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {[weak self] in
-                    self?.collectionView.reloadData()
-                    self?.collectionLayout?.invalidateLayout()
-                }
             }
-            
-        case (let cell as ArticleRowCollectionViewCell):
-            
-            print(article)
-            cell.titleLabel.text = article.title
-            cell.descriptionLabel.text = article.description
-            cell.sourceLabel.text = article.source.name
-            cell.dateLabel.text = article.publishedAt.description(with: Locale.current)
-            
+        case (let cell as HeadlineBaseCollectionViewCell):
+            article.output
+                .debug()
+                .drive(onNext: {[weak cell] viewModel in
+                    cell?.config(viewModel: viewModel)
+                }).disposed(by: cell.disposeBag)
         default:
             break
         }
-    }
-    
-    func buildMockData() -> SectionType {
-        
-        let bundle = Bundle(for: type(of: self))
-        guard let data = try? Data(contentsOf: bundle.url(forResource: "HeadlineSuccessResponse", withExtension: "json")!) else {
-            return SectionType(model: 0, items: [])
-        }
-        
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        decoder.dataDecodingStrategy = .deferredToData
-        
-        guard let response = try? decoder.decode(APIServerResponse<[Article]>.self, from: data),
-            var items = response.data else {
-            return SectionType(model: 0, items: [])
-        }
-        
-        if items.count > 3 {
-            items.insert(Article.htmlArticle(), at: 3)
-        }
-        
-        return SectionType(model: 0, items: items)
-        
     }
     
 }

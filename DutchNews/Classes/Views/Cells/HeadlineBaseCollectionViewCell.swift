@@ -8,7 +8,24 @@
 
 import Foundation
 import MagazineLayout
+import RxSwift
 
 class HeadlineBaseCollectionViewCell: MagazineLayoutCollectionViewCell {
+    
+    var disposeBag: DisposeBag! = DisposeBag()
+    
+    deinit {
+        disposeBag = nil
+    }
+    
+    override func prepareForReuse() {
+        super.awakeFromNib()
+        disposeBag = nil
+        disposeBag = DisposeBag()
+    }
+    
+    open func config(viewModel: ArticleRepresentable) {
+        
+    }
     
 }

@@ -11,6 +11,7 @@ import MagazineLayout
 import RxCocoa
 import RxSwift
 import RxDataSources
+import PureLayout
 
 class HeadlinesViewController: UIViewController {
     
@@ -37,6 +38,14 @@ class HeadlinesViewController: UIViewController {
         return refreshControl
     }()
     
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        if #available(iOS 13.0, *) {
+            return UIActivityIndicatorView(style: .large)
+        } else {
+            return UIActivityIndicatorView(style: .gray)
+        }
+    }()
+    
     var layoutConfiguration: HeadlineLayoutConfiguration = ArticleHeadlineLayoutConfiguration() {
         didSet {
             collectionView.reloadData()
@@ -49,6 +58,8 @@ class HeadlinesViewController: UIViewController {
         return self.buildDataSource()
     }()
     
+    var viewModel: ArticlesViewModel? = HeadlinesViewModel(useCase: AppDIContainer.headlineFetchingUseCase)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,11 +67,8 @@ class HeadlinesViewController: UIViewController {
         
         setupLayouts()
         
-        let items = self.buildMockData()
-        Observable.from(optional: [items])
-            .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
-            .disposed(by: self.disposeBag)
-        self.collectionView.delegate = self
+        bindViewModels()
+        loadContentsIfNeeded()
         
     }
     
@@ -74,8 +82,18 @@ class HeadlinesViewController: UIViewController {
      }
      */
     
+    ////////////////////////////////////////////////////////////////
+    // MARK: -
+    // MARK: UI Methods
+    // MARK: -
+    ////////////////////////////////////////////////////////////////
+
     func setupLayouts() {
         setupColletionView()
+        view.addSubview(loadingIndicator)
+        loadingIndicator.autoCenterInSuperview()
+        loadingIndicator.hidesWhenStopped = true
+        
     }
     
     func setupColletionView() {
@@ -94,11 +112,93 @@ class HeadlinesViewController: UIViewController {
         
     }
     
+    func updateLayoutsBase(onState state: ViewModelState) {
+        switch state {
+        case .loading(isRefreshing: let isRefreshing) where isRefreshing == false :
+            loadingIndicator.stopAnimating()
+           
+        case .loaded:
+            guard refreshControl.isRefreshing else {
+                fallthrough
+            }
+            refreshControl.endRefreshing()
+            fallthrough
+        case .idle:
+            loadingIndicator.stopAnimating()
+            
+        case .error(let error):
+            refreshControl.endRefreshing()
+            loadingIndicator.stopAnimating()
+            
+            let message: String
+            if let err = error as? URLError {
+                message = err.localizedDescription
+            }else {
+                message = error.localizedDescription
+            }
+            
+            presentAlert(message: message,
+                                        actionTitle: "retry".localized) {[weak self] in
+                                           self?.loadContentsIfNeeded()
+            }
+        default:
+            break
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////
+    // MARK: -
+    // MARK: View Model Methods
+    // MARK: -
+    ////////////////////////////////////////////////////////////////
+    
+    func bindViewModels() {
+        
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        
+        bind(viewModel: viewModel)
+    }
+    
+    func bind(viewModel: ArticlesViewModel) {
+        
+        viewModel.output.drive(collectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        
+        // RxSwift assigned another delelgate object after running the upper code
+        // we have to make sure that current vc present as delegate
+        collectionView.delegate = self
+        
+        viewModel.state.drive(onNext: {[weak self] (state) in
+            self?.updateLayoutsBase(onState: state)
+        }).disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind { [weak self] _ in
+                self?.loadContentsIfNeeded()
+            }.disposed(by: disposeBag)
+    }
+    
+    func loadContentsIfNeeded() {
+        guard refreshControl.isRefreshing else {
+            viewModel?.fetchArticles()
+            return
+        }
+        
+        viewModel?.refreshArticles()
+    }
+    
 }
 
 extension HeadlinesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let item = dataSource[indexPath]
+        viewModel?.didSelect(article: item)
     }
 }
+
+extension HeadlinesViewController: AlertableView {}

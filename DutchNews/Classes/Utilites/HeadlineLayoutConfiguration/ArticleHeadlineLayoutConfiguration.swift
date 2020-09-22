@@ -14,9 +14,10 @@ struct ArticleHeadlineLayoutConfiguration: HeadlineLayoutConfiguration {
         
     func itemSizeMode(forItemAt indexPath: IndexPath) -> MagazineLayoutItemSizeMode {
         switch (indexPath.section, indexPath.row) {
-        case (_,0),
-             (_,3):
+        case (_,0):
             return sizeModeCreate(widthMode: .fullWidth(respectsHorizontalInsets: true), heightMode: .dynamic)
+        case (_,3):
+            return sizeModeCreate(widthMode: .fullWidth(respectsHorizontalInsets: true), heightMode: .static(height: 80))
         case (_,1),
              (_,2):
             return sizeModeCreate(widthMode: .halfWidth, heightMode: .dynamicAndStretchToTallestItemInRow)
