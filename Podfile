@@ -23,7 +23,7 @@ target 'DutchNews' do
   pod 'PureLayout'
   pod 'MXParallaxHeader'
   pod 'Pageboy'
-  pod 'JEKScrollableSectionCollectionViewLayout', :git => 'https://github.com/farshadmb/JEKScrollableSectionCollectionViewLayout.git'
+#  pod 'JEKScrollableSectionCollectionViewLayout', :git => 'https://github.com/farshadmb/JEKScrollableSectionCollectionViewLayout.git'
   pod 'MagazineLayout'
   
   pod 'RealmSwift'
