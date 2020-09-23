@@ -23,13 +23,14 @@ target 'DutchNews' do
   pod 'PureLayout'
   pod 'MXParallaxHeader'
   pod 'Pageboy'
-  pod 'JEKScrollableSectionCollectionViewLayout', :git => 'https://github.com/farshadmb/JEKScrollableSectionCollectionViewLayout.git'
+#  pod 'JEKScrollableSectionCollectionViewLayout', :git => 'https://github.com/farshadmb/JEKScrollableSectionCollectionViewLayout.git'
   pod 'MagazineLayout'
   
   pod 'RealmSwift'
   pod 'MaterialComponents'
   pod 'SwiftLint'
   pod 'CryptoSwift', '1.1.2'
+  pod 'SDWebImage'
   
   #Logger Framework
   pod 'CocoaLumberjack/Swift'

@@ -12,13 +12,14 @@ import Foundation
 
 struct ModelsDataFactory {
     
+    //swiftlint:disable all
     static func createMockArticlesData() -> Data {
         let bundle = Bundle(for: ModelTests.self)
        return try! Data(contentsOf: bundle.url(forResource: "Articles", withExtension: "json")!)
     }
     
     static func createCorruptedMockArticlesData() -> Data {
-        return  """
+        return """
             [{
                "source": {
                    "id": null,
@@ -123,5 +124,6 @@ struct ModelsDataFactory {
     static func createCorruptedMockSource() -> Data {
         return "{ \"id\": null }".data(using: .utf8)!
     }
-    
+    //swiftlint: disable enable
+
 }

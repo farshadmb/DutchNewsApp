@@ -12,6 +12,7 @@ import Mocker
 import Alamofire
 @testable import DutchNews
 
+// swiftlint:disable all
 struct NetworkMockingDataFactory {
     
     static func createSimpleJSONData() -> Data {
@@ -26,6 +27,7 @@ struct NetworkMockingDataFactory {
         return data
     }
     
+    
     static func createRealJSONData() -> Data {
         fatalError("")
     }
@@ -37,7 +39,9 @@ struct NetworkMockingDataFactory {
 }
 
 struct StubPerson: Codable {
+    
     let name: String
     let age: Int
     let email: String?
 }
+// swiftlint:enable all
