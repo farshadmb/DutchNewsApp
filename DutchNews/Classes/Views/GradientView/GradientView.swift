@@ -106,11 +106,10 @@ class GradientView: UIView {
         switch colors {
         case (.some(let up), .some(let down)):
             self.setGradientColor(colors: [up, down])
-            break
+            
         case (.some(let color), .none),
              (.none, .some(let color)):
             self.setGradientColor(colors: [color])
-            break
             
         default:
             self.self.setGradientColor(colors: nil)

@@ -198,6 +198,7 @@ extension HeadlinesViewController: UICollectionViewDelegate {
         
         let item = dataSource[indexPath]
         viewModel?.didSelect(article: item)
+        self.performSegue(withIdentifier: "showDetails", sender: item)
     }
 }
 
