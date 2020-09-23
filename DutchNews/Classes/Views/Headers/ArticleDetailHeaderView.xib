@@ -93,9 +93,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="AzL-hv-7uL"/>
                         <constraint firstAttribute="bottom" secondItem="Zi6-CE-w9U" secondAttribute="bottom" id="EWl-YJ-Jtl"/>
                         <constraint firstAttribute="bottom" secondItem="02L-zZ-V9V" secondAttribute="bottom" id="JQh-N9-4tF"/>
                         <constraint firstItem="Zi6-CE-w9U" firstAttribute="top" secondItem="Yo9-hn-8RB" secondAttribute="top" id="bJe-NA-FpE"/>
@@ -107,11 +105,13 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Yo9-hn-8RB" firstAttribute="bottom" secondItem="6t7-UC-Bc5" secondAttribute="bottom" id="9YQ-b6-s0h"/>
                 <constraint firstItem="Yo9-hn-8RB" firstAttribute="leading" secondItem="6t7-UC-Bc5" secondAttribute="leading" id="ElL-He-WZT"/>
+                <constraint firstItem="Yo9-hn-8RB" firstAttribute="top" secondItem="6t7-UC-Bc5" secondAttribute="top" id="Fxw-qQ-yGR"/>
                 <constraint firstItem="Yo9-hn-8RB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ShC-sD-1ZP"/>
+                <constraint firstItem="6t7-UC-Bc5" firstAttribute="trailing" secondItem="Yo9-hn-8RB" secondAttribute="trailing" id="U49-4J-sNA"/>
                 <constraint firstAttribute="trailing" secondItem="Yo9-hn-8RB" secondAttribute="trailing" id="idW-fM-U3Q"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -122,7 +122,7 @@
                 <outlet property="backgroundImageView" destination="02L-zZ-V9V" id="5VJ-BB-qqU"/>
                 <outlet property="publishDateLabel" destination="yJE-j8-n39" id="rHk-C2-P9v"/>
                 <outlet property="sourceLabel" destination="I8o-yP-Tb0" id="89G-CU-fkO"/>
-                <outlet property="titleLAbel" destination="IUG-fe-4Lc" id="A8d-z9-dK0"/>
+                <outlet property="titleLabel" destination="IUG-fe-4Lc" id="RV0-eG-bqa"/>
             </connections>
             <point key="canvasLocation" x="428.80000000000001" y="22.03898050974513"/>
         </view>

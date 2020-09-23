@@ -18,6 +18,7 @@ class ArticleDetailHeaderView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundImageView.image = #imageLiteral(resourceName: "image-placeHolder")
         // Initialization code
     }
     

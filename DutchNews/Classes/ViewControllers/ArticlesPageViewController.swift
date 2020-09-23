@@ -13,6 +13,8 @@ class ArticlePageViewController: PageboyViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interPageSpacing = 8.0
+        self.dataSource = self
         
         // Do any additional setup after loading the view.
         
@@ -38,7 +40,12 @@ extension ArticlePageViewController: PageboyViewControllerDataSource {
     
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
-        UIViewController()
+        let id = String(describing: ArticleDetailViewController.self)
+        if #available(iOS 13.0, *) {
+            return self.storyboard?.instantiateViewController(identifier: id)
+        } else {
+            return self.storyboard?.instantiateViewController(withIdentifier: id)
+        }
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {

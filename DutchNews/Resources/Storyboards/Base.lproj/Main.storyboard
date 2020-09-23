@@ -5,13 +5,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="bpN-Zh-r8r">
             <objects>
-                <navigationController id="MPn-DW-478" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MPn-DW-478" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WlZ-n2-7dN">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,16 +28,25 @@
         <!--Headlines-->
         <scene sceneID="5QW-Cp-yFc">
             <objects>
-                <viewController storyboardIdentifier="HeadlinesViewController" title="Headlines" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VMn-dR-dMe" customClass="HeadlinesViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeadlinesViewController" title="Headlines" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VMn-dR-dMe" customClass="HeadlinesViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="axr-f3-qx9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6c-eL-beA">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="PkI-e8-ZZx" customClass="MagazineLayout" customModule="MagazineLayout"/>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R2B-Rf-c0M">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IeP-v0-B1J">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -51,22 +61,24 @@
                     <navigationItem key="navigationItem" title="Headlines" id="uvZ-xv-Dr2"/>
                     <connections>
                         <outlet property="collectionView" destination="J6c-eL-beA" id="qs3-Hg-IQy"/>
+                        <segue destination="wkF-VB-Bfl" kind="show" identifier="showDetails" id="vhM-Cc-aO5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1EW-hA-8DX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="839" y="100"/>
         </scene>
-        <!--Article Page View Controller-->
+        <!--Article-->
         <scene sceneID="NjG-65-wjE">
             <objects>
-                <viewController storyboardIdentifier="ArticlePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wkF-VB-Bfl" customClass="ArticlePageViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticlePageViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="wkF-VB-Bfl" customClass="ArticlePageViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6X-Oj-Rhb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="8wc-kD-IAa"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Article" largeTitleDisplayMode="never" id="ROU-Oi-Taz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3V-kD-Et8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,17 +87,61 @@
         <!--Article Detail View Controller-->
         <scene sceneID="YZt-Iz-K0N">
             <objects>
-                <viewController storyboardIdentifier="ArticleDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="isJ-qg-F6u" customClass="ArticleDetailViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDetailViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="isJ-qg-F6u" customClass="ArticleDetailViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zgk-Xr-cPI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6U-4m-1Rd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TJ-RH-Wbp">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZz-ad-vBS">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <wkWebViewConfiguration key="configuration">
+                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                    <wkPreferences key="preferences"/>
+                                                </wkWebViewConfiguration>
+                                            </wkWebView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="JZz-ad-vBS" secondAttribute="bottom" id="AZF-YW-oLn"/>
+                                            <constraint firstItem="JZz-ad-vBS" firstAttribute="leading" secondItem="6TJ-RH-Wbp" secondAttribute="leading" id="MKx-kb-hVF"/>
+                                            <constraint firstAttribute="trailing" secondItem="JZz-ad-vBS" secondAttribute="trailing" id="YkR-IW-XoE"/>
+                                            <constraint firstItem="JZz-ad-vBS" firstAttribute="top" secondItem="6TJ-RH-Wbp" secondAttribute="top" id="sLB-at-CMJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6TJ-RH-Wbp" firstAttribute="height" secondItem="o6U-4m-1Rd" secondAttribute="height" id="DYX-tm-g7l"/>
+                                    <constraint firstItem="6TJ-RH-Wbp" firstAttribute="leading" secondItem="o6U-4m-1Rd" secondAttribute="leading" id="VNS-WU-fxh"/>
+                                    <constraint firstAttribute="trailing" secondItem="6TJ-RH-Wbp" secondAttribute="trailing" id="qTI-f4-fCy"/>
+                                    <constraint firstItem="6TJ-RH-Wbp" firstAttribute="width" secondItem="o6U-4m-1Rd" secondAttribute="width" id="qjz-h8-uOG"/>
+                                    <constraint firstItem="6TJ-RH-Wbp" firstAttribute="top" secondItem="o6U-4m-1Rd" secondAttribute="top" id="wYp-YS-at7"/>
+                                    <constraint firstAttribute="bottom" secondItem="6TJ-RH-Wbp" secondAttribute="bottom" id="yKB-HO-xTv"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Lw1-6V-qYP" firstAttribute="bottom" secondItem="o6U-4m-1Rd" secondAttribute="bottom" id="ho3-j6-V1P"/>
+                            <constraint firstItem="o6U-4m-1Rd" firstAttribute="top" secondItem="Lw1-6V-qYP" secondAttribute="top" id="khP-6U-LIJ"/>
+                            <constraint firstItem="o6U-4m-1Rd" firstAttribute="leading" secondItem="Lw1-6V-qYP" secondAttribute="leading" id="oKr-Jo-X7A"/>
+                            <constraint firstItem="Lw1-6V-qYP" firstAttribute="trailing" secondItem="o6U-4m-1Rd" secondAttribute="trailing" id="r0b-9V-Il7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lw1-6V-qYP"/>
                     </view>
+                    <connections>
+                        <outlet property="containerScrollView" destination="o6U-4m-1Rd" id="ttY-fH-BIP"/>
+                        <outlet property="contentView" destination="JZz-ad-vBS" id="cWP-g4-a1K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="joc-BN-hSv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="100"/>
+            <point key="canvasLocation" x="2328.985507246377" y="99.776785714285708"/>
         </scene>
     </scenes>
 </document>

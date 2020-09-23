@@ -13,19 +13,12 @@ import RxCocoa
 import WebKit
 import MaterialComponents.MaterialColor
 import MXParallaxHeader
+import AVFoundation
 
 class ArticleDetailViewController: UIViewController, AlertableView {
     
-    lazy var progressView: UIProgressView = {
-        let view = UIProgressView(progressViewStyle: .bar)
-        view.progress = 0
-        view.progressTintColor = MDCPalette.blue.tint300
-        return view
-    }()
-    
-    lazy var contentView: WKWebView = {
-        return WKWebView(forAutoLayout: ())
-    }()
+    @IBOutlet weak var containerScrollView: UIScrollView!
+    @IBOutlet weak var contentView: WKWebView!
     
     lazy var headerView: ArticleDetailHeaderView = {
         let view = ArticleDetailHeaderView.fromNib()
@@ -38,7 +31,7 @@ class ArticleDetailViewController: UIViewController, AlertableView {
         super.viewDidLoad()
         
         setupViews()
-        
+        contentView.load(URLRequest(url: URL(string: "https://news.google.com/topstories?hl=en-US&gl=US&ceid=US:en")!))
         // Do any additional setup after loading the view.
         
     }
@@ -65,16 +58,27 @@ class ArticleDetailViewController: UIViewController, AlertableView {
     }
     
     func setupHeaderView() {
-        contentView.scrollView.parallaxHeader.view = headerView
-        contentView.scrollView.parallaxHeader.mode = .topFill
-        contentView.scrollView.parallaxHeader.minimumHeight = 70
-        contentView.scrollView.parallaxHeader.height = 180
-        headerView.backgroundColor = .cyan
+        containerScrollView.parallaxHeader.view = headerView
+        containerScrollView.parallaxHeader.mode = .fill
+        containerScrollView.parallaxHeader.minimumHeight = 70
+        
+        let height = AVMakeRect(aspectRatio: CGSize(width: 16, height: 9),
+                                insideRect: view.bounds).size.height
+        
+        containerScrollView.parallaxHeader.height = height
     }
     
     func setupContentView() {
-        view.addSubview(contentView)
-        contentView.autoPinEdgesToSuperviewSafeArea()
+//        contentView.scrollView.isScrollEnabled = true
+//        contentView.scrollView.rx.observe(CGSize.self, #keyPath(UIScrollView.contentSize),
+//                                          options: [.initial,.new], retainSelf: false)
+//            .filter { $0 != nil }.map { $0! }
+//            .distinctUntilChanged()
+//            .bind {[weak self ] (size) in
+//                self?.contentView.autoSetDimension(.height, toSize: size.height)
+//                self?.view.layoutIfNeeded()
+//            }
+        
     }
     
 }
