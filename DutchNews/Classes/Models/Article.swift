@@ -18,7 +18,14 @@ struct Article: Codable {
     
     let url: URL
     
-    let urlToImage: URL?
+    var urlToImage: URL? {
+        guard let urlStr = imageUrl, let url = URL(string: urlStr) else {
+            return nil
+        }
+        return url
+    }
+    
+    private let imageUrl: String?
     
     let publishedAt: Date
     
@@ -29,7 +36,9 @@ struct Article: Codable {
     enum CodingKeys: String, CodingKey {
         case source, author, title
         case description
-        case url, urlToImage, publishedAt, content
+        case url
+        case imageUrl = "urlToImage"
+        case publishedAt, content
     }
     
 }
@@ -46,6 +55,7 @@ extension Article: Hashable {
         hasher.combine(source)
         hasher.combine(url)
         hasher.combine(type)
+        
     }
 }
 
@@ -55,7 +65,7 @@ extension Article {
         
         return .init(title: "", author: "", description: "", source: ArticleSource(id: "", name: ""),
                      url: URL(string: "https://domain.com")!,
-                     urlToImage: nil, publishedAt: Date(),
+                     imageUrl: nil, publishedAt: Date(),
                      content: """
  <div class=\"widget\" style=\"margin: .5em 0;\">\n <a href=\"https://www.gva.be/tag/corona-gratis\">\n <img src=\"https://static.gva.be/Assets/Images_Upload/2020/03/26/fifitent.jpg\" style=\"display:block;width: 100%;\"/>\n </a>\n</div>
  """,type: .mock)

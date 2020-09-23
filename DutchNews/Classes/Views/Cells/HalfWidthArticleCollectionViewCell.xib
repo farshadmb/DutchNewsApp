@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqp-GP-zIf" userLabel="ContentView">
+                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqp-GP-zIf" userLabel="ContentView" customClass="MDCCardCollectionCell">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="70"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSH-TQ-SfM">
@@ -52,6 +52,9 @@
                             <constraint firstItem="dsK-Mc-HbV" firstAttribute="top" secondItem="ZSH-TQ-SfM" secondAttribute="top" id="i1q-kt-wkm"/>
                             <constraint firstItem="SUf-jx-0He" firstAttribute="firstBaseline" secondItem="dsK-Mc-HbV" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="sbY-fV-qpx"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
