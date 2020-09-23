@@ -40,6 +40,8 @@
 		F85899882517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85899872517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift */; };
 		F858998D2517909A00A6BA2A /* MockArticleValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858998C2517909A00A6BA2A /* MockArticleValidResponse.swift */; };
 		F85899902517910700A6BA2A /* HeadlinesArticleRemoteRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858998F2517910700A6BA2A /* HeadlinesArticleRemoteRepositoryTests.swift */; };
+		F85E318C251B8462002753AC /* ArticlesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E318B251B8462002753AC /* ArticlesPageViewController.swift */; };
+		F85E318E251B8484002753AC /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E318D251B8484002753AC /* ArticleDetailViewController.swift */; };
 		F865F74C251686D2001FD067 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74B251686D2001FD067 /* Authenticator.swift */; };
 		F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */; };
 		F865F75025168F05001FD067 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F74F25168F05001FD067 /* AppConfig.swift */; };
@@ -139,6 +141,8 @@
 		F85899872517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesArticleRemoteRepository.swift; sourceTree = "<group>"; };
 		F858998C2517909A00A6BA2A /* MockArticleValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleValidResponse.swift; sourceTree = "<group>"; };
 		F858998F2517910700A6BA2A /* HeadlinesArticleRemoteRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesArticleRemoteRepositoryTests.swift; sourceTree = "<group>"; };
+		F85E318B251B8462002753AC /* ArticlesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesPageViewController.swift; sourceTree = "<group>"; };
+		F85E318D251B8484002753AC /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		F865F74B251686D2001FD067 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		F865F74D251687E4001FD067 /* APIAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuthenticatorTests.swift; sourceTree = "<group>"; };
 		F865F74F25168F05001FD067 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 				F8154D4D2517D28700BFB42C /* HeadlinesViewController.swift */,
 				F8154D742518156000BFB42C /* HeadlinesViewController+DataSource.swift */,
 				F8154D512517EBC700BFB42C /* HeadlinesViewController+MagazineLayout.swift */,
+				F85E318B251B8462002753AC /* ArticlesPageViewController.swift */,
+				F85E318D251B8484002753AC /* ArticleDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -762,6 +768,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E5C12F25191DA60083D2B1 /* UIColor+Extension.swift in Sources */,
+				F85E318C251B8462002753AC /* ArticlesPageViewController.swift in Sources */,
 				F85899882517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift in Sources */,
 				F8E5C0F32518D8AC0083D2B1 /* ArticleViewModel.swift in Sources */,
 				F8E5C0ED2518833B0083D2B1 /* ArticlesViewModel.swift in Sources */,
@@ -798,6 +805,7 @@
 				F8154D4E2517D28700BFB42C /* HeadlinesViewController.swift in Sources */,
 				F8154D652518012F00BFB42C /* ArticleRowCollectionViewCell.swift in Sources */,
 				F8154D792518207B00BFB42C /* String+HTML.swift in Sources */,
+				F85E318E251B8484002753AC /* ArticleDetailViewController.swift in Sources */,
 				F8E5C11F25191D5E0083D2B1 /* Collection+Additionals.swift in Sources */,
 				F8E5C0EB251882560083D2B1 /* UIViewController+AlertableView.swift in Sources */,
 				F8154D552517EC0D00BFB42C /* HeadlineLayoutConfiguration.swift in Sources */,
