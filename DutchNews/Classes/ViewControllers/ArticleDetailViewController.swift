@@ -7,11 +7,37 @@
 //
 
 import Foundation
+import UIKit
+import RxSwift
+import RxCocoa
+import WebKit
+import MaterialComponents.MaterialColor
+import MXParallaxHeader
 
-class ArticleDetailViewController: UIViewController {
+class ArticleDetailViewController: UIViewController, AlertableView {
+    
+    lazy var progressView: UIProgressView = {
+        let view = UIProgressView(progressViewStyle: .bar)
+        view.progress = 0
+        view.progressTintColor = MDCPalette.blue.tint300
+        return view
+    }()
+    
+    lazy var contentView: WKWebView = {
+        return WKWebView(forAutoLayout: ())
+    }()
+    
+    lazy var headerView: ArticleDetailHeaderView = {
+        let view = ArticleDetailHeaderView.fromNib()
+        return view
+    }()
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViews()
         
         // Do any additional setup after loading the view.
         
@@ -27,5 +53,28 @@ class ArticleDetailViewController: UIViewController {
      }
      */
     
+    ////////////////////////////////////////////////////////////////
+    // MARK: -
+    // MARK: UI Methods
+    // MARK: -
+    ////////////////////////////////////////////////////////////////
+
+    func setupViews() {
+        setupContentView()
+        setupHeaderView()
+    }
+    
+    func setupHeaderView() {
+        contentView.scrollView.parallaxHeader.view = headerView
+        contentView.scrollView.parallaxHeader.mode = .topFill
+        contentView.scrollView.parallaxHeader.minimumHeight = 70
+        contentView.scrollView.parallaxHeader.height = 180
+        headerView.backgroundColor = .cyan
+    }
+    
+    func setupContentView() {
+        view.addSubview(contentView)
+        contentView.autoPinEdgesToSuperviewSafeArea()
+    }
     
 }

@@ -29,3 +29,20 @@ class ArticlePageViewController: PageboyViewController {
      */
     
 }
+
+extension ArticlePageViewController: PageboyViewControllerDataSource {
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        10
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController,
+                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+        UIViewController()
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return .first
+    }
+    
+}
