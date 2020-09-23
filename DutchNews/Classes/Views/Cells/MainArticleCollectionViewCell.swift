@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
 
@@ -37,7 +38,15 @@ class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        super.preferredLayoutAttributesFitting(layoutAttributes)
+        let attribute = super.preferredLayoutAttributesFitting(layoutAttributes)
+        
+        //make sure that aspect ratio applied on size calculation.
+        let size = AVMakeRect(aspectRatio: CGSize(width: 16, height: 9),
+                   insideRect: attribute.bounds).size
+        
+        attribute.size = size
+        return attribute
+        
     }
 
 }

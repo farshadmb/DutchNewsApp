@@ -17,17 +17,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHL-Xt-gwm" userLabel="ContentView">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHL-Xt-gwm" userLabel="ContentView" customClass="MDCCardCollectionCell">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kH-mn-bYH">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kH-mn-bYH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                             </imageView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8r-TP-XXp" userLabel="TransparentView" customClass="GradientView" customModule="DutchNews" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="8" width="320" height="172"/>
+                            <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8r-TP-XXp" userLabel="TransparentView" customClass="GradientView" customModule="DutchNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-Vd-11y">
-                                        <rect key="frame" x="8" y="117.5" width="304" height="46.5"/>
+                                    <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-Vd-11y">
+                                        <rect key="frame" x="8" y="125.5" width="304" height="46.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-JA-q80">
                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
@@ -92,13 +92,17 @@
                             <constraint firstAttribute="width" secondItem="rHL-Xt-gwm" secondAttribute="height" multiplier="16:9" id="JDS-Dm-S8b"/>
                             <constraint firstItem="j8r-TP-XXp" firstAttribute="leading" secondItem="rHL-Xt-gwm" secondAttribute="leadingMargin" constant="-8" id="LlC-1J-Wqx"/>
                             <constraint firstItem="3kH-mn-bYH" firstAttribute="centerX" secondItem="rHL-Xt-gwm" secondAttribute="centerX" id="Rs0-9h-c5h"/>
-                            <constraint firstItem="j8r-TP-XXp" firstAttribute="top" secondItem="rHL-Xt-gwm" secondAttribute="topMargin" id="Yg2-am-Vxh"/>
+                            <constraint firstItem="j8r-TP-XXp" firstAttribute="top" secondItem="rHL-Xt-gwm" secondAttribute="top" id="Yg2-am-Vxh"/>
                             <constraint firstItem="3kH-mn-bYH" firstAttribute="centerY" secondItem="rHL-Xt-gwm" secondAttribute="centerY" id="d6g-qN-zbc"/>
                             <constraint firstItem="3kH-mn-bYH" firstAttribute="height" secondItem="rHL-Xt-gwm" secondAttribute="height" id="gKc-yn-L6R"/>
                             <constraint firstItem="3kH-mn-bYH" firstAttribute="width" secondItem="rHL-Xt-gwm" secondAttribute="width" id="o6k-VP-5mE"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="180" placeholder="YES" id="pRZ-uk-zEO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="j8r-TP-XXp" secondAttribute="trailing" constant="-8" id="wHY-81-dhd"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
