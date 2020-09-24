@@ -91,4 +91,9 @@ struct AppDIContainer {
         return ArticleDetailsPageViewModel(useCase: articlesPageUseCase)
     }
     
+    static let viewModelViewControllerFactory: ViewControllerFactory = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: AppDelegate.self))
+        return ViewModelViewControllerFactory(storyboard: storyboard)
+    }()
+    
 }

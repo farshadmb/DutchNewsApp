@@ -60,6 +60,8 @@ class HeadlinesViewController: UIViewController {
     
     var viewModel: ArticlesViewModel? = HeadlinesViewModel(useCase: AppDIContainer.headlineFetchingUseCase)
     
+    var controllerFactory: ViewControllerFactory?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -177,6 +179,14 @@ class HeadlinesViewController: UIViewController {
             .bind { [weak self] _ in
                 self?.loadContentsIfNeeded()
             }.disposed(by: disposeBag)
+        
+        viewModel.selectedIndex.observeOn(MainScheduler.instance)
+            .filter { $0 != nil }.map { $0! }
+            .bind {[weak self] in
+                
+                self?.navigateToPages(withIndex: $0)
+                
+            }.disposed(by: disposeBag)
     }
     
     func loadContentsIfNeeded() {
@@ -186,6 +196,19 @@ class HeadlinesViewController: UIViewController {
         }
         
         viewModel?.refreshArticles()
+    }
+    
+    func navigateToPages(withIndex index: Int) {
+        do {
+            guard let vc = try controllerFactory?.makePageViewController(selected: index) else {
+                return
+            }
+            
+            self.navigationController?.show(vc, sender: false)
+            
+        }catch {
+            presentAlert(message: error.localizedDescription, actionTitle: nil) { }
+        }
     }
     
 }
@@ -198,8 +221,9 @@ extension HeadlinesViewController: UICollectionViewDelegate {
         
         let item = dataSource[indexPath]
         viewModel?.didSelect(article: item)
-        self.performSegue(withIdentifier: "showDetails", sender: item)
+        
     }
 }
 
 extension HeadlinesViewController: AlertableView {}
+extension HeadlinesViewController: ViewControllerFactoryable {}

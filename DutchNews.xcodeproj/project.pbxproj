@@ -72,6 +72,7 @@
 		F88800692517A423008DCC54 /* RepositoryDependenciesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88800682517A423008DCC54 /* RepositoryDependenciesFactory.swift */; };
 		F888006B2517A8EE008DCC54 /* HeadlineSuccessResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */; };
 		F888006D2517AA1F008DCC54 /* HeadlineFailureResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */; };
+		F897BD3C251D5C7E003822EA /* ViewModelViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897BD3B251D5C7E003822EA /* ViewModelViewControllerFactory.swift */; };
 		F89B021E250D446000B41293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B021D250D446000B41293 /* AppDelegate.swift */; };
 		F89B0220250D446200B41293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89B021F250D446200B41293 /* Assets.xcassets */; };
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
@@ -196,6 +197,7 @@
 		F88800682517A423008DCC54 /* RepositoryDependenciesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDependenciesFactory.swift; sourceTree = "<group>"; };
 		F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeadlineSuccessResponse.json; sourceTree = "<group>"; };
 		F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeadlineFailureResponse.json; sourceTree = "<group>"; };
+		F897BD3B251D5C7E003822EA /* ViewModelViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelViewControllerFactory.swift; sourceTree = "<group>"; };
 		F89B021A250D446000B41293 /* DutchNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DutchNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B021D250D446000B41293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89B021F250D446200B41293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				F81572BC251D4839009DBFD7 /* Screen.swift */,
 				F81572BE251D487E009DBFD7 /* ScreenEnum.swift */,
 				F81572C2251D4AB2009DBFD7 /* ViewControllerFactory.swift */,
+				F897BD3B251D5C7E003822EA /* ViewModelViewControllerFactory.swift */,
 			);
 			path = ViewControllerFactory;
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 				F8E5C13325193A290083D2B1 /* String+Localization.swift in Sources */,
 				F841DD0C25195429006E7E90 /* LinearGradientView.swift in Sources */,
 				F8E5C0F52518DD3E0083D2B1 /* ViewModelState.swift in Sources */,
+				F897BD3C251D5C7E003822EA /* ViewModelViewControllerFactory.swift in Sources */,
 				F8E5C0FC2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift in Sources */,
 				F8154D572517F03600BFB42C /* ArticleHeadlineLayoutConfiguration.swift in Sources */,
 				F8E5C0EF2518848D0083D2B1 /* HeadlinesViewModel.swift in Sources */,

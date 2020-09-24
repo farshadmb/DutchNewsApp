@@ -25,6 +25,8 @@ class ArticleDetailViewController: UIViewController, AlertableView {
         return view
     }()
     
+    var viewModel: ArticleViewModel?
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
