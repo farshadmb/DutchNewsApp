@@ -12,7 +12,7 @@ import RxAlamofire
 import Alamofire
 
 class HeadlinesArticleRemoteRepository: ArticleRepository {
-    
+     
     typealias DataType = Article
     
     let networkService: NetworkServiceInterceptable
@@ -46,9 +46,34 @@ class HeadlinesArticleRemoteRepository: ArticleRepository {
             .map(map(response:))
     }
     
+    func get<K>(identiferKey: K) -> [DataType] where K: Hashable {
+        fatalError()
+    }
+    
     private func map(response: ResponseResult) throws -> [Article] {
         let result = try response.get()
         return result.data ?? []
+    }
+    
+}
+
+// MARK: - Unneed method implementation
+extension HeadlinesArticleRemoteRepository {
+    
+    func find<T>(articleByIdentifier: T) -> Observable<DataType> where T: Hashable {
+        return .empty()
+    }
+    
+    func find<T>(articleByIdentifier: T) -> DataType? where T: Hashable {
+        return nil
+    }
+    
+    func save(article: DataType) throws {
+        
+    }
+    
+    func save(articles: [DataType]) throws {
+        
     }
     
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Article: Codable {
-    
+struct Article: Storable, Codable {
+   
     let title: String
     let author: String?
     let description: String?
@@ -41,6 +41,26 @@ struct Article: Codable {
         case publishedAt, content
     }
     
+    init(title: String, author: String? = nil, description: String? = nil,
+         source: ArticleSource,
+         url: URL, imageUrl: URL? = nil , publishedAt: Date = .now,
+         content: String? = nil, type: ArticleType = .news) {
+        
+        self.title = title
+        self.author = author
+        self.description = description
+        self.url = url
+        self.imageUrl = imageUrl?.absoluteString
+        self.publishedAt = publishedAt
+        self.source = source
+        self.content = content
+        self.type = type
+        
+    }
+    
+    func primaryKeyValue() -> String {
+        return url.absoluteString + "\(publishedAt.timeIntervalSince1970)"
+    }
 }
 
 enum ArticleType: Int, Codable {
@@ -55,6 +75,7 @@ extension Article: Hashable {
         hasher.combine(source)
         hasher.combine(url)
         hasher.combine(type)
+        hasher.combine(publishedAt)
         
     }
 }

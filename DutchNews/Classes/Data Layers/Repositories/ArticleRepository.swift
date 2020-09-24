@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 
+/// `ArticleRepository` Abstract.
 protocol ArticleRepository {
     
     typealias DataType = Article
@@ -19,5 +20,21 @@ protocol ArticleRepository {
     /// <#Description#>
     /// - Parameter keyword: <#keyword description#>
     func search(keyword: String) -> Observable<[DataType]>
+    
+    /// <#Description#>
+    /// - Parameter articleByIdentifier: <#articleByIdentifier description#>
+    func find<T: Hashable>(articleByIdentifier: T) -> Observable<DataType>
+    
+    /// <#Description#>
+    /// - Parameter articleByIdentifier: <#articleByIdentifier description#>
+    func find<T: Hashable>(articleByIdentifier: T) -> DataType?
+    
+    /// <#Description#>
+    /// - Parameter article: <#article description#>
+    func save(article: DataType) throws
+    
+    /// <#Description#>
+    /// - Parameter articles: <#articles description#>
+    func save(articles: [DataType]) throws
     
 }

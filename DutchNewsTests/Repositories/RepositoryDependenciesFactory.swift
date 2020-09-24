@@ -39,4 +39,8 @@ struct RepositoryDependenciesFactory {
         return MockArticleValidResponse()
     }
     
+    static func createStorage() -> Storage {
+        return CodableDataManager.default
+    }
+    
 }

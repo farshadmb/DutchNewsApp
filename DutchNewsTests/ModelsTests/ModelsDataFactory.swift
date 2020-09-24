@@ -8,8 +8,6 @@
 
 import Foundation
 
-@testable import DutchNewsTests
-
 struct ModelsDataFactory {
     
     //swiftlint:disable all
