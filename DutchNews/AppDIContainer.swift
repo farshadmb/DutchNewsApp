@@ -73,4 +73,8 @@ struct AppDIContainer {
                                         localRespository: headlineLocalArticleRepository)
     }
     
+    static var articlesPageUseCase: ArticlesUseCase {
+        return ArticlesPageUseCase(repository: headlineLocalArticleRepository)
+    }
+    
 }
