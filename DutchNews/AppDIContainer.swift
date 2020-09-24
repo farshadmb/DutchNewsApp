@@ -77,4 +77,18 @@ struct AppDIContainer {
         return ArticlesPageUseCase(repository: headlineLocalArticleRepository)
     }
     
+    ////////////////////////////////////////////////////////////////
+    // MARK: -
+    // MARK: ViewModels DI Container
+    // MARK: -
+    ////////////////////////////////////////////////////////////////
+
+    static var headlinesViewModel: ArticlesViewModel {
+        return HeadlinesViewModel(useCase: headlineFetchingUseCase)
+    }
+    
+    static var articlePagesViewModel: ArticlesPageViewModel {
+        return ArticleDetailsPageViewModel(useCase: articlesPageUseCase)
+    }
+    
 }
