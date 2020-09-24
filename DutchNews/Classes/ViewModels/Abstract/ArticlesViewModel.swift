@@ -20,11 +20,11 @@ protocol ArticlesViewModel: class {
     
     var output: Driver<[T]> { get }
     
+    var selectedIndex: BehaviorRelay<Int?> { get set }
+    
     func fetchArticles()
     
     func refreshArticles()
-    
-    func article(atIndex: IndexPath) -> T.Item?
     
     func didSelect(article: T.Item)
     

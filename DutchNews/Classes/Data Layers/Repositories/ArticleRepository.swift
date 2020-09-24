@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 /// `ArticleRepository` Abstract.
-protocol ArticleRepository {
+protocol ArticleRepository: class {
     
     typealias DataType = Article
     

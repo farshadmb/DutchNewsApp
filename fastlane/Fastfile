@@ -93,12 +93,8 @@ platform :ios do
         scan(clean: clean, # clean project folder before test execution    
           device: device, # Devices for testing     
           configuration: "Debug",
-          open_report: open_report,
-          result_bundle: true)
-          
-      rescue => ex 
-        UI.error "Failure on #{scheme} #{version} info : #{ex.to_s}"
-        raise Exception.new "Failure on #{scheme} #{version} info : #{ex.to_s}"
+          open_report: open_report)
+
       end 
   end
 
