@@ -66,6 +66,11 @@
 		F89B0220250D446200B41293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89B021F250D446200B41293 /* Assets.xcassets */; };
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
 		F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B022D250D446200B41293 /* DutchNewsTests.swift */; };
+		F8C83460251C04020051A0FD /* CodableDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8345B251C04010051A0FD /* CodableDataManager.swift */; };
+		F8C83462251C04020051A0FD /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8345E251C04010051A0FD /* Storable.swift */; };
+		F8C83463251C04020051A0FD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8345F251C04010051A0FD /* Storage.swift */; };
+		F8C83466251C1F480051A0FD /* CodableDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C83465251C1F480051A0FD /* CodableDataManagerTests.swift */; };
+		F8C83468251C22C80051A0FD /* DispatchQueue+Additonals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C83467251C22C80051A0FD /* DispatchQueue+Additonals.swift */; };
 		F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E22515904400A6C2D5 /* NetworkService.swift */; };
 		F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E4251594D700A6C2D5 /* APIClientService.swift */; };
 		F8E5C0E9251881C80083D2B1 /* AlertableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0E8251881C80083D2B1 /* AlertableView.swift */; };
@@ -179,6 +184,11 @@
 		F89B0229250D446200B41293 /* DutchNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DutchNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B022D250D446200B41293 /* DutchNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchNewsTests.swift; sourceTree = "<group>"; };
 		F89B022F250D446200B41293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C8345B251C04010051A0FD /* CodableDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableDataManager.swift; sourceTree = "<group>"; };
+		F8C8345E251C04010051A0FD /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		F8C8345F251C04010051A0FD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		F8C83465251C1F480051A0FD /* CodableDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableDataManagerTests.swift; sourceTree = "<group>"; };
+		F8C83467251C22C80051A0FD /* DispatchQueue+Additonals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Additonals.swift"; sourceTree = "<group>"; };
 		F8DE79E22515904400A6C2D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F8DE79E4251594D700A6C2D5 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
 		F8E5C0E8251881C80083D2B1 /* AlertableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertableView.swift; sourceTree = "<group>"; };
@@ -434,6 +444,7 @@
 		F89B022C250D446200B41293 /* DutchNewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				F8C83464251C1F0B0051A0FD /* Presistence */,
 				F858998B2517906B00A6BA2A /* Repositories */,
 				F858997E251772AF00A6BA2A /* ModelsTests */,
 				F82C8EFB2516051D002B27B3 /* NetworkTests */,
@@ -441,6 +452,40 @@
 				F89B022F250D446200B41293 /* Info.plist */,
 			);
 			path = DutchNewsTests;
+			sourceTree = "<group>";
+		};
+		F8C83457251C018F0051A0FD /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				F8C8345D251C04010051A0FD /* Abstracts */,
+				F8C8345A251C04010051A0FD /* Database */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		F8C8345A251C04010051A0FD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F8C8345B251C04010051A0FD /* CodableDataManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		F8C8345D251C04010051A0FD /* Abstracts */ = {
+			isa = PBXGroup;
+			children = (
+				F8C8345E251C04010051A0FD /* Storable.swift */,
+				F8C8345F251C04010051A0FD /* Storage.swift */,
+			);
+			path = Abstracts;
+			sourceTree = "<group>";
+		};
+		F8C83464251C1F0B0051A0FD /* Presistence */ = {
+			isa = PBXGroup;
+			children = (
+				F8C83465251C1F480051A0FD /* CodableDataManagerTests.swift */,
+			);
+			path = Presistence;
 			sourceTree = "<group>";
 		};
 		F8E5C0E7251881400083D2B1 /* AlertView */ = {
@@ -482,6 +527,7 @@
 				F865F7512516998A001FD067 /* Repositories */,
 				F865F74A251686C1001FD067 /* Authenticator */,
 				F8F14C6E250D70F900C24FF5 /* Networking */,
+				F8C83457251C018F0051A0FD /* Persistence */,
 			);
 			path = "Data Layers";
 			sourceTree = "<group>";
@@ -555,6 +601,7 @@
 				F8E5C11D25191D5D0083D2B1 /* URL+ApplicationPath.swift */,
 				F8154D782518207B00BFB42C /* String+HTML.swift */,
 				F8E5C13225193A290083D2B1 /* String+Localization.swift */,
+				F8C83467251C22C80051A0FD /* DispatchQueue+Additonals.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -813,10 +860,12 @@
 				F85899882517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift in Sources */,
 				F8E5C0F32518D8AC0083D2B1 /* ArticleViewModel.swift in Sources */,
 				F8E5C0ED2518833B0083D2B1 /* ArticlesViewModel.swift in Sources */,
+				F8C83462251C04020051A0FD /* Storable.swift in Sources */,
 				F8154D6F25180B0200BFB42C /* UIView+Nib.swift in Sources */,
 				F85E319E251B8D61002753AC /* RxWKUIDelegateProxy.swift in Sources */,
 				F858997B25176DC800A6BA2A /* Article.swift in Sources */,
 				F85E319D251B8D61002753AC /* Rx+WebKit.swift in Sources */,
+				F8C83460251C04020051A0FD /* CodableDataManager.swift in Sources */,
 				F865F7622516A6C1001FD067 /* APIServerResponseError.swift in Sources */,
 				F8E5C11E25191D5E0083D2B1 /* Date+Convertor.swift in Sources */,
 				F865F7602516A643001FD067 /* APIServerResponseStatus.swift in Sources */,
@@ -824,6 +873,7 @@
 				F8E5C12125191D5E0083D2B1 /* Bundle+Extensions.swift in Sources */,
 				F8154D522517EBC700BFB42C /* HeadlinesViewController+MagazineLayout.swift in Sources */,
 				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
+				F8C83468251C22C80051A0FD /* DispatchQueue+Additonals.swift in Sources */,
 				F8154D752518156000BFB42C /* HeadlinesViewController+DataSource.swift in Sources */,
 				F85E319F251B8D61002753AC /* WKNavigationDelegateEvents+Rx.swift in Sources */,
 				F85E31A1251B8D61002753AC /* RxWKUserContentController.swift in Sources */,
@@ -853,6 +903,7 @@
 				F8154D792518207B00BFB42C /* String+HTML.swift in Sources */,
 				F85E318E251B8484002753AC /* ArticleDetailViewController.swift in Sources */,
 				F8E5C11F25191D5E0083D2B1 /* Collection+Additionals.swift in Sources */,
+				F8C83463251C04020051A0FD /* Storage.swift in Sources */,
 				F8E5C0EB251882560083D2B1 /* UIViewController+AlertableView.swift in Sources */,
 				F85E3192251B85E4002753AC /* ArticleDetailHeaderView.swift in Sources */,
 				F8154D552517EC0D00BFB42C /* HeadlineLayoutConfiguration.swift in Sources */,
@@ -880,6 +931,7 @@
 			files = (
 				F85899902517910700A6BA2A /* HeadlinesArticleRemoteRepositoryTests.swift in Sources */,
 				F85899822517738C00A6BA2A /* ModelsDataFactory.swift in Sources */,
+				F8C83466251C1F480051A0FD /* CodableDataManagerTests.swift in Sources */,
 				F865F7662516AB66001FD067 /* APIServerResponseTests.swift in Sources */,
 				F88800692517A423008DCC54 /* RepositoryDependenciesFactory.swift in Sources */,
 				F89B022E250D446200B41293 /* DutchNewsTests.swift in Sources */,
