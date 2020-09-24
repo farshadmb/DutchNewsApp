@@ -71,6 +71,8 @@
 		F8C83463251C04020051A0FD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8345F251C04010051A0FD /* Storage.swift */; };
 		F8C83466251C1F480051A0FD /* CodableDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C83465251C1F480051A0FD /* CodableDataManagerTests.swift */; };
 		F8C83468251C22C80051A0FD /* DispatchQueue+Additonals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C83467251C22C80051A0FD /* DispatchQueue+Additonals.swift */; };
+		F8D58B83251CFC1E00B426AC /* HeadlinesArticleLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D58B82251CFC1E00B426AC /* HeadlinesArticleLocalRepository.swift */; };
+		F8D58B85251D04F900B426AC /* HeadlinesArticleLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D58B84251D04F900B426AC /* HeadlinesArticleLocalRepositoryTests.swift */; };
 		F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E22515904400A6C2D5 /* NetworkService.swift */; };
 		F8DE79E5251594D700A6C2D5 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE79E4251594D700A6C2D5 /* APIClientService.swift */; };
 		F8E5C0E9251881C80083D2B1 /* AlertableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0E8251881C80083D2B1 /* AlertableView.swift */; };
@@ -189,6 +191,8 @@
 		F8C8345F251C04010051A0FD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		F8C83465251C1F480051A0FD /* CodableDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableDataManagerTests.swift; sourceTree = "<group>"; };
 		F8C83467251C22C80051A0FD /* DispatchQueue+Additonals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Additonals.swift"; sourceTree = "<group>"; };
+		F8D58B82251CFC1E00B426AC /* HeadlinesArticleLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesArticleLocalRepository.swift; sourceTree = "<group>"; };
+		F8D58B84251D04F900B426AC /* HeadlinesArticleLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesArticleLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		F8DE79E22515904400A6C2D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F8DE79E4251594D700A6C2D5 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
 		F8E5C0E8251881C80083D2B1 /* AlertableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertableView.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 				F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */,
 				F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */,
 				F858998F2517910700A6BA2A /* HeadlinesArticleRemoteRepositoryTests.swift */,
+				F8D58B84251D04F900B426AC /* HeadlinesArticleLocalRepositoryTests.swift */,
 			);
 			path = HeadLines;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			children = (
 				F8589985251784B200A6BA2A /* ArticleRepository.swift */,
 				F85899872517894B00A6BA2A /* HeadlinesArticleRemoteRepository.swift */,
+				F8D58B82251CFC1E00B426AC /* HeadlinesArticleLocalRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -875,6 +881,7 @@
 				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
 				F8C83468251C22C80051A0FD /* DispatchQueue+Additonals.swift in Sources */,
 				F8154D752518156000BFB42C /* HeadlinesViewController+DataSource.swift in Sources */,
+				F8D58B83251CFC1E00B426AC /* HeadlinesArticleLocalRepository.swift in Sources */,
 				F85E319F251B8D61002753AC /* WKNavigationDelegateEvents+Rx.swift in Sources */,
 				F85E31A1251B8D61002753AC /* RxWKUserContentController.swift in Sources */,
 				F85E31A0251B8D61002753AC /* RxWKUIDelegateEvents+Rx.swift in Sources */,
@@ -940,6 +947,7 @@
 				F865F74E251687E4001FD067 /* APIAuthenticatorTests.swift in Sources */,
 				F8589980251772CC00A6BA2A /* ModelTests.swift in Sources */,
 				F82C8EFD2516304D002B27B3 /* APIClientServiceTests.swift in Sources */,
+				F8D58B85251D04F900B426AC /* HeadlinesArticleLocalRepositoryTests.swift in Sources */,
 				F858998D2517909A00A6BA2A /* MockArticleValidResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
