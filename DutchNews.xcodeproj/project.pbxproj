@@ -59,6 +59,7 @@
 		F865F7662516AB66001FD067 /* APIServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F7652516AB66001FD067 /* APIServerResponseTests.swift */; };
 		F865F76B2516C08C001FD067 /* NetworkValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F76A2516C08C001FD067 /* NetworkValidResponse.swift */; };
 		F865F76D2516C826001FD067 /* DefaultAPIValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865F76C2516C826001FD067 /* DefaultAPIValidResponse.swift */; };
+		F884C0FB251D24000078E88B /* HeadlinesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */; };
 		F88800692517A423008DCC54 /* RepositoryDependenciesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88800682517A423008DCC54 /* RepositoryDependenciesFactory.swift */; };
 		F888006B2517A8EE008DCC54 /* HeadlineSuccessResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */; };
 		F888006D2517AA1F008DCC54 /* HeadlineFailureResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */; };
@@ -82,7 +83,6 @@
 		F8E5C0F1251884A20083D2B1 /* HeadlineSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F0251884A20083D2B1 /* HeadlineSearchViewModel.swift */; };
 		F8E5C0F32518D8AC0083D2B1 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F22518D8AC0083D2B1 /* ArticleViewModel.swift */; };
 		F8E5C0F52518DD3E0083D2B1 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F42518DD3E0083D2B1 /* ViewModelState.swift */; };
-		F8E5C0F82518E7770083D2B1 /* HeadlinesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */; };
 		F8E5C0FA2518E8100083D2B1 /* HeadlinesFetchingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F92518E8100083D2B1 /* HeadlinesFetchingUseCase.swift */; };
 		F8E5C0FC2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0FB2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift */; };
 		F8E5C0FE25190CDD0083D2B1 /* HeadlineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0FD25190CDD0083D2B1 /* HeadlineCellViewModel.swift */; };
@@ -414,6 +414,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		F884C0FA251D1FCC0078E88B /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
 		F89B0211250D446000B41293 = {
 			isa = PBXGroup;
 			children = (
@@ -505,7 +513,7 @@
 		F8E5C0F62518E7300083D2B1 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
-				F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */,
+				F884C0FA251D1FCC0078E88B /* Abstract */,
 				F8E5C0F92518E8100083D2B1 /* HeadlinesFetchingUseCase.swift */,
 				F8E5C0FB2518E9150083D2B1 /* HeadlinesSearchingUseCases.swift */,
 			);
@@ -876,6 +884,7 @@
 				F8E5C11E25191D5E0083D2B1 /* Date+Convertor.swift in Sources */,
 				F865F7602516A643001FD067 /* APIServerResponseStatus.swift in Sources */,
 				F8E5C0FA2518E8100083D2B1 /* HeadlinesFetchingUseCase.swift in Sources */,
+				F884C0FB251D24000078E88B /* HeadlinesUseCases.swift in Sources */,
 				F8E5C12125191D5E0083D2B1 /* Bundle+Extensions.swift in Sources */,
 				F8154D522517EBC700BFB42C /* HeadlinesViewController+MagazineLayout.swift in Sources */,
 				F8DE79E32515904400A6C2D5 /* NetworkService.swift in Sources */,
@@ -893,7 +902,6 @@
 				F8E5C0F1251884A20083D2B1 /* HeadlineSearchViewModel.swift in Sources */,
 				F8E5C12D25191DA60083D2B1 /* UIViewController+StoryboardName.swift in Sources */,
 				F8154D7125180C3900BFB42C /* ArticleWebContainerCollectionViewCell.swift in Sources */,
-				F8E5C0F82518E7770083D2B1 /* HeadlinesUseCases.swift in Sources */,
 				F8E5C12A25191DA60083D2B1 /* UIImage+Additionals.swift in Sources */,
 				F8E5C12B25191DA60083D2B1 /* UINavigationBar+Additionals.swift in Sources */,
 				F865F75025168F05001FD067 /* AppConfig.swift in Sources */,
