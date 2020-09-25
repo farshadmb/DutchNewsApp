@@ -54,7 +54,7 @@ class HeadlinesViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    lazy var dataSource: RxCollectionViewSectionedReloadDataSource<SectionType> = {
+    lazy var dataSource: RxHeadlinesDataSource<SectionType> = {
         return self.buildDataSource()
     }()
     
@@ -94,6 +94,12 @@ class HeadlinesViewController: UIViewController {
         setupColletionView()
         view.addSubview(loadingIndicator)
         loadingIndicator.autoCenterInSuperview()
+        if #available(iOS 13, *) {
+            loadingIndicator.tintColor = UIColor.label
+        }else {
+            loadingIndicator.tintColor = .red
+        }
+        
         loadingIndicator.hidesWhenStopped = true
         
     }

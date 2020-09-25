@@ -73,6 +73,7 @@
 		F888006B2517A8EE008DCC54 /* HeadlineSuccessResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */; };
 		F888006D2517AA1F008DCC54 /* HeadlineFailureResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */; };
 		F897BD3C251D5C7E003822EA /* ViewModelViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897BD3B251D5C7E003822EA /* ViewModelViewControllerFactory.swift */; };
+		F897BD3E251D740C003822EA /* RxHeadlinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897BD3D251D740C003822EA /* RxHeadlinesDataSource.swift */; };
 		F89B021E250D446000B41293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B021D250D446000B41293 /* AppDelegate.swift */; };
 		F89B0220250D446200B41293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89B021F250D446200B41293 /* Assets.xcassets */; };
 		F89B0223250D446200B41293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89B0221250D446200B41293 /* LaunchScreen.storyboard */; };
@@ -198,6 +199,7 @@
 		F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeadlineSuccessResponse.json; sourceTree = "<group>"; };
 		F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeadlineFailureResponse.json; sourceTree = "<group>"; };
 		F897BD3B251D5C7E003822EA /* ViewModelViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelViewControllerFactory.swift; sourceTree = "<group>"; };
+		F897BD3D251D740C003822EA /* RxHeadlinesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxHeadlinesDataSource.swift; sourceTree = "<group>"; };
 		F89B021A250D446000B41293 /* DutchNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DutchNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B021D250D446000B41293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89B021F250D446200B41293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 				F81572BB251D4819009DBFD7 /* ViewControllerFactory */,
 				F8154D532517EBE300BFB42C /* HeadlineLayoutConfiguration */,
 				F8E5C1302519250E0083D2B1 /* Logger.swift */,
+				F897BD3D251D740C003822EA /* RxHeadlinesDataSource.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				F8E5C12025191D5E0083D2B1 /* Date+TimeAgo.swift in Sources */,
 				F865F76D2516C826001FD067 /* DefaultAPIValidResponse.swift in Sources */,
 				F8E5C1312519250E0083D2B1 /* Logger.swift in Sources */,
+				F897BD3E251D740C003822EA /* RxHeadlinesDataSource.swift in Sources */,
 				F858997D25176E8F00A6BA2A /* ArticleSource.swift in Sources */,
 				F8E5C135251943CF0083D2B1 /* AppDIContainer.swift in Sources */,
 				F8E5C12225191D5E0083D2B1 /* String+EmptyChecking.swift in Sources */,

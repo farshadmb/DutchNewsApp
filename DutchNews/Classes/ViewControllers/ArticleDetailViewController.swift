@@ -29,13 +29,38 @@ class ArticleDetailViewController: UIViewController, AlertableView {
     
     let disposeBag = DisposeBag()
     
+    deinit {
+        viewModel = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
-        contentView.load(URLRequest(url: URL(string: "https://news.google.com/topstories?hl=en-US&gl=US&ceid=US:en")!))
+        
+        viewModel?.output.asObservable().bind(onNext: {[weak self]  in
+            self?.headerView.config(content: $0)
+            self?.updateHeaderSize()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.buildURLContent()
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(onNext: {[weak contentView] (request) in
+                contentView?.load(request)
+            }).disposed(by: disposeBag)
+        
         // Do any additional setup after loading the view.
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        contentView.reload()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        contentView.stopLoading()
     }
     
     /*
@@ -53,9 +78,9 @@ class ArticleDetailViewController: UIViewController, AlertableView {
     // MARK: UI Methods
     // MARK: -
     ////////////////////////////////////////////////////////////////
-
+    
     func setupViews() {
-        setupContentView()
+        
         setupHeaderView()
     }
     
@@ -70,16 +95,23 @@ class ArticleDetailViewController: UIViewController, AlertableView {
         containerScrollView.parallaxHeader.height = height
     }
     
-    func setupContentView() {
-//        contentView.scrollView.isScrollEnabled = true
-//        contentView.scrollView.rx.observe(CGSize.self, #keyPath(UIScrollView.contentSize),
-//                                          options: [.initial,.new], retainSelf: false)
-//            .filter { $0 != nil }.map { $0! }
-//            .distinctUntilChanged()
-//            .bind {[weak self ] (size) in
-//                self?.contentView.autoSetDimension(.height, toSize: size.height)
-//                self?.view.layoutIfNeeded()
-//            }
+    func updateHeaderSize() {
+        
+        headerView.layoutIfNeeded()
+        
+        let size = headerView.systemLayoutSizeFitting(headerView.bounds.size,
+                                                      withHorizontalFittingPriority: .required,
+                                                      verticalFittingPriority: .fittingSizeLevel)
+        
+        if let minHeight = headerView.titleLabel.superview?.bounds.height {
+            containerScrollView.parallaxHeader.minimumHeight = minHeight + 16
+        }
+        
+        let height = AVMakeRect(aspectRatio: CGSize(width: 16, height: 9),
+                                insideRect: view.bounds).size.height
+        
+        containerScrollView.parallaxHeader.height = max(size.height, height)
+        view.layoutIfNeeded()
         
     }
     
