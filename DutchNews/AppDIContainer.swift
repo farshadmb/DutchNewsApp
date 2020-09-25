@@ -77,4 +77,23 @@ struct AppDIContainer {
         return ArticlesPageUseCase(repository: headlineLocalArticleRepository)
     }
     
+    ////////////////////////////////////////////////////////////////
+    // MARK: -
+    // MARK: ViewModels DI Container
+    // MARK: -
+    ////////////////////////////////////////////////////////////////
+
+    static var headlinesViewModel: ArticlesViewModel {
+        return HeadlinesViewModel(useCase: headlineFetchingUseCase)
+    }
+    
+    static var articlePagesViewModel: ArticlesPageViewModel {
+        return ArticleDetailsPageViewModel(useCase: articlesPageUseCase)
+    }
+    
+    static let viewModelViewControllerFactory: ViewControllerFactory = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: AppDelegate.self))
+        return ViewModelViewControllerFactory(storyboard: storyboard)
+    }()
+    
 }

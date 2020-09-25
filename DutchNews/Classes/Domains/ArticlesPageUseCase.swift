@@ -18,7 +18,8 @@ class ArticlesPageUseCase: ArticlesUseCase {
     }
     
     func fetchLocalArticles() -> Observable<[T]> {
-        return repository.fetchArticles()
+        return repository.fetchArticles().map {
+            $0.sorted(by: { $0.publishedAt >= $1.publishedAt })
+        }
     }
-        
 }

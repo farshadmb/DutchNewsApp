@@ -29,7 +29,7 @@ class ArticleDetailHeaderView: UIView {
         publishDateLabel.text = article.publishedAt
         
         backgroundImageView.setImage(url: article.urlToImage)
-        
+        layoutIfNeeded()
     }
     
 }

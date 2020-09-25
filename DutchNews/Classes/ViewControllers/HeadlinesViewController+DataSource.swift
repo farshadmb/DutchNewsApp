@@ -16,9 +16,9 @@ extension HeadlinesViewController {
     
     typealias SectionType = ArticlesViewModel.T
     
-    func buildDataSource() -> RxCollectionViewSectionedReloadDataSource<SectionType> {
+    func buildDataSource() -> RxHeadlinesDataSource<SectionType> {
         
-        return RxCollectionViewSectionedReloadDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, _) -> UICollectionViewCell in
+        return RxHeadlinesDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, _) -> UICollectionViewCell in
             
             guard let `self` = self else {
                 return HeadlineBaseCollectionViewCell()

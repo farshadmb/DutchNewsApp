@@ -73,7 +73,7 @@ platform :ios do
 
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
-      begin 
+
         UI.message "The device raw : #{options[:device]}"
         device =  options[:device]
         UI.message "The device list : #{device}"
@@ -94,8 +94,6 @@ platform :ios do
           device: device, # Devices for testing     
           configuration: "Debug",
           open_report: open_report)
-
-      end 
   end
 
 end

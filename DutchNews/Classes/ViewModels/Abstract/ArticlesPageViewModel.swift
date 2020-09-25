@@ -13,7 +13,9 @@ import RxDataSources
 
 /// ArticleViewModel Interface
 protocol ArticlesPageViewModel: ArticlesViewModel {
-      
+    
+    var count: Int { get }
+    
     var currentLoadingProgress: BehaviorRelay<CGFloat> { get }
     
     func viewModel(atIndex index: Int) -> T.Item?
