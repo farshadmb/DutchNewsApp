@@ -176,6 +176,7 @@ class HeadlinesViewController: UIViewController {
         // RxSwift assigned another delelgate object after running the upper code
         // we have to make sure that current vc present as delegate
         collectionView.delegate = self
+        collectionView.reloadData()
         
         viewModel.state.drive(onNext: {[weak self] (state) in
             self?.updateLayoutsBase(onState: state)

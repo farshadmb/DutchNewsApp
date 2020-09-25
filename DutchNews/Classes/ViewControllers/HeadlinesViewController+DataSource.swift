@@ -66,7 +66,6 @@ extension HeadlinesViewController {
             }
         case (let cell as HeadlineBaseCollectionViewCell):
             article.output
-                .debug()
                 .drive(onNext: {[weak cell] viewModel in
                     cell?.config(viewModel: viewModel)
                 }).disposed(by: cell.disposeBag)
