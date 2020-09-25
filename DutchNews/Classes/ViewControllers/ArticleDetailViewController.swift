@@ -111,7 +111,6 @@ class ArticleDetailViewController: UIViewController, AlertableView {
                                 insideRect: view.bounds).size.height
         
         containerScrollView.parallaxHeader.height = max(size.height, height)
-        view.layoutIfNeeded()
         
     }
     

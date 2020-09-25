@@ -15,9 +15,15 @@ extension UIImageView {
     static let cacheSDWebImageOptions: SDWebImageOptions = [.lowPriority,.scaleDownLargeImages,.queryMemoryData,.refreshCached]
     
     func setImage(url: URL?,placeHolderImage: UIImage? = #imageLiteral(resourceName: "image-placeHolder"),
-                   options: SDWebImageOptions = UIImageView.defaultSDWebImageOptions,
-                   completed: SDExternalCompletionBlock? = nil) {
-        self.contentMode = .scaleAspectFill
+                  contentMode: UIView.ContentMode? = .scaleAspectFill,
+                  options: SDWebImageOptions = UIImageView.defaultSDWebImageOptions,
+                  completed: SDExternalCompletionBlock? = nil) {
+        
+        if let contentMode = contentMode {
+            self.contentMode = contentMode
+            self.setNeedsDisplay()
+        }
+        
         self.sd_setImage(with: url, placeholderImage: placeHolderImage,
                          options: options, completed: completed)
     }

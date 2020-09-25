@@ -28,7 +28,7 @@ class ArticleDetailHeaderView: UIView {
         sourceLabel.text = article.source
         publishDateLabel.text = article.publishedAt
         
-        backgroundImageView.setImage(url: article.urlToImage)
+        backgroundImageView.setImage(url: article.urlToImage, contentMode: .scaleAspectFill)
         layoutIfNeeded()
     }
     
