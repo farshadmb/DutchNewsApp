@@ -8,10 +8,10 @@
 
 import UIKit
 import AVFoundation
+import MaterialComponents
 
 class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
 
-    @IBOutlet weak var cellContentView: UIView!
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,7 +20,7 @@ class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        contentView.clipsToBounds = true
+        backgroundCard?.clipsToBounds = true
     }
     
     override func prepareForReuse() {
@@ -35,6 +35,12 @@ class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
         titleLabel.text = viewModel.title
         sourceLabel.text = viewModel.source
         imageView.setImage(url: viewModel.urlToImage)
+        super.config(viewModel: viewModel)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        Logger.debugLog("layoutSubviews Aspect ratio 16:9 => \(bounds.size)")
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
@@ -42,9 +48,9 @@ class MainArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
         
         //make sure that aspect ratio applied on size calculation.
         let size = AVMakeRect(aspectRatio: CGSize(width: 16, height: 9),
-                   insideRect: attribute.bounds).size
-        
-        attribute.size = size
+                              insideRect: CGRect(origin: .zero, size: attribute.size)).size
+        Logger.debugLog("preferredLayoutAttributes Aspect ratio 16:9 => \(size)")
+        attribute.size.height = max(size.height, 180)
         return attribute
         
     }

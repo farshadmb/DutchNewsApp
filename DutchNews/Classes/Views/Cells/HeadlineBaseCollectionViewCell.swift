@@ -10,13 +10,17 @@ import Foundation
 import MagazineLayout
 import RxSwift
 import UIKit
+import MaterialComponents
 
 class HeadlineBaseCollectionViewCell: MagazineLayoutCollectionViewCell {
     
     var disposeBag: DisposeBag! = DisposeBag()
     
+    @IBOutlet var backgroundCard: MDCCardCollectionCell?
+    
     deinit {
         disposeBag = nil
+        backgroundCard = nil
     }
     
     override func prepareForReuse() {
@@ -25,41 +29,33 @@ class HeadlineBaseCollectionViewCell: MagazineLayoutCollectionViewCell {
         disposeBag = DisposeBag()
     }
     
+    fileprivate func setupBackgroundView() {
+        
+        if backgroundCard == nil {
+            let view = MDCCardCollectionCell(forAutoLayout: ())
+            contentView.insertSubview(view, at: 0)
+            self.backgroundCard = view
+        }
+        
+        backgroundCard?.isInteractable = false
+        backgroundCard?.isSelectable = true
+        backgroundCard?.setShadowElevation(.cardResting, for: .normal)
+        
+        backgroundCard?.autoPinEdgesToSuperviewEdges()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.clipsToBounds = false
+
+        setupBackgroundView()
     }
     
     open func config(viewModel: ArticleRepresentable) {
-        
+        contentView.layoutIfNeeded()
     }
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         contentView.bounds = layoutAttributes.bounds
     }
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        contentView.layoutIfNeeded()
-        
-        let attributes = super.preferredLayoutAttributesFitting(layoutAttributes)
-        
-        let size: CGSize
-        
-        if (attributes as? MagazineLayoutCollectionViewLayoutAttributes)?.shouldVerticallySelfSize == true {
-            // Self-sizing is required in the vertical dimension.
-            layoutIfNeeded()
-            size = super.systemLayoutSizeFitting(
-                layoutAttributes.size,
-                withHorizontalFittingPriority: .required,
-                verticalFittingPriority: .required)
-        } else {
-            // No self-sizing is required; respect whatever size the layout determined.
-            size = layoutAttributes.size
-        }
-        
-        layoutAttributes.size = size
-        
-        return layoutAttributes
-    }
-    
 }

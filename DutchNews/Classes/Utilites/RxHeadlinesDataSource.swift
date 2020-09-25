@@ -21,18 +21,23 @@ class RxHeadlinesDataSource<T>: RxCollectionViewSectionedReloadDataSource<T> whe
             
             collectionView.performBatchUpdates({
                 if dataSource.sectionModels.count == 0 {
-                    collectionView.insertSections(indices, animationStyle: .automatic)
+                    collectionView.insertSections(indices, animationStyle: .fade)
                 }else if dataSource.sectionModels.count == element.count {
-                    collectionView.reloadSections(indices, animationStyle: .fade)
+                    collectionView.reloadSections(indices, animationStyle: .none)
+                }else if dataSource.sectionModels.count < element.count {
+                    let insertIndicies = indices.filter({ $0 >= element.count })
+                    let reloadIndicies = indices.filter { $0 >= element.count }
+                    collectionView.insertSections(insertIndicies, animationStyle: .fade)
+                    collectionView.reloadSections(reloadIndicies, animationStyle: .none)
                 }
                 
                 dataSource.setSections(element)
-            }) { (finish) in
+            }, completion: { (finish) in
                 guard finish else {
                     return
                 }
                 collectionView.collectionViewLayout.invalidateLayout()
-            }
+            })
             
         }.on(observedEvent)
     }
