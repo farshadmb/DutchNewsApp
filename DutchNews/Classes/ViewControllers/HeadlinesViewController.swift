@@ -145,7 +145,7 @@ class HeadlinesViewController: UIViewController {
                 message = error.localizedDescription
             }
             
-            presentAlert(message: message,
+            presentAlertView(withMessage: message,
                                         actionTitle: "retry".localized) {[weak self] in
                                            self?.loadContentsIfNeeded()
             }
@@ -213,7 +213,7 @@ class HeadlinesViewController: UIViewController {
             self.navigationController?.show(vc, sender: false)
             
         }catch {
-            presentAlert(message: error.localizedDescription, actionTitle: nil) { }
+            presentAlertView(withMessage: error.localizedDescription)
         }
     }
     

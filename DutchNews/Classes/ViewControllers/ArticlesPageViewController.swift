@@ -61,9 +61,9 @@ class ArticlePageViewController: PageboyViewController, AlertableView, ViewContr
                 message = error.localizedDescription
             }
             
-            presentAlert(message: message,
-                         actionTitle: "retry".localized) {[weak self] in
-                            self?.loadContentsIfNeeded()
+            presentAlertView(withMessage: message,
+                             actionTitle: "retry".localized) {[weak self] in
+                                self?.loadContentsIfNeeded()
             }
         default:
             break

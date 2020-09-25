@@ -55,7 +55,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mg5-sD-JEa"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Headlines" id="uvZ-xv-Dr2"/>
+                    <navigationItem key="navigationItem" id="uvZ-xv-Dr2">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="headlines_title"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="J6c-eL-beA" id="qs3-Hg-IQy"/>
                         <segue destination="wkF-VB-Bfl" kind="show" identifier="showDetails" id="vhM-Cc-aO5"/>
@@ -65,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="839" y="100"/>
         </scene>
-        <!--Article-->
+        <!--Article Page View Controller-->
         <scene sceneID="NjG-65-wjE">
             <objects>
                 <viewController storyboardIdentifier="ArticlePageViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="wkF-VB-Bfl" customClass="ArticlePageViewController" customModule="DutchNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,7 +79,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="8wc-kD-IAa"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Article" largeTitleDisplayMode="never" id="ROU-Oi-Taz"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ROU-Oi-Taz">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="article_title"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3V-kD-Et8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
