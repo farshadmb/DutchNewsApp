@@ -10,7 +10,6 @@ import UIKit
 
 class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     
-    @IBOutlet weak var cellContentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
@@ -26,7 +25,7 @@ class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil
-        imageView.image = nil
+        imageView.image = #imageLiteral(resourceName: "image-placeHolder")
         sourceLabel.text = nil
         imageView.cancelCurrentImageLoad()
     }
@@ -36,6 +35,7 @@ class HalfWidthArticleCollectionViewCell: HeadlineBaseCollectionViewCell {
         titleLabel.text = article.title
         sourceLabel.text = article.source
         imageView.setImage(url: article.urlToImage)
+        super.config(viewModel: article)
         
     }
     

@@ -10,7 +10,6 @@ import UIKit
 
 class ArticleRowCollectionViewCell: HeadlineBaseCollectionViewCell {
 
-    @IBOutlet weak var cellContentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -31,7 +30,7 @@ class ArticleRowCollectionViewCell: HeadlineBaseCollectionViewCell {
         descriptionLabel.text = nil
         sourceLabel.text = nil
         dateLabel.text = nil
-        imageView.image = nil
+        imageView.image = #imageLiteral(resourceName: "image-placeHolder")
         imageView.cancelCurrentImageLoad()
     }
     
@@ -41,6 +40,7 @@ class ArticleRowCollectionViewCell: HeadlineBaseCollectionViewCell {
         sourceLabel.text = article.source
         imageView.setImage(url: article.urlToImage)
         dateLabel.text = article.publishedAt
+        super.config(viewModel: article)
     }
     
 }
