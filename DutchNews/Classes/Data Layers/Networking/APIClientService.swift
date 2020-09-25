@@ -230,7 +230,7 @@ final class APIClientService: NetworkServiceInterceptable {
                 Logger.debugLog(result.debugDescription,tag: "Networking")
             }
             
-            return map(dataRequest: dataTask, decoder: decoder).debug()
+            return map(dataRequest: dataTask, decoder: decoder)
             
         }catch let error {
             return .just(.failure(error))

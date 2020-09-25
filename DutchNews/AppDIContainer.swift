@@ -69,12 +69,12 @@ struct AppDIContainer {
     ////////////////////////////////////////////////////////////////
 
     static var headlineFetchingUseCase: HeadlinesUseCases {
-        return HeadlinesFetchingUseCase(repository: headlineArticleRepository,
-                                        localRespository: headlineLocalArticleRepository)
+        return HeadlinesFetchingUseCase(repository: headlineArticleRepository)
+                                        
     }
     
     static var articlesPageUseCase: ArticlesUseCase {
-        return ArticlesPageUseCase(repository: headlineLocalArticleRepository)
+        return ArticlesPageUseCase(repository: headlineArticleRepository)
     }
     
     ////////////////////////////////////////////////////////////////

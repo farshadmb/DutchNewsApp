@@ -41,7 +41,7 @@ class HeadlinesFetchingUseCase: HeadlinesUseCases {
             .debug("#\(#file.replacingOccurrences(of: ".swift", with: "")).\(#function)")
             .do(afterNext: {[weak local] in
                 try? local?.save(articles: $0)
-        })
+            })
     }
-        
+    
 }
