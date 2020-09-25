@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import PureLayout
+import MaterialComponents.MDCActivityIndicator
 
 class HeadlinesViewController: UIViewController {
     
@@ -38,13 +39,7 @@ class HeadlinesViewController: UIViewController {
         return refreshControl
     }()
     
-    lazy var loadingIndicator: UIActivityIndicatorView = {
-        if #available(iOS 13.0, *) {
-            return UIActivityIndicatorView(style: .large)
-        } else {
-            return UIActivityIndicatorView(style: .gray)
-        }
-    }()
+    @IBOutlet weak var loadingIndicator: MDCActivityIndicator!
     
     var layoutConfiguration: HeadlineLayoutConfiguration = ArticleHeadlineLayoutConfiguration() {
         didSet {
@@ -92,15 +87,12 @@ class HeadlinesViewController: UIViewController {
 
     func setupLayouts() {
         setupColletionView()
-        view.addSubview(loadingIndicator)
-        loadingIndicator.autoCenterInSuperview()
-        if #available(iOS 13, *) {
-            loadingIndicator.tintColor = UIColor.label
-        }else {
-            loadingIndicator.tintColor = .red
-        }
         
-        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.indicatorMode = .indeterminate
+        loadingIndicator.cycleColors = [.black]
+        loadingIndicator.sizeToFit()
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
         
     }
     
@@ -123,8 +115,9 @@ class HeadlinesViewController: UIViewController {
     func updateLayoutsBase(onState state: ViewModelState) {
         switch state {
         case .loading(isRefreshing: let isRefreshing) where isRefreshing == false :
-            loadingIndicator.stopAnimating()
-           
+            loadingIndicator.startAnimating()
+            loadingIndicator.isHidden = false
+            refreshControl.isEnabled = false
         case .loaded:
             guard refreshControl.isRefreshing else {
                 fallthrough
@@ -133,6 +126,8 @@ class HeadlinesViewController: UIViewController {
             fallthrough
         case .idle:
             loadingIndicator.stopAnimating()
+            loadingIndicator.isHidden = true
+            refreshControl.isEnabled = true
             
         case .error(let error):
             refreshControl.endRefreshing()
@@ -176,7 +171,6 @@ class HeadlinesViewController: UIViewController {
         // RxSwift assigned another delelgate object after running the upper code
         // we have to make sure that current vc present as delegate
         collectionView.delegate = self
-        collectionView.reloadData()
         
         viewModel.state.drive(onNext: {[weak self] (state) in
             self?.updateLayoutsBase(onState: state)

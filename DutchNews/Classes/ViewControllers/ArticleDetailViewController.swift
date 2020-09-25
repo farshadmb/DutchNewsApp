@@ -20,6 +20,8 @@ class ArticleDetailViewController: UIViewController, AlertableView {
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var contentView: WKWebView!
     
+    @IBOutlet weak var loadingIndicator: MDCActivityIndicator!
+    
     lazy var headerView: ArticleDetailHeaderView = {
         let view = ArticleDetailHeaderView.fromNib()
         return view
@@ -82,6 +84,34 @@ class ArticleDetailViewController: UIViewController, AlertableView {
     func setupViews() {
         
         setupHeaderView()
+        loadingIndicator.indicatorMode = .determinate
+        loadingIndicator.cycleColors = [.black]
+        loadingIndicator.sizeToFit()
+        loadingIndicator.progress = 0
+        loadingIndicator.isHidden = true
+        
+        observerContentViewLoading()
+        
+    }
+    
+    func observerContentViewLoading() {
+        
+        let didStart = contentView.rx.didStartLoad.map { _ in true }
+        let didFinish = contentView.rx.didFinishLoad.map { _ in false }
+        let didError = contentView.rx.didFailLoad.map { _ in false }
+        
+        Observable.of(didStart,didFinish,didError)
+            .merge().observeOn(MainScheduler.instance)
+            .bind {[weak loadingIndicator] in
+                
+                loadingIndicator?.isHidden = !$0
+            }.disposed(by: disposeBag)
+        
+        contentView.rx.estimatedProgress.observeOn(MainScheduler.instance)
+            .map { Float($0) }
+            .bind {[weak loadingIndicator] in
+                loadingIndicator?.setProgress($0, animated: false)
+            }.disposed(by: disposeBag)
     }
     
     func setupHeaderView() {

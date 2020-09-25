@@ -46,7 +46,7 @@ extension HeadlinesViewController: UICollectionViewDelegateMagazineLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         verticalSpacingForElementsInSectionAtIndex index: Int) -> CGFloat {
-        return  layoutConfiguration.verticalSpacing(forElementsInSectionAtIndex: index)
+        return layoutConfiguration.verticalSpacing(forElementsInSectionAtIndex: index)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetsForSectionAtIndex index: Int) -> UIEdgeInsets {

@@ -38,7 +38,6 @@ class HeadlinesFetchingUseCase: HeadlinesUseCases {
         let source = Observable.merge(remoteSource, localSource)
         
         return source
-            .debug("#\(#file.replacingOccurrences(of: ".swift", with: "")).\(#function)")
             .do(afterNext: {[weak local] in
                 try? local?.save(articles: $0)
             })

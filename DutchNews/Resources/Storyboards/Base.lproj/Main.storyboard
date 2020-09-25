@@ -45,13 +45,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTn-9u-PuC" customClass="MDCActivityIndicator">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="5yt-yP-Fac"/>
+                                    <constraint firstAttribute="width" secondItem="gTn-9u-PuC" secondAttribute="height" multiplier="1:1" id="7nh-IS-iQq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="trackEnabled" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="J6c-eL-beA" firstAttribute="top" secondItem="mg5-sD-JEa" secondAttribute="top" id="Dnq-cP-LkI"/>
                             <constraint firstItem="mg5-sD-JEa" firstAttribute="trailing" secondItem="J6c-eL-beA" secondAttribute="trailing" id="FJX-H9-m0k"/>
                             <constraint firstItem="J6c-eL-beA" firstAttribute="leading" secondItem="mg5-sD-JEa" secondAttribute="leading" id="Nxc-Ey-qCK"/>
+                            <constraint firstItem="gTn-9u-PuC" firstAttribute="centerX" secondItem="axr-f3-qx9" secondAttribute="centerX" id="Tlb-89-fpO"/>
                             <constraint firstItem="mg5-sD-JEa" firstAttribute="bottom" secondItem="J6c-eL-beA" secondAttribute="bottom" id="cMO-Io-VBf"/>
+                            <constraint firstItem="gTn-9u-PuC" firstAttribute="centerY" secondItem="axr-f3-qx9" secondAttribute="centerY" id="tX6-Ra-DwP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mg5-sD-JEa"/>
                     </view>
@@ -62,6 +74,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="J6c-eL-beA" id="qs3-Hg-IQy"/>
+                        <outlet property="loadingIndicator" destination="gTn-9u-PuC" id="dW3-dy-Ckb"/>
                         <segue destination="wkF-VB-Bfl" kind="show" identifier="showDetails" id="vhM-Cc-aO5"/>
                     </connections>
                 </viewController>
@@ -129,19 +142,33 @@
                                     <constraint firstAttribute="bottom" secondItem="6TJ-RH-Wbp" secondAttribute="bottom" id="yKB-HO-xTv"/>
                                 </constraints>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSL-0c-OgN" customClass="MDCActivityIndicator">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rSL-0c-OgN" secondAttribute="height" multiplier="1:1" id="8az-ud-7ad"/>
+                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="qPB-st-jbD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="trackEnabled" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="rSL-0c-OgN" firstAttribute="centerY" secondItem="Zgk-Xr-cPI" secondAttribute="centerY" id="BHD-Ey-GAM"/>
+                            <constraint firstItem="rSL-0c-OgN" firstAttribute="width" secondItem="rSL-0c-OgN" secondAttribute="height" multiplier="1:1" id="ckU-6o-X3o"/>
                             <constraint firstItem="Lw1-6V-qYP" firstAttribute="bottom" secondItem="o6U-4m-1Rd" secondAttribute="bottom" id="ho3-j6-V1P"/>
                             <constraint firstItem="o6U-4m-1Rd" firstAttribute="top" secondItem="Lw1-6V-qYP" secondAttribute="top" id="khP-6U-LIJ"/>
                             <constraint firstItem="o6U-4m-1Rd" firstAttribute="leading" secondItem="Lw1-6V-qYP" secondAttribute="leading" id="oKr-Jo-X7A"/>
                             <constraint firstItem="Lw1-6V-qYP" firstAttribute="trailing" secondItem="o6U-4m-1Rd" secondAttribute="trailing" id="r0b-9V-Il7"/>
+                            <constraint firstItem="rSL-0c-OgN" firstAttribute="centerX" secondItem="Zgk-Xr-cPI" secondAttribute="centerX" id="wvP-1X-eyH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lw1-6V-qYP"/>
                     </view>
                     <connections>
                         <outlet property="containerScrollView" destination="o6U-4m-1Rd" id="ttY-fH-BIP"/>
                         <outlet property="contentView" destination="JZz-ad-vBS" id="cWP-g4-a1K"/>
+                        <outlet property="loadingIndicator" destination="rSL-0c-OgN" id="s6M-K0-4if"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="joc-BN-hSv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
