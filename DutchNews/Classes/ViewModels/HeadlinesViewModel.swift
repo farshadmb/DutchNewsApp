@@ -12,6 +12,8 @@ import RxCocoa
 
 final class HeadlinesViewModel: ArticlesViewModel {
     
+    var selectedIndex: BehaviorRelay<Int?>
+    
     private var statePublisher: BehaviorRelay<ViewModelState>
     
     var state: Driver<ViewModelState> {
@@ -43,6 +45,8 @@ final class HeadlinesViewModel: ArticlesViewModel {
         self.useCase = useCase
         self.statePublisher = state
         self.outputPublisher = output
+        self.selectedIndex = BehaviorRelay<Int?>(value: nil)
+        
     }
     
     required convenience init(useCase: HeadlinesUseCases) {
@@ -65,17 +69,35 @@ final class HeadlinesViewModel: ArticlesViewModel {
         fetchArticlesFromRepository(isRefreshing: true)
     }
     
-    func article(atIndex index: IndexPath) -> T.Item? {
-        //TODO: Implement method
-        return nil
-    }
-    
     func didSelect(article: T.Item) {
-        //TODO: Implement method
+        let datas = items
+        guard var index = datas.firstIndex(where: { $0 == article }),
+            index != 3 else {
+            return
+        }
+        
+        if index > 3 {
+            index -= 1
+        }
+        
+        self.selectedIndex.accept(index)
     }
     
-    func didSelect(articleAtIndex: IndexPath) {
-        //TODO: Implement method
+    func didSelect(articleAtIndex index: IndexPath) {
+        let datas = items
+        
+        // make mutable.
+        
+        var index = index
+        guard index.item != 3, datas[safe:index.item] != nil else {
+             return
+        }
+        
+        if index.item > 3 {
+            index.item -= 1
+        }
+        
+        self.selectedIndex.accept(index.item)
     }
     
     ////////////////////////////////////////////////////////////////

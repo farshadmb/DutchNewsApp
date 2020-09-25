@@ -43,8 +43,9 @@ platform :ios do
       cocoapods()
     end
 
+    clear_derived_data() #clear all derived_data 
+
     if lane != :run_ci_tests 
-      clear_derived_data() #clear all derived_data 
       enable_automatic_code_signing() #autosiging
     end 
 
@@ -72,7 +73,7 @@ platform :ios do
 
   desc "Run App Unit tests on given devices name"
   lane :run_ci_tests do |options|
-      begin 
+
         UI.message "The device raw : #{options[:device]}"
         device =  options[:device]
         UI.message "The device list : #{device}"
@@ -92,12 +93,7 @@ platform :ios do
         scan(clean: clean, # clean project folder before test execution    
           device: device, # Devices for testing     
           configuration: "Debug",
-          open_report: open_report,
-          result_bundle: true)
-          
-      rescue => ex 
-        UI.error "Failure on #{scheme} #{version} info : #{ex.to_s}"
-      end 
+          open_report: open_report)
   end
 
 end

@@ -14,7 +14,7 @@ struct AppDIContainer {
     
     ////////////////////////////////////////////////////////////////
     // MARK: -
-    // MARK: Authroization DI Container
+    // MARK: Data Layers DI Container
     // MARK: -
     ////////////////////////////////////////////////////////////////
     
@@ -42,6 +42,10 @@ struct AppDIContainer {
         return decoder
     }()
     
+    static let storage: Storage = {
+        return CodableDataManager.default
+    }()
+    
     ////////////////////////////////////////////////////////////////
     // MARK: -
     // MARK: Repository DI Container
@@ -54,6 +58,10 @@ struct AppDIContainer {
                                                 validator: DefaultAPIValidResponse())
     }
     
+    static var headlineLocalArticleRepository: ArticleRepository {
+        return HeadlinesArticleLocalRepository(storage: storage)
+    }
+    
     ////////////////////////////////////////////////////////////////
     // MARK: -
     // MARK: Use Cases DI Container
@@ -61,7 +69,31 @@ struct AppDIContainer {
     ////////////////////////////////////////////////////////////////
 
     static var headlineFetchingUseCase: HeadlinesUseCases {
-        return HeadlinesFetchingUseCase(repository: headlineArticleRepository)
+        return HeadlinesFetchingUseCase(repository: headlineArticleRepository,
+                                        localRespository: headlineLocalArticleRepository)
     }
+    
+    static var articlesPageUseCase: ArticlesUseCase {
+        return ArticlesPageUseCase(repository: headlineLocalArticleRepository)
+    }
+    
+    ////////////////////////////////////////////////////////////////
+    // MARK: -
+    // MARK: ViewModels DI Container
+    // MARK: -
+    ////////////////////////////////////////////////////////////////
+
+    static var headlinesViewModel: ArticlesViewModel {
+        return HeadlinesViewModel(useCase: headlineFetchingUseCase)
+    }
+    
+    static var articlePagesViewModel: ArticlesPageViewModel {
+        return ArticleDetailsPageViewModel(useCase: articlesPageUseCase)
+    }
+    
+    static let viewModelViewControllerFactory: ViewControllerFactory = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: AppDelegate.self))
+        return ViewModelViewControllerFactory(storyboard: storyboard)
+    }()
     
 }

@@ -16,9 +16,9 @@ extension HeadlinesViewController {
     
     typealias SectionType = ArticlesViewModel.T
     
-    func buildDataSource() -> RxCollectionViewSectionedReloadDataSource<SectionType> {
+    func buildDataSource() -> RxHeadlinesDataSource<SectionType> {
         
-        return RxCollectionViewSectionedReloadDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, _) -> UICollectionViewCell in
+        return RxHeadlinesDataSource(configureCell: {[weak self] (dataSource, collectionView, indexPath, _) -> UICollectionViewCell in
             
             guard let `self` = self else {
                 return HeadlineBaseCollectionViewCell()
@@ -30,10 +30,6 @@ extension HeadlinesViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
             
             self.fill(cell: cell, withArticle: item)
-            
-            cell.contentView.layer.borderColor = UIColor.darkGray.cgColor
-            cell.contentView.layer.borderWidth = 0.4
-            cell.contentView.layer.cornerRadius = 8.0
             
             return cell
         })

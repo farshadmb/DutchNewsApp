@@ -24,7 +24,7 @@ jobs:
       runs-on: macOS-latest
       strategy:
         matrix:
-          devices: ["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPhone 11","iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)","iPad Pro (12.9-inch)"] 
+          devices: ["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)"] 
       steps:
         - name: Checkout Branch
           uses: actions/checkout@v1
@@ -43,8 +43,7 @@ jobs:
             sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
             sudo ln -s /Applications/Xcode_11.6.app//Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
             bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose
-            xcrun simctl list runtimes
-            xcrun simctl list devicetypes
+            echo "Installed iOS Simulators"
         - name: Creating iOS Simulators
           run: |
             xcrun simctl create "iPhone 8" com.apple.CoreSimulator.SimDeviceType.iPhone-8 com.apple.CoreSimulator.SimRuntime.iOS-11-4
@@ -53,14 +52,12 @@ jobs:
             xcrun simctl create "iPad Air" com.apple.CoreSimulator.SimDeviceType.iPad-Air "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
             xcrun simctl create "iPad Air 2" com.apple.CoreSimulator.SimDeviceType.iPad-Air-2 "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
             xcrun simctl create "iPad Pro (10.5-inch)" com.apple.CoreSimulator.SimDeviceType.iPad-Pro--10-5-inch- "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
-            xcrun simctl list devices 11.4
-            xcrun simctl list devices 12.4
-            xcrun simctl list devices 13.6
+            echo "Created iOS Simulators"
 
         - name: Build and test on Device
           run: |
             echo "Destination => ${destination}"
-            bundle exec fastlane run_ci_tests device:"${destination}" --verbose
+            bundle exec fastlane run_ci_tests device:"${destination}" clean:true --verbose
           env:
             destination: ${{ matrix.devices }}
             
