@@ -39,6 +39,7 @@ class HeadlineSearchViewController: UIViewController, AlertableView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayouts()
         bindViewModel()
         // Do any additional setup after loading the view.
     }
@@ -69,9 +70,13 @@ class HeadlineSearchViewController: UIViewController, AlertableView {
         
     }
     
+    fileprivate static let cellId = "ResultCellId"
+    
     func setupTableView() {
+        tableView.register(HeadlineSearchTableViewCell.nib(), forCellReuseIdentifier: Self.cellId)
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        //        tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
+        tableView.separatorStyle = .none
+        tableView.separatorColor = nil
     }
     
     func updateLayoutsBase(onState state: ViewModelState) {
@@ -172,11 +177,29 @@ extension HeadlineSearchViewController {
     
     func buildDataSource() -> RxTableViewSectionedReloadDataSource<SectionType> {
         
-        return .init(configureCell: { (dataSource, tableView, indexPath, viewModel) -> UITableViewCell in
-            return UITableViewCell()
-        }, titleForHeaderInSection: { (dataSource, section) -> String? in
-            dataSource[section].model.localized
+        return .init(configureCell: {[weak self] (_, tableView, indexPath, viewModel) -> UITableViewCell in
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellId,
+                                                           for: indexPath) as? HeadlineSearchTableViewCell else {
+                    return UITableViewCell()
+                }
+                
+                self?.config(cell: cell, viewModel: viewModel)
+                return cell
+            },
+                     titleForHeaderInSection: { (dataSource, section) -> String? in
+                        dataSource[section].model.localized
         })
+    }
+    
+    private func config(cell: HeadlineSearchTableViewCell,
+                        viewModel: ArticleViewModel) {
+        
+        viewModel.output
+            .drive(onNext: {[weak cell] viewModel in
+                cell?.config(viewModel: viewModel)
+            }).disposed(by: cell.disposeBag)
+        
     }
     
     func search(keyword: String?) {
@@ -195,7 +218,7 @@ extension HeadlineSearchViewController {
             
             vc.viewModel = viewModel
             
-            self.navigationController?.show(vc, sender: false)
+            self.presentingViewController?.navigationController?.show(vc, sender: false)
             
         }catch {
             presentAlertView(withMessage: error.localizedDescription)

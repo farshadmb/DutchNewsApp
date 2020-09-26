@@ -5,3 +5,5 @@
 "retry" = "Ppnieuw proberen";
 "headlines_title" = "Krantenkoppen";
 "article_title" = "Artikel";
+"search_headline_title" = "Zoek in Headlines";
+"search_result_title" = "Resultaat";

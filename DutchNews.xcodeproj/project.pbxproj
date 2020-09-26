@@ -71,6 +71,8 @@
 		F884C0FB251D24000078E88B /* HeadlinesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5C0F72518E7770083D2B1 /* HeadlinesUseCases.swift */; };
 		F884C0FD251D2CAE0078E88B /* ArticlesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884C0FC251D2CAE0078E88B /* ArticlesUseCases.swift */; };
 		F8866A3F251EABE8008AF310 /* HeadlineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8866A3E251EABE8008AF310 /* HeadlineSearchViewController.swift */; };
+		F8866A42251EC3BC008AF310 /* HeadlineSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8866A40251EC3BC008AF310 /* HeadlineSearchTableViewCell.swift */; };
+		F8866A43251EC3BC008AF310 /* HeadlineSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8866A41251EC3BC008AF310 /* HeadlineSearchTableViewCell.xib */; };
 		F88800692517A423008DCC54 /* RepositoryDependenciesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88800682517A423008DCC54 /* RepositoryDependenciesFactory.swift */; };
 		F888006B2517A8EE008DCC54 /* HeadlineSuccessResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */; };
 		F888006D2517AA1F008DCC54 /* HeadlineFailureResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */; };
@@ -200,6 +202,8 @@
 		F865F76C2516C826001FD067 /* DefaultAPIValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIValidResponse.swift; sourceTree = "<group>"; };
 		F884C0FC251D2CAE0078E88B /* ArticlesUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesUseCases.swift; sourceTree = "<group>"; };
 		F8866A3E251EABE8008AF310 /* HeadlineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineSearchViewController.swift; sourceTree = "<group>"; };
+		F8866A40251EC3BC008AF310 /* HeadlineSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineSearchTableViewCell.swift; sourceTree = "<group>"; };
+		F8866A41251EC3BC008AF310 /* HeadlineSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadlineSearchTableViewCell.xib; sourceTree = "<group>"; };
 		F88800682517A423008DCC54 /* RepositoryDependenciesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDependenciesFactory.swift; sourceTree = "<group>"; };
 		F888006A2517A8EE008DCC54 /* HeadlineSuccessResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeadlineSuccessResponse.json; sourceTree = "<group>"; };
 		F888006C2517AA1F008DCC54 /* HeadlineFailureResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeadlineFailureResponse.json; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				F8154D682518016800BFB42C /* HalfWidthArticleCollectionViewCell.xib */,
 				F8154D7025180C3900BFB42C /* ArticleWebContainerCollectionViewCell.swift */,
 				F8154D7225180F0E00BFB42C /* ArticleWebContainerCollectionViewCell.xib */,
+				F8866A40251EC3BC008AF310 /* HeadlineSearchTableViewCell.swift */,
+				F8866A41251EC3BC008AF310 /* HeadlineSearchTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 				F85E3195251B8665002753AC /* ArticleDetailHeaderView.xib in Resources */,
 				F89B0220250D446200B41293 /* Assets.xcassets in Resources */,
 				F850575A251E066F00257884 /* Localizable.strings in Resources */,
+				F8866A43251EC3BC008AF310 /* HeadlineSearchTableViewCell.xib in Resources */,
 				F8154D622518011500BFB42C /* MainArticleCollectionViewCell.xib in Resources */,
 				F8154D662518012F00BFB42C /* ArticleRowCollectionViewCell.xib in Resources */,
 				F8154D7725181D4100BFB42C /* HeadlineSuccessResponse.json in Resources */,
@@ -974,6 +981,7 @@
 				F8E5C12D25191DA60083D2B1 /* UIViewController+StoryboardName.swift in Sources */,
 				F8154D7125180C3900BFB42C /* ArticleWebContainerCollectionViewCell.swift in Sources */,
 				F8E5C12A25191DA60083D2B1 /* UIImage+Additionals.swift in Sources */,
+				F8866A42251EC3BC008AF310 /* HeadlineSearchTableViewCell.swift in Sources */,
 				F8E5C12B25191DA60083D2B1 /* UINavigationBar+Additionals.swift in Sources */,
 				F865F75025168F05001FD067 /* AppConfig.swift in Sources */,
 				F81572BD251D4839009DBFD7 /* Screen.swift in Sources */,

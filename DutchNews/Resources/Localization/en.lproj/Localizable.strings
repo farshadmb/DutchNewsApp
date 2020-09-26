@@ -5,4 +5,5 @@
 "retry" = "Retry";
 "headlines_title" = "Headlines";
 "article_title" = "Article";
-
+"search_headline_title" = "Search In Headline";
+"search_result_title" = "Result";
