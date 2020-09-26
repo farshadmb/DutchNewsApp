@@ -57,6 +57,14 @@ class HeadlinesViewController: UIViewController {
     
     var controllerFactory: ViewControllerFactory?
     
+    var searchController: UISearchController?
+    
+    deinit {
+        viewModel = nil
+        searchController = nil
+        controllerFactory = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +102,7 @@ class HeadlinesViewController: UIViewController {
         loadingIndicator.stopAnimating()
         loadingIndicator.isHidden = true
         
+        setupSearchView()
     }
     
     func setupColletionView() {
@@ -149,6 +158,11 @@ class HeadlinesViewController: UIViewController {
         }
     }
     
+    func setupSearchView() {
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
     ////////////////////////////////////////////////////////////////
     // MARK: -
     // MARK: View Model Methods

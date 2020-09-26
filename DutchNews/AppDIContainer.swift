@@ -77,6 +77,10 @@ struct AppDIContainer {
         return ArticlesPageUseCase(repository: headlineArticleRepository)
     }
     
+    static var headlineSearchUseCase: HeadlinesUseCases {
+        return HeadlinesSearchingUseCases(repository: headlineArticleRepository)
+    }
+    
     ////////////////////////////////////////////////////////////////
     // MARK: -
     // MARK: ViewModels DI Container
@@ -89,6 +93,10 @@ struct AppDIContainer {
     
     static var articlePagesViewModel: ArticlesPageViewModel {
         return ArticleDetailsPageViewModel(useCase: articlesPageUseCase)
+    }
+    
+    static var headlineSearchViewModel: ArticlesSearchViewModel {
+        return HeadlineSearchViewModel(useCase: headlineSearchUseCase)
     }
     
     static let viewModelViewControllerFactory: ViewControllerFactory = {

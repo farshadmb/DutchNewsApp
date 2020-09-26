@@ -54,8 +54,6 @@ extension APIServerResponse: Decodable {
                 throw APIServerResponseError.unknown
             }
             
-            self.data = nil
-            return
         }
         
         do {

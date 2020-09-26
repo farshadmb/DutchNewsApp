@@ -14,6 +14,7 @@ enum ScreenName: Screen {
     case headlines
     case pages
     case detail
+    case search
     
     func screenIdentifier() -> String {
         switch self {
@@ -23,6 +24,8 @@ enum ScreenName: Screen {
             return ArticlePageViewController.className
         case .detail:
             return ArticleDetailViewController.className
+        case .search:
+            return HeadlineSearchViewController.className
         }
     }
     

@@ -13,6 +13,7 @@ protocol ViewControllerFactory: class {
     
     func makeRootViewController() -> UINavigationController?
     func makeHeadlinesViewController() throws -> HeadlinesViewController
+    func makeHeadlinesSearchViewController() throws -> UISearchController
     func makePageViewController(selected: Int) throws -> ArticlePageViewController
     func makeArticleDetailViewController() throws -> ArticleDetailViewController
     

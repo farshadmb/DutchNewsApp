@@ -33,6 +33,7 @@ final class ViewModelViewControllerFactory: ViewControllerFactory {
         
         vc.viewModel = AppDIContainer.headlinesViewModel
         vc.controllerFactory = self
+        vc.searchController = try? makeHeadlinesSearchViewController()
         
         return vc
     }
@@ -55,6 +56,24 @@ final class ViewModelViewControllerFactory: ViewControllerFactory {
         }
         
         return vc
+    }
+    
+    func makeHeadlinesSearchViewController() throws -> UISearchController {
+        
+        guard let vc: HeadlineSearchViewController = makeViewController(forScreen: ScreenName.search) else {
+            throw Error.notFound
+        }
+        
+        vc.viewModel = AppDIContainer.headlineSearchViewModel
+        vc.controllerFactory = self
+        
+        let searchController = UISearchController(searchResultsController: vc)
+        vc.searchController = searchController
+        searchController.searchResultsUpdater = vc
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.placeholder = "search_headline_title".localized
+        
+        return searchController
     }
     
     private func makeViewController<T: UIViewController>(forScreen screen: Screen) -> T? {
