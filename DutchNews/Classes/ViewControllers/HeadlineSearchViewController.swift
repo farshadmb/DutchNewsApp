@@ -31,6 +31,11 @@ class HeadlineSearchViewController: UIViewController, AlertableView {
     
     var controllerFactory: ViewControllerFactory?
     
+    var inSearching: Bool {
+        (searchController?.isActive ?? false) &&
+            !(searchController?.searchBar.text.isEmpty ?? true)
+    }
+    
     deinit {
         viewModel = nil
         searchController = nil
@@ -85,7 +90,14 @@ class HeadlineSearchViewController: UIViewController, AlertableView {
             loadingIndicator.startAnimating()
             loadingIndicator.isHidden = false
             
-        case .loaded, .idle:
+        case .loaded:
+            
+            if dataSource.sectionModels.flatMap({ $0.items }).count == 0, inSearching {
+                presentAlertView(withMessage: "no_result_found".localized)
+            }
+            
+            fallthrough
+        case .idle:
             
             loadingIndicator.stopAnimating()
             loadingIndicator.isHidden = true
