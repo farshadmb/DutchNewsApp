@@ -1,0 +1,99 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'json'
+
+default_platform(:ios)
+
+platform :ios do
+
+   # Variables #
+   scheme = "DutchNews"
+   workspace = "#{scheme}.xcworkspace"
+   projectspace = "#{scheme}.xcodeproj"
+   
+   version = ""
+
+   before_all do |lane| 
+
+    UI.message "prepare for builds"
+    begin 
+      xcversion(version: "~> 11.6")
+    rescue 
+      xcversion(version: "~> 11.2")
+    end 
+
+    version = get_version_number(xcodeproj:projectspace,target:scheme)
+    
+    
+    if lane != :run_ci_tests 
+      #for cocoapods install dependecy 
+      cocoapods()
+    end
+
+    clear_derived_data() #clear all derived_data 
+
+    if lane != :run_ci_tests 
+      enable_automatic_code_signing() #autosiging
+    end 
+
+    UI.message "prepared for build"
+    
+  end 
+
+  after_all do |lane| 
+    notification(title:"Success",subtitle:"#{scheme} #{version}",message:lane.to_s,sound:"Default")
+    UI.message "Success Build #{scheme} #{version} in lane #{lane.to_s} "
+  end
+
+  error do |lane, exception|
+    # Send error notification
+    notification(title:"Failure on #{scheme} #{version}",subtitle:lane.to_s,message:exception.to_s,sound:"Default")
+    raise "Failure on #{scheme} #{version} \n in lane #{lane.to_s} \n exception = #{exception.to_s}"
+  end
+
+  desc "generate report after running tests"
+  def generate_report 
+    puts "Generating Test Report ..."
+    sh "xchtmlreport -r ./fastlane/out_put/TestResults"
+    puts "Test Report Successfully generated"
+  end
+
+  desc "Run App Unit tests on given devices name"
+  lane :run_ci_tests do |options|
+
+        UI.message "The device raw : #{options[:device]}"
+        device =  options[:device]
+        UI.message "The device list : #{device}"
+        
+        clean = false 
+
+        if options[:clean] then 
+          clean = options[:clean]
+        end
+
+        open_report = false 
+
+        if options[:open_report] then 
+          open_report = options[:open_report]
+        end
+
+        scan(clean: clean, # clean project folder before test execution    
+          device: device, # Devices for testing     
+          configuration: "Debug",
+          open_report: open_report)
+  end
+
+end

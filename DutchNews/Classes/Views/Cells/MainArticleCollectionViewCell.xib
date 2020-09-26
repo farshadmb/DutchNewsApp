@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MainArticleCollectionViewCell" customModule="DutchNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LCb-Fi-gQ7" customClass="MDCCardCollectionCell">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kH-mn-bYH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                            </imageView>
+                            <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8r-TP-XXp" userLabel="TransparentView" customClass="GradientView" customModule="DutchNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                        <point key="value" x="0.0" y="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-Vd-11y">
+                                <rect key="frame" x="8" y="125.5" width="304" height="46.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-JA-q80">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xXt-Va-Nrg">
+                                        <rect key="frame" x="0.0" y="28.5" width="304" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="source:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-cP-dDS">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="source_title"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktW-lF-Wj5">
+                                                <rect key="frame" x="59" y="0.0" width="245" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j8r-TP-XXp" firstAttribute="top" secondItem="LCb-Fi-gQ7" secondAttribute="top" id="360-2v-Hdk"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="CzP-Vd-11y" secondAttribute="bottom" id="KK5-VV-HMF"/>
+                            <constraint firstItem="3kH-mn-bYH" firstAttribute="top" secondItem="LCb-Fi-gQ7" secondAttribute="top" id="MmB-94-isW"/>
+                            <constraint firstItem="3kH-mn-bYH" firstAttribute="leading" secondItem="LCb-Fi-gQ7" secondAttribute="leading" id="Nvp-fv-eBN"/>
+                            <constraint firstAttribute="bottom" secondItem="j8r-TP-XXp" secondAttribute="bottom" id="POj-iN-l1H"/>
+                            <constraint firstAttribute="trailing" secondItem="j8r-TP-XXp" secondAttribute="trailing" id="Tqj-sZ-cz8"/>
+                            <constraint firstItem="CzP-Vd-11y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LCb-Fi-gQ7" secondAttribute="top" constant="8" id="Wog-kU-FxM"/>
+                            <constraint firstAttribute="trailing" secondItem="3kH-mn-bYH" secondAttribute="trailing" id="XTn-ov-jnI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CzP-Vd-11y" secondAttribute="trailing" id="c2P-Di-LUr"/>
+                            <constraint firstAttribute="bottom" secondItem="3kH-mn-bYH" secondAttribute="bottom" id="sIK-MQ-qxq"/>
+                            <constraint firstItem="CzP-Vd-11y" firstAttribute="leading" secondItem="LCb-Fi-gQ7" secondAttribute="leadingMargin" id="tMB-6I-Qzi"/>
+                            <constraint firstItem="j8r-TP-XXp" firstAttribute="leading" secondItem="LCb-Fi-gQ7" secondAttribute="leading" id="uUk-Hb-1IN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="LCb-Fi-gQ7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5TK-Sc-RK6"/>
+                <constraint firstAttribute="trailing" secondItem="LCb-Fi-gQ7" secondAttribute="trailing" id="9NE-Ff-n8d"/>
+                <constraint firstItem="LCb-Fi-gQ7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MX4-NV-3lU"/>
+                <constraint firstAttribute="bottom" secondItem="LCb-Fi-gQ7" secondAttribute="bottom" id="e9a-0Y-0Yz"/>
+            </constraints>
+            <connections>
+                <outlet property="backgroundCard" destination="LCb-Fi-gQ7" id="8KH-ul-CIT"/>
+                <outlet property="gradientView" destination="j8r-TP-XXp" id="8VI-UH-Izd"/>
+                <outlet property="imageView" destination="3kH-mn-bYH" id="sPe-sO-RjG"/>
+                <outlet property="sourceLabel" destination="ktW-lF-Wj5" id="1c8-HN-ER1"/>
+                <outlet property="titleLabel" destination="Whw-JA-q80" id="7Ja-wa-PIS"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="154"/>
+        </collectionViewCell>
+    </objects>
+</document>

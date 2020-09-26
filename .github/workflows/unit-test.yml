@@ -1,0 +1,78 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Testing
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  
+  repository_dispatch:
+    types: [test]
+  pull_request:
+    branches:
+      - develop
+      - feature/*
+      - feature/*/*
+      - bugfix/*
+      - hotfix/*
+      - master 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    test:
+      name: Run Unit Test
+      runs-on: macOS-latest
+      strategy:
+        matrix:
+          devices: ["iPhone 8 (11.4)","iPhone SE (12.4)","iPhone X (13.6)","iPad Air (11.4)","iPad Air 2 (12.4)","iPad Pro (10.5-inch) (13.6)"] 
+      steps:
+        - name: Checkout Branch
+          uses: actions/checkout@v1
+        - name: Install Dependencies
+          run: | 
+            bundle install  --verbose 
+            bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh)
+            bundle exec pod install 
+
+#           env:
+#             BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        - name: Installing iOS Simulators
+          run: |
+            hostname
+            sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
+            sudo ln -s /Applications/Xcode_10.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 12.4.simruntime
+            sudo ln -s /Applications/Xcode_11.6.app//Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 13.6.simruntime
+            bundle exec xcversion simulators --install="iOS 11.4 Simulator" --verbose
+            echo "Installed iOS Simulators"
+        - name: Creating iOS Simulators
+          run: |
+            xcrun simctl create "iPhone 8" com.apple.CoreSimulator.SimDeviceType.iPhone-8 com.apple.CoreSimulator.SimRuntime.iOS-11-4
+            xcrun simctl create "iPhone SE" com.apple.CoreSimulator.SimDeviceType.iPhone-SE com.apple.CoreSimulator.SimRuntime.iOS-12-4
+            xcrun simctl create "iPhone X" com.apple.CoreSimulator.SimDeviceType.iPhone-X "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
+            xcrun simctl create "iPad Air" com.apple.CoreSimulator.SimDeviceType.iPad-Air "com.apple.CoreSimulator.SimRuntime.iOS-11-4"
+            xcrun simctl create "iPad Air 2" com.apple.CoreSimulator.SimDeviceType.iPad-Air-2 "com.apple.CoreSimulator.SimRuntime.iOS-12-4"
+            xcrun simctl create "iPad Pro (10.5-inch)" com.apple.CoreSimulator.SimDeviceType.iPad-Pro--10-5-inch- "com.apple.CoreSimulator.SimRuntime.iOS-13-6"
+            echo "Created iOS Simulators"
+
+        - name: Build and test on Device
+          run: |
+            echo "Destination => ${destination}"
+            bundle exec fastlane run_ci_tests device:"${destination}" clean:true --verbose
+          env:
+            destination: ${{ matrix.devices }}
+            
+        - name: Archive Failed Tests artifacts
+          if: failure()
+          uses: actions/upload-artifact@v1
+          with:
+            name: FailureDiff
+            path: fastlane/test_output
+
+        - name: Archive Success Tests artifacts
+          if: success()
+          uses: actions/upload-artifact@v1
+          with:
+            name: SuccessDiff
+            path: fastlane/test_output
+        
+

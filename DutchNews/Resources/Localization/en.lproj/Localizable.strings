@@ -1,0 +1,10 @@
+
+//"<key>" = "<localized value>";
+
+"source_title" = "source:";
+"retry" = "Retry";
+"headlines_title" = "Headlines";
+"article_title" = "Article";
+"search_headline_title" = "Search In Headline";
+"search_result_title" = "Result";
+"no_result_found" = "No Result Found! ";
