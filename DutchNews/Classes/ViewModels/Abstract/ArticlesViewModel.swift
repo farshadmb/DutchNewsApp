@@ -34,5 +34,8 @@ protocol ArticlesViewModel: class {
 
 protocol ArticlesSearchViewModel: ArticlesViewModel {
     
-    func searchArticles(keyword: String) -> Observable<[T]>
+    var selectedItem: BehaviorRelay<ArticleViewModel?> { get }
+    
+    func searchArticles(keyword: String)
+    
 }
