@@ -35,7 +35,7 @@ class HeadlineSearchTableViewCell: UITableViewCell {
         backgroundCard?.isInteractable = false
         backgroundCard?.isSelectable = true
         backgroundCard?.setShadowElevation(.cardResting, for: .normal)
-        
+        backgroundCard?.autoPinEdgesToSuperviewMargins()
         // Initialization code
     }
     
