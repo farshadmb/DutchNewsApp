@@ -41,7 +41,7 @@ The Application was written in a Swift 5.1. The App represent Headlines API and 
 * Clean Code 
 * Clean Arch [Reference](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 * Modern MVVM  
-
+* Loclization
 * CI Testing
 * CollectionView Custom Layout
 
